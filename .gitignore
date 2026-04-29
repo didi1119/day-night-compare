@@ -1,0 +1,8 @@
+*
+!/.gitignore
+!/index.html
+!/day-night-compare.html
+!/assets/
+!/assets/day-night-compare/
+!/assets/day-night-compare/day.png
+!/assets/day-night-compare/night.png
