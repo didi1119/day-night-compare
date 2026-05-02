@@ -441,6 +441,175 @@
       border-color: rgba(188,134,66,.42);
     }
 
+    .document-hub {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(340px, .82fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .render-card,
+    .doc-card {
+      background: rgba(255,250,240,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(34, 26, 18, .09);
+    }
+
+    .render-preview {
+      position: relative;
+      min-height: 460px;
+      background:
+        linear-gradient(135deg, rgba(33,29,24,.8), rgba(33,29,24,.22)),
+        url("04_外觀參考圖/S__56729620.jpg") center / cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .render-preview iframe {
+      width: 100%;
+      height: 460px;
+      border: 0;
+      background: #211d18;
+    }
+
+    .render-meta,
+    .doc-card {
+      padding: 22px;
+    }
+
+    .render-meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .render-meta p,
+    .doc-intro {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .resource-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .resource-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(65,55,43,.18);
+      background: rgba(255,255,255,.48);
+      color: #4d3a24;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .resource-button.primary {
+      background: #4d3927;
+      border-color: #4d3927;
+      color: #fff6e8;
+    }
+
+    .resource-button:hover {
+      border-color: rgba(188,134,66,.48);
+      background: rgba(255,250,240,.92);
+    }
+
+    .resource-button.primary:hover {
+      background: #3c2d20;
+      color: #fff6e8;
+    }
+
+    .doc-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .drawing-preview {
+      display: block;
+      margin-top: 16px;
+      border-radius: 7px;
+      overflow: hidden;
+      border: 1px solid rgba(65,55,43,.14);
+      background: #efe4d2;
+      text-decoration: none;
+    }
+
+    .drawing-preview img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .35s ease;
+    }
+
+    .drawing-preview:hover img { transform: scale(1.02); }
+
+    .doc-link {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(65,55,43,.14);
+      border-radius: 7px;
+      background: rgba(239,228,210,.54);
+      text-decoration: none;
+    }
+
+    .doc-link:hover {
+      background: rgba(255,250,240,.92);
+      border-color: rgba(188,134,66,.42);
+    }
+
+    .doc-link strong {
+      display: block;
+      color: #332a20;
+      font-size: 15px;
+    }
+
+    .doc-link span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .doc-type {
+      display: inline-flex;
+      align-items: center;
+      min-width: 54px;
+      justify-content: center;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(33,29,24,.08);
+      color: #5f574e;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hub-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 5px solid #9b5138;
+      border-radius: 0 7px 7px 0;
+      background: rgba(155,81,56,.08);
+      color: #604739;
+      font-size: 14px;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -655,10 +824,12 @@
     }
 
     @media (max-width: 900px) {
-      .section-head, .feature { grid-template-columns: 1fr; }
+      .section-head, .feature, .document-hub { grid-template-columns: 1fr; }
       .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid, .procurement-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery { grid-template-columns: 1fr; }
       .hero-copy { padding: 28px; }
+      .render-meta { grid-template-columns: 1fr; }
+      .resource-actions { justify-content: flex-start; }
     }
 
     @media (max-width: 560px) {
@@ -666,6 +837,10 @@
       .links { display: none; }
       section { padding: 52px 0; }
       .hero { min-height: 72vh; }
+      .render-preview,
+      .render-preview iframe { min-height: 340px; height: 340px; }
+      .doc-link { grid-template-columns: 1fr; }
+      .doc-type { width: fit-content; }
     }
 
     @media print {
@@ -686,6 +861,7 @@
       <div class="brand">瑜珈館木屋材料總覽</div>
       <div class="links">
         <a href="#drawing-updates">變更說明</a>
+        <a href="#drawing-hub">圖面/3D</a>
         <a href="#decisions">定版</a>
         <a href="#bathroom">廁所</a>
         <a href="#lounge-lighting">休息室燈光</a>
@@ -732,6 +908,70 @@
             <strong>閣樓：天花、顏色與窗框更新</strong>
             <p>閣樓主要改天花板做法、整體木色與牆面配色，窗框顏色也改為新版方向。舊版閣樓圖只放在封存區，不作主動展示。</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="drawing-hub">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Drawing & 3D Review</p>
+            <h2>施工圖檔案與 3D 渲染預覽</h2>
+          </div>
+          <p>這區把原始施工圖、拆頁預覽、水電補充說明、鋁門窗整理表與 3D 渲染入口集中在一起。施工圖與 3D 用來對照格局和原始設計，材料、分工與變更仍以本頁最新版清單為準。</p>
+        </div>
+
+        <div class="document-hub">
+          <article class="render-card">
+            <div class="render-preview">
+              <iframe src="https://vr.yunzhan365.com/13287506/index.html" title="3D 渲染互動預覽" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="render-meta">
+              <div>
+                <h3>3D 渲染互動預覽</h3>
+                <p>用來快速理解原始空間、動線與體量。請注意：衛浴間格局已有新版調整；休息室只改天花與燈光；閣樓以新版天花、配色與窗框方向為準。</p>
+              </div>
+              <div class="resource-actions">
+                <a class="resource-button primary" href="https://vr.yunzhan365.com/13287506/index.html" target="_blank" rel="noopener">開啟 3D 網頁</a>
+              </div>
+            </div>
+          </article>
+
+          <aside class="doc-card">
+            <h3>施工圖與輔助檔案</h3>
+            <p class="doc-intro">先看原始 PDF 或拆頁總覽，再用水電與鋁門窗補充檔核對台灣端已先做的項目。若正式施工圖更新，這裡應同步替換。</p>
+            <a class="drawing-preview" href="../tmp/pdf_pages/contact_sheet.png">
+              <img src="../tmp/pdf_pages/contact_sheet.png" alt="施工圖拆頁總覽預覽">
+            </a>
+            <div class="doc-list">
+              <a class="doc-link" href="../木屋施工图%20.pdf">
+                <span><strong>木屋施工圖原始 PDF</strong><span>完整原始圖面；目前部分區域需依本頁變更說明修正。</span></span>
+                <span class="doc-type">PDF</span>
+              </a>
+              <a class="doc-link" href="../tmp/pdf_pages/contact_sheet.png">
+                <span><strong>施工圖拆頁總覽</strong><span>26 張施工圖頁面縮圖，可快速找平面、立面、照明、插座與給排水頁。</span></span>
+                <span class="doc-type">PNG</span>
+              </a>
+              <a class="doc-link" href="../tmp/pdf_pages/construction-01.png">
+                <span><strong>施工圖 P01：一樓平面</strong><span>先看一樓格局；衛浴間需以新版施工圖重新調整。</span></span>
+                <span class="doc-type">PNG</span>
+              </a>
+              <a class="doc-link" href="../tmp/pdf_pages/construction-17.png">
+                <span><strong>施工圖 P17：開關控制關係圖</strong><span>燈具、開關與迴路僅作原圖參考，後續需按新版燈具與插座面板清單重整。</span></span>
+                <span class="doc-type">PNG</span>
+              </a>
+              <a class="doc-link" href="../水電施工說明_台灣版.html">
+                <span><strong>水電施工說明台灣版</strong><span>台灣端水電、給排水、冷暖氣與預留管線的補充說明。</span></span>
+                <span class="doc-type">HTML</span>
+              </a>
+              <a class="doc-link" href="../output/鋁門窗尺寸明細_木屋施工圖.xlsx">
+                <span><strong>鋁門窗尺寸明細</strong><span>依木屋施工圖整理的門窗尺寸表，正式報價前仍需廠商複核。</span></span>
+                <span class="doc-type">XLSX</span>
+              </a>
+            </div>
+            <div class="hub-note">提醒：這些施工圖是原始圖面資料，不能直接取代本頁材料定版。大陸端報價時請先避開台灣已做項目，並依新版衛浴、休息室燈光、閣樓與大廳材料方向修正。</div>
+          </aside>
         </div>
       </div>
     </section>

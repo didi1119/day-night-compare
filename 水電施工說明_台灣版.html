@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>瑜珈館木屋 水電施工說明（台灣版）</title>
+<style>
+  :root {
+    --water: #1e6fb8;
+    --water-soft: #e6f0fa;
+    --elec: #d97706;
+    --elec-soft: #fff4e0;
+    --warn: #c0392b;
+    --warn-soft: #fde8e6;
+    --ok: #1a7f4a;
+    --ok-soft: #e4f4ec;
+    --ink: #1f2937;
+    --ink-soft: #4b5563;
+    --line: #cbd5e1;
+    --bg: #f8fafc;
+    --paper: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 28px 80px;
+  }
+
+  /* ====== HEADER ====== */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .hero .sub {
+    color: #94a3b8;
+    font-size: 14px;
+  }
+  .hero .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    color: #cbd5e1;
+    text-align: right;
+  }
+  .hero .meta strong { color: #fff; font-size: 15px; }
+
+  /* ====== ALERT BANNER (critical changes) ====== */
+  .alerts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .alert {
+    background: var(--warn-soft);
+    border-left: 6px solid var(--warn);
+    padding: 14px 16px;
+    border-radius: 6px;
+  }
+  .alert .tag {
+    font-size: 11px;
+    color: var(--warn);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .alert h3 { font-size: 15px; margin-bottom: 4px; }
+  .alert p { font-size: 13px; color: var(--ink-soft); }
+
+  /* ====== SECTION ====== */
+  section {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 22px;
+    border: 1px solid var(--line);
+  }
+  section.water { border-top: 5px solid var(--water); }
+  section.elec { border-top: 5px solid var(--elec); }
+  section.seq { border-top: 5px solid var(--ok); }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .section-num {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .water .section-num { color: var(--water); }
+  .elec .section-num { color: var(--elec); }
+  .seq .section-num { color: var(--ok); }
+  .section-title { font-size: 22px; letter-spacing: 0.5px; }
+  .section-sub { font-size: 13px; color: var(--ink-soft); margin-left: auto; }
+
+  h3.block-title {
+    font-size: 16px;
+    margin: 18px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid currentColor;
+  }
+  .water h3.block-title { color: var(--water); }
+  .elec h3.block-title { color: var(--elec); }
+  .seq h3.block-title { color: var(--ok); }
+
+  /* ====== TABLES ====== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13.5px;
+  }
+  th, td {
+    padding: 9px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  th {
+    background: #f1f5f9;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  tr.highlight td { background: #fef3c7; font-weight: 600; }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: #e5e7eb;
+    color: var(--ink);
+  }
+  .pill.water { background: var(--water-soft); color: var(--water); }
+  .pill.elec { background: var(--elec-soft); color: var(--elec); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill.ok { background: var(--ok-soft); color: var(--ok); }
+
+  /* ====== KEY/VALUE CARDS ====== */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 10px 0 14px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fbfdff;
+  }
+  .card .k { font-size: 11.5px; color: var(--ink-soft); margin-bottom: 3px; }
+  .card .v { font-size: 15px; font-weight: 600; }
+  .card .note { font-size: 11.5px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ====== DIAGRAMS ====== */
+  .diagram-wrap {
+    background: #fafcfe;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 14px 0;
+    overflow-x: auto;
+  }
+  .diagram-caption {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ====== GRID LAYOUTS ====== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  /* ====== CHECKLIST ====== */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 10px 8px 32px;
+    position: relative;
+    border-bottom: 1px dashed var(--line);
+    font-size: 13.5px;
+  }
+  .checklist li:before {
+    content: "☐";
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    font-size: 18px;
+    color: var(--ink-soft);
+  }
+
+  /* ====== TIMELINE ====== */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 18px 0 4px;
+  }
+  .t-step {
+    background: var(--ok-soft);
+    border-top: 3px solid var(--ok);
+    padding: 10px 10px 12px;
+    border-radius: 0 0 8px 8px;
+    font-size: 12.5px;
+  }
+  .t-step .t-num {
+    font-size: 11px;
+    color: var(--ok);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+  }
+  .t-step h4 { font-size: 13.5px; margin-bottom: 4px; }
+  .t-step p { font-size: 12px; color: var(--ink-soft); line-height: 1.45; }
+
+  /* ====== CALLOUT ====== */
+  .callout {
+    background: var(--warn-soft);
+    border: 1px solid #f3b9b3;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13.5px;
+    color: var(--warn);
+  }
+  .callout.info {
+    background: #e6f0fa;
+    border-color: #a3c6e7;
+    color: var(--water);
+  }
+  .callout.ok {
+    background: var(--ok-soft);
+    border-color: #a8d5bc;
+    color: var(--ok);
+  }
+  .callout strong { font-weight: 700; }
+
+  /* ====== LEGEND ====== */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 8px 0;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .legend .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 20px 0;
+  }
+
+  /* ====== PRINT ====== */
+  @media print {
+    body { background: #fff; }
+    .page { max-width: 100%; padding: 8mm; }
+    section { break-inside: avoid; page-break-inside: avoid; }
+    .hero { break-after: avoid; }
+    .alerts { break-after: avoid; }
+  }
+
+  @media (max-width: 820px) {
+    .alerts, .two-col, .three-col { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div>
+    <h1>瑜珈館木屋・水電施工說明（台灣版）</h1>
+    <div class="sub">B1 鋼構基礎已完工 / 木屋本體由嘉興鼎匠提供 / 水電由台灣承包商施作</div>
+  </div>
+  <div class="meta">
+    <span><strong>2026-04-23</strong> 製作</span>
+    <span>本文件為陸方施工圖 <u>補充規範</u></span>
+    <span>依《用戶用電設備裝置規則》、《建築物給水排水設備設計技術規範》</span>
+  </div>
+</div>
+
+<!-- ============ 監工重點 ============ -->
+<div class="alerts">
+  <div class="alert">
+    <div class="tag">監工重點 1</div>
+    <h3>B1 水泥地預埋管</h3>
+    <p>澆置前先完成強電、弱電、加壓後出水管、水塔進水管、接地導線、SP1~SP3 預留管；SP1 優先給戶外活動插座群 / 臨時配電箱方向，需由師傅確認是否大於 1" 或增設第二支；SP2 給未來抽水馬達，SP3 備用。所有穿水泥地管線都由水泥底部穿出，兩端封蓋並貼標籤。</p>
+  </div>
+  <div class="alert">
+    <div class="tag">監工重點 2</div>
+    <h3>R1 靠落地門側屋簷雨排</h3>
+    <p>屋簷兩側各一支雨水排水管；靠落地門側編號 R1，需先穿戶外廊道鋼板預留。另一支屋簷雨排沿外牆走。</p>
+  </div>
+  <div class="alert">
+    <div class="tag">監工重點 3</div>
+    <h3>B1 設備與糞管通氣</h3>
+    <p>B1 水泥地上放加壓機、30 加侖 220V 儲熱式電熱水器與三台冷氣壓縮機；糞管通氣由 B1 地板高度附近出外牆後接屋外立管高位收頭。</p>
+  </div>
+</div>
+
+<!-- ============ 快速摘要 ============ -->
+<section>
+  <div class="section-header">
+    <div class="section-num" style="color:#334155;">0</div>
+    <div class="section-title">總覽 <span style="font-size:14px;color:var(--ink-soft);">一眼看完</span></div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="k">建物</div><div class="v">B1 鋼構層 + 1F 主空間 + 閣樓床位</div><div class="note">1F 17.3×5.85 m + 前後露台</div></div>
+    <div class="card"><div class="k">用水點</div><div class="v">衛生間（免治馬桶＋小噴槍＋洗手台＋地排 3 只）＋B1 水龍頭＋前後陽臺水龍頭 × 2＋前後陽臺地排 × 2</div><div class="note">衛生間地排共 3 只，且已包含淋浴下方：淋浴下方 1 + 洗手槽旁 1 + 馬桶旁 1<br>熱水：洗手台／淋浴 兩點（免治馬桶內建加熱，只接冷水）<br>冷水末端：B1 熱水器補水、B1 水龍頭、淋浴、洗手台、免治馬桶、馬桶旁小噴槍、前後陽臺水龍頭，共 8 點</div></div>
+    <div class="card"><div class="k">熱水來源</div><div class="v">B1 30 加侖 220V 儲熱式電熱水器</div><div class="note">WH1 專用迴路 + 定時器；熱水上升管 B7 穿鋼板到 1F 天花</div></div>
+    <div class="card"><div class="k">排水出口</div><div class="v">黑水進右前方坡地下化糞池；灰水 / 雨水進地下室主排後出戶</div><div class="note">洗手台、衛生間 3 個地排、前後陽臺地排各走獨立支管，匯入地下室灰水主排；屋簷兩側雨排各走獨立管，靠落地門側 R1 穿戶外廊道鋼板後再接地下室主排</div></div>
+    <div class="card"><div class="k">冷氣配置</div><div class="v">3 台分離式（大廳 3 馬 + 休息室 1.5 馬 + 閣樓 1.5 馬）</div><div class="note">大廳為公共瑜珈區，最主要</div></div>
+    <div class="card"><div class="k">迴路總數</div><div class="v">共 18 迴路 + 進戶主 NFB</div><div class="note">照明/小排氣扇 7（含戶外燈 L7） / 室內插座 3 / 冷氣 3 / 電熱水 WH1 / 戶外 O1~O2 / 加壓機 Z1 / 未來抽水馬達 Z2；B1 / 戶外副電箱另預留 O3/O4 空迴路</div></div>
+  </div>
+</section>
+
+<!-- ============ 整體水系統全景 ============ -->
+<section class="water">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title">水系統全景（山泉水塔 → 黑水/灰水分流）</div>
+    <div class="section-sub">每一支管的完整路徑，一張圖看完</div>
+  </div>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 1500 860" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+
+      <defs>
+        <pattern id="ground" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line stroke="#a8a29e" stroke-width="1" y2="8"/>
+        </pattern>
+        <pattern id="steelp" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line stroke="#64748b" stroke-width="1.2" y2="10"/>
+        </pattern>
+        <pattern id="hill" width="10" height="10" patternUnits="userSpaceOnUse">
+          <rect width="10" height="10" fill="#86efac" opacity="0.2"/>
+        </pattern>
+        <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#60a5fa"/>
+        </marker>
+      </defs>
+
+      <!-- ═══════ 區塊標題 ═══════ -->
+      <text x="140" y="28" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">山泉水源區</text>
+      <text x="760" y="28" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">木屋建築（1F 衛生間）</text>
+      <text x="1260" y="28" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">化糞池 + 放流</text>
+      <line x1="290" y1="40" x2="290" y2="800" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="1130" y1="40" x2="1130" y2="800" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+
+      <!-- ═══════ 地面線 ═══════ -->
+      <rect x="0" y="660" width="1500" height="200" fill="url(#ground)" opacity="0.35"/>
+      <line x1="0" y1="660" x2="1500" y2="660" stroke="#78716c" stroke-width="2.5"/>
+
+      <!-- ═══════ 山泉水源區 (左) ═══════ -->
+      <!-- 山 -->
+      <polygon points="20,200 90,100 160,170 220,120 265,165 265,250 20,250" fill="#86efac" opacity="0.5" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="110" y="155" font-size="12" fill="#15803d" font-weight="600">山泉</text>
+      <circle cx="130" cy="190" r="5" fill="#1e6fb8"/>
+      <text x="80" y="210" font-size="10" fill="#15803d">（集水井）</text>
+
+      <!-- 山泉下管到水塔 -->
+      <line x1="130" y1="195" x2="130" y2="320" stroke="#1e6fb8" stroke-width="4"/>
+
+      <!-- 水塔 (放在山腳低處) -->
+      <rect x="60" y="320" width="150" height="130" fill="#dbeafe" stroke="#1e6fb8" stroke-width="2" rx="3"/>
+      <rect x="60" y="316" width="150" height="12" fill="#93c5fd" stroke="#1e6fb8"/>
+      <!-- 水位線 -->
+      <line x1="60" y1="345" x2="210" y2="345" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="135" y="365" font-size="15" fill="#0c4a6e" font-weight="700" text-anchor="middle">水塔</text>
+      <text x="135" y="385" font-size="10" fill="#0c4a6e" text-anchor="middle">2~3 噸 FRP</text>
+      <text x="135" y="400" font-size="10" fill="#0c4a6e" text-anchor="middle">（放山腳低處）</text>
+
+      <!-- 水塔出水口 -->
+      <line x1="210" y1="440" x2="220" y2="440" stroke="#1e6fb8" stroke-width="4"/>
+
+      <!-- 三級過濾器 (水塔→加壓機之間) -->
+      <rect x="220" y="420" width="55" height="40" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="3"/>
+      <line x1="238" y1="420" x2="238" y2="460" stroke="#16a34a" stroke-width="1"/>
+      <line x1="256" y1="420" x2="256" y2="460" stroke="#16a34a" stroke-width="1"/>
+      <text x="247" y="438" font-size="8" fill="#15803d" font-weight="700" text-anchor="middle">三級</text>
+      <text x="247" y="450" font-size="8" fill="#15803d" font-weight="700" text-anchor="middle">過濾</text>
+      <text x="283" y="418" font-size="9" fill="#15803d">砂濾 + PP 棉 + 活性碳</text>
+      <line x1="275" y1="440" x2="290" y2="440" stroke="#1e6fb8" stroke-width="4"/>
+
+      <!-- 加壓機 (過濾之後) -->
+      <rect x="100" y="490" width="140" height="70" fill="#fef9c3" stroke="#a16207" stroke-width="2.5" rx="4"/>
+      <text x="170" y="515" font-size="14" fill="#713f12" font-weight="700" text-anchor="middle">B1 加壓機</text>
+      <text x="170" y="533" font-size="10" fill="#713f12" text-anchor="middle">1/2 HP（半馬）・220V</text>
+      <text x="170" y="548" font-size="9" fill="#713f12" text-anchor="middle">設備區遮雨，需排水/維修空間</text>
+
+      <!-- 過濾→加壓機 (進水) -->
+      <line x1="290" y1="440" x2="290" y2="510" stroke="#1e6fb8" stroke-width="4"/>
+      <line x1="290" y1="510" x2="240" y2="510" stroke="#1e6fb8" stroke-width="4"/>
+      <text x="295" y="485" font-size="10" fill="#0c4a6e">進水</text>
+
+      <!-- 加壓機→出水到屋 -->
+      <line x1="240" y1="540" x2="265" y2="540" stroke="#1e6fb8" stroke-width="4"/>
+      <line x1="265" y1="540" x2="265" y2="610" stroke="#1e6fb8" stroke-width="4"/>
+      <text x="250" y="580" font-size="10" fill="#0c4a6e" writing-mode="tb">出水加壓</text>
+
+      <!-- 總閥 -->
+      <g>
+        <polygon points="253,610 283,598 283,622 253,610" fill="#1e6fb8"/>
+        <polygon points="283,610 253,598 253,622 283,610" fill="#1e6fb8"/>
+        <text x="230" y="634" font-size="11" fill="#1e6fb8" font-weight="700">進屋總閥</text>
+      </g>
+
+      <!-- 冷水主管往右進屋 -->
+      <line x1="283" y1="610" x2="520" y2="610" stroke="#1e6fb8" stroke-width="5"/>
+      <text x="380" y="602" font-size="12" fill="#0c4a6e" font-weight="600">冷水主管 1" DN25</text>
+
+      <!-- ═══════ 木屋建築 (中) ═══════ -->
+      <!-- 屋頂三角 -->
+      <polygon points="520,150 760,70 1000,150" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+      <!-- 牆體 -->
+      <rect x="520" y="150" width="480" height="510" fill="#fffef7" stroke="#334155" stroke-width="2"/>
+      <!-- 樓層線 -->
+      <line x1="520" y1="250" x2="1000" y2="250" stroke="#94a3b8" stroke-width="1" stroke-dasharray="6,3"/>
+      <line x1="520" y1="540" x2="1000" y2="540" stroke="#334155" stroke-width="2"/>
+      <!-- B1 斜紋 -->
+      <rect x="520" y="540" width="480" height="120" fill="url(#steelp)" opacity="0.22"/>
+      <!-- 樓層標籤 (左外側) -->
+      <text x="515" y="130" font-size="12" fill="#334155" font-weight="700" text-anchor="end">屋頂 / 閣樓</text>
+      <text x="515" y="310" font-size="12" fill="#334155" font-weight="700" text-anchor="end">1F 衛生間</text>
+      <text x="515" y="595" font-size="12" fill="#334155" font-weight="700" text-anchor="end">B1 鋼構層</text>
+      <text x="515" y="610" font-size="9" fill="#64748b" text-anchor="end">(吊頂走橫管)</text>
+
+      <!-- 屋外糞管通氣 -->
+      <g>
+        <rect x="760" y="178" width="110" height="38" fill="#dcfce7" stroke="#1a7f4a" stroke-width="2" rx="5"/>
+        <text x="815" y="196" font-size="12" font-weight="700" fill="#1a7f4a" text-anchor="middle">屋外糞管通氣</text>
+        <text x="815" y="210" font-size="9" fill="#166534" text-anchor="middle">（B1取氣後屋外上升）</text>
+      </g>
+      <path d="M795 580 L845 580 L845 216" fill="none" stroke="#1a7f4a" stroke-width="2.5" stroke-dasharray="5,3"/>
+      <text x="850" y="572" font-size="9" fill="#166534">B1 糞管高點取氣</text>
+      <text x="852" y="320" font-size="10" fill="#166534">屋外立管上升</text>
+
+      <!-- 灰水不設通氣 -->
+      <g>
+        <rect x="580" y="178" width="120" height="38" fill="#f1f5f9" stroke="#64748b" stroke-width="2" rx="5"/>
+        <text x="640" y="196" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">灰水無通氣</text>
+        <text x="640" y="210" font-size="9" fill="#64748b" text-anchor="middle">（不設通氣管）</text>
+      </g>
+      <text x="648" y="320" font-size="10" fill="#64748b">灰水不接通氣</text>
+
+      <!-- === 冷水主幹進屋 === -->
+      <line x1="520" y1="610" x2="520" y2="290" stroke="#1e6fb8" stroke-width="4"/>
+      <line x1="520" y1="290" x2="960" y2="290" stroke="#1e6fb8" stroke-width="4"/>
+      <text x="740" y="282" font-size="12" fill="#0c4a6e" font-weight="700" text-anchor="middle">1F 天花冷水主幹 3/4"（DN20）</text>
+
+      <!-- === 熱水主幹 === -->
+      <line x1="468" y1="450" x2="540" y2="450" stroke="#c0392b" stroke-width="5"/>
+      <line x1="540" y1="450" x2="540" y2="340" stroke="#c0392b" stroke-width="5"/>
+      <line x1="540" y1="340" x2="760" y2="340" stroke="#c0392b" stroke-width="5"/>
+      <text x="650" y="332" font-size="12" fill="#991b1b" font-weight="700" text-anchor="middle">1F 天花熱水主幹 3/4"（DN20）</text>
+
+      <!-- 冷水分支 to B1 電熱水器（圖上示意） -->
+      <line x1="525" y1="290" x2="525" y2="420" stroke="#1e6fb8" stroke-width="3"/>
+      <line x1="525" y1="420" x2="468" y2="420" stroke="#1e6fb8" stroke-width="3"/>
+
+      <!-- === 衛生間主要器具（淋浴 → 洗手台 → 馬桶 → 地排共三只，含淋浴下方） === -->
+
+      <!-- 淋浴 (shower) -->
+      <g>
+        <!-- 淋浴花灑 -->
+        <circle cx="610" cy="360" r="8" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+        <!-- 蓮蓬頭線 -->
+        <line x1="610" y1="368" x2="610" y2="390" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <!-- 龍頭把 -->
+        <rect x="592" y="400" width="36" height="8" fill="#64748b" stroke="#334155" stroke-width="1"/>
+        <!-- 地面 -->
+        <rect x="580" y="450" width="60" height="8" fill="#e0e7ff" stroke="#334155" stroke-width="1"/>
+        <text x="610" y="445" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">淋浴</text>
+      </g>
+
+      <!-- 洗手台 -->
+      <g>
+        <rect x="665" y="400" width="60" height="20" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+        <rect x="675" y="420" width="40" height="28" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <ellipse cx="695" cy="433" rx="15" ry="6" fill="#e0e7ff" stroke="#334155"/>
+        <rect x="688" y="392" width="14" height="10" fill="#94a3b8" stroke="#334155"/>
+        <text x="695" y="385" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">洗手台</text>
+      </g>
+
+      <!-- 馬桶 (免治) -->
+      <g>
+        <rect x="770" y="400" width="45" height="30" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <path d="M765,430 Q765,442 775,450 L820,450 Q830,442 830,430 L830,455 L765,455 Z" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <text x="795" y="420" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">免治馬桶</text>
+      </g>
+
+      <!-- 另兩個乾區地排（圖上合併示意；淋浴下方是第三個地排） -->
+      <g>
+        <rect x="870" y="445" width="40" height="14" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <rect x="880" y="449" width="20" height="5" fill="#94a3b8"/>
+        <text x="890" y="440" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">乾區地排×2</text>
+      </g>
+
+      <!-- === 冷水分支 (藍) 從主幹 y=290 到器具點 === -->
+      <!-- 淋浴 冷 -->
+      <line x1="595" y1="290" x2="595" y2="404" stroke="#1e6fb8" stroke-width="3"/>
+      <!-- 洗手台 冷 -->
+      <line x1="683" y1="290" x2="683" y2="398" stroke="#1e6fb8" stroke-width="3"/>
+      <!-- 馬桶 冷 -->
+      <line x1="790" y1="290" x2="790" y2="400" stroke="#1e6fb8" stroke-width="3"/>
+      <!-- 冷水繼續往右到前陽臺 -->
+      <line x1="960" y1="290" x2="960" y2="560" stroke="#1e6fb8" stroke-width="3"/>
+
+      <!-- === 熱水分支 (紅) 從主幹 y=340 到 2 個點 (淋浴+洗手台) === -->
+      <line x1="620" y1="340" x2="620" y2="404" stroke="#c0392b" stroke-width="3"/>
+      <line x1="708" y1="340" x2="708" y2="398" stroke="#c0392b" stroke-width="3"/>
+      <!-- 熱水終點標示 -->
+      <text x="595" y="400" font-size="7" fill="#c0392b" text-anchor="middle" transform="rotate(-90 595 400)">冷</text>
+      <text x="620" y="400" font-size="7" fill="#c0392b" text-anchor="middle" transform="rotate(-90 620 400)">熱</text>
+
+      <!-- === 排水 + 防臭下水 === -->
+      <!-- 淋浴地漏 (水封型) + 2" 排水 -->
+      <ellipse cx="610" cy="462" rx="24" ry="5" fill="#e0e7ff" stroke="#64748b"/>
+      <path d="M610,465 L610,478 Q610,488 620,488 Q630,488 630,478 L630,495" fill="none" stroke="#64748b" stroke-width="3.5"/>
+      <text x="645" y="488" font-size="9" fill="#334155">防臭地排</text>
+      <line x1="630" y1="495" x2="630" y2="580" stroke="#64748b" stroke-width="3.5"/>
+      <text x="637" y="535" font-size="9" fill="#64748b">淋浴 2"</text>
+
+      <!-- 洗手台防臭下水 + 雜排 1.5" -->
+      <path d="M695,448 L695,472 Q695,482 705,482 Q715,482 715,472 L715,495" fill="none" stroke="#64748b" stroke-width="3"/>
+      <text x="725" y="483" font-size="9" fill="#334155">防臭下水</text>
+      <line x1="715" y1="495" x2="715" y2="580" stroke="#64748b" stroke-width="3"/>
+      <text x="720" y="540" font-size="9" fill="#64748b">洗手 1.5"</text>
+
+      <!-- 馬桶糞管 (內建存水彎) -->
+      <line x1="795" y1="455" x2="795" y2="580" stroke="#ea580c" stroke-width="9"/>
+      <text x="805" y="500" font-size="12" font-weight="700" fill="#ea580c">糞管 3.5"</text>
+      <text x="805" y="513" font-size="9" fill="#ea580c">暫定</text>
+      <text x="805" y="526" font-size="8" fill="#9a3412">馬桶內建</text>
+      <text x="805" y="537" font-size="8" fill="#9a3412">存水彎</text>
+
+      <!-- 地排水封型 + 2" -->
+      <path d="M890,459 L890,472 Q890,482 898,482 Q906,482 906,472 L906,495" fill="none" stroke="#64748b" stroke-width="3"/>
+      <text x="915" y="482" font-size="9" fill="#334155">防臭</text>
+      <line x1="906" y1="495" x2="906" y2="580" stroke="#64748b" stroke-width="3"/>
+      <text x="914" y="540" font-size="9" fill="#64748b">乾區地排 2"</text>
+
+      <!-- === B1 吊頂下橫管 (坡度往右) === -->
+      <line x1="630" y1="580" x2="1000" y2="615" stroke="#64748b" stroke-width="4"/>
+      <line x1="715" y1="580" x2="1000" y2="615" stroke="#64748b" stroke-width="3"/>
+      <line x1="795" y1="580" x2="1000" y2="612" stroke="#ea580c" stroke-width="7"/>
+      <line x1="906" y1="580" x2="1000" y2="615" stroke="#64748b" stroke-width="3"/>
+      <text x="810" y="572" font-size="11" fill="#334155" font-weight="600">B1 吊頂下橫管 ↘ 坡度 1/100</text>
+      <text x="770" y="606" font-size="10" fill="#334155">主排水 3"</text>
+
+      <!-- === 電熱水器 (B1 地下室設備區示意) === -->
+      <g>
+        <rect x="398" y="410" width="70" height="80" fill="#fed7aa" stroke="#ea580c" stroke-width="2" rx="4"/>
+        <text x="433" y="432" font-size="13" font-weight="700" fill="#9a3412" text-anchor="middle">B1電熱</text>
+        <text x="433" y="448" font-size="13" font-weight="700" fill="#9a3412" text-anchor="middle">水器</text>
+        <text x="433" y="465" font-size="9" fill="#9a3412" text-anchor="middle">30 加侖儲熱式</text>
+        <text x="433" y="478" font-size="9" fill="#9a3412" text-anchor="middle">220V WH1</text>
+        <text x="433" y="394" font-size="10" fill="#92400e" text-anchor="middle">定時器 + 防潮箱</text>
+      </g>
+
+      <!-- 電熱水器 220V 專用迴路（B1 設備區） -->
+      <line x1="458" y1="660" x2="458" y2="490" stroke="#ca8a04" stroke-width="3" stroke-dasharray="7,4"/>
+      <text x="380" y="620" font-size="11" fill="#92400e" font-weight="600" text-anchor="end">WH1 電源</text>
+      <text x="380" y="633" font-size="9" fill="#92400e" text-anchor="end">（220V 專用迴路）</text>
+
+      <!-- === 戶外水龍頭：前陽臺 (右側) === -->
+      <g>
+        <line x1="1000" y1="560" x2="1080" y2="560" stroke="#1e6fb8" stroke-width="3"/>
+        <line x1="1080" y1="560" x2="1080" y2="640" stroke="#1e6fb8" stroke-width="3"/>
+        <circle cx="1080" cy="648" r="7" fill="#dbeafe" stroke="#1e6fb8" stroke-width="2"/>
+        <text x="1088" y="630" font-size="10" font-weight="600" fill="#0c4a6e">前陽臺</text>
+        <text x="1088" y="645" font-size="10" fill="#0c4a6e">水龍頭</text>
+        <!-- 靠落地門側屋簷雨排（R1 穿戶外廊道鋼板） -->
+        <rect x="1105" y="652" width="32" height="10" fill="#fff" stroke="#64748b" stroke-width="1.4"/>
+        <rect x="1113" y="655" width="16" height="4" fill="#94a3b8"/>
+        <text x="1140" y="656" font-size="9" fill="#475569">屋簷雨排 R1</text>
+        <line x1="1121" y1="662" x2="1121" y2="640" stroke="#64748b" stroke-width="3"/>
+        <rect x="1098" y="630" width="46" height="10" fill="url(#steelp)" stroke="#475569" stroke-width="1"/>
+        <text x="1148" y="638" font-size="9" fill="#475569">R1 雨排穿鋼板</text>
+        <path d="M1121 640 L1121 615 L1140 615" fill="none" stroke="#64748b" stroke-width="4" marker-end="url(#arrR)"/>
+      </g>
+
+      <!-- === 戶外水龍頭：後陽臺 (左側) === -->
+      <g>
+        <line x1="520" y1="290" x2="505" y2="290" stroke="#1e6fb8" stroke-width="3"/>
+        <line x1="505" y1="290" x2="505" y2="250" stroke="#1e6fb8" stroke-width="3"/>
+        <line x1="505" y1="250" x2="340" y2="250" stroke="#1e6fb8" stroke-width="3" stroke-dasharray="5,3"/>
+        <line x1="340" y1="250" x2="340" y2="640" stroke="#1e6fb8" stroke-width="3"/>
+        <circle cx="340" cy="648" r="7" fill="#dbeafe" stroke="#1e6fb8" stroke-width="2"/>
+        <text x="290" y="632" font-size="10" font-weight="600" fill="#0c4a6e">後陽臺</text>
+        <text x="290" y="645" font-size="10" fill="#0c4a6e">水龍頭</text>
+        <!-- 後陽臺地排（獨立支管，沿外牆走到主排） -->
+        <rect x="255" y="652" width="32" height="10" fill="#fff" stroke="#64748b" stroke-width="1.4"/>
+        <rect x="263" y="655" width="16" height="4" fill="#94a3b8"/>
+        <text x="205" y="656" font-size="9" fill="#475569">後陽臺地排</text>
+        <path d="M271 662 L271 690 L360 690 L360 650" fill="none" stroke="#64748b" stroke-width="3.5"/>
+        <text x="278" y="686" font-size="9" fill="#475569">陽臺地排獨立支管</text>
+        <path d="M360 650 L360 620 L1000 615" fill="none" stroke="#64748b" stroke-width="3.5" stroke-dasharray="7,4"/>
+      </g>
+
+      <!-- === 黑水到化糞池；灰水另接雨水排水 === -->
+      <line x1="1000" y1="612" x2="1130" y2="690" stroke="#ea580c" stroke-width="7"/>
+      <line x1="1000" y1="615" x2="1140" y2="615" stroke="#64748b" stroke-width="4" marker-end="url(#arrR)"/>
+      <text x="1040" y="665" font-size="10" fill="#334155">糞管埋地出屋</text>
+      <text x="1055" y="603" font-size="10" fill="#475569">灰水 → 雨水排水，不進化糞池</text>
+
+      <!-- ═══════ 化糞池區 (右) ═══════ -->
+      <!-- 化糞池 3 格 -->
+      <rect x="1150" y="680" width="300" height="120" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
+      <line x1="1250" y1="680" x2="1250" y2="800" stroke="#92400e" stroke-width="1.5"/>
+      <line x1="1350" y1="680" x2="1350" y2="800" stroke="#92400e" stroke-width="1.5"/>
+      <!-- 水面 -->
+      <line x1="1150" y1="720" x2="1450" y2="720" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <!-- 過水孔 -->
+      <line x1="1250" y1="710" x2="1250" y2="723" stroke="#fef3c7" stroke-width="3"/>
+      <line x1="1350" y1="710" x2="1350" y2="723" stroke="#fef3c7" stroke-width="3"/>
+      <!-- 3 格標示 -->
+      <text x="1158" y="700" font-size="11" fill="#92400e" font-weight="700">第一格</text>
+      <text x="1158" y="745" font-size="10" fill="#92400e">沉澱</text>
+      <text x="1260" y="700" font-size="11" fill="#92400e" font-weight="700">第二格</text>
+      <text x="1260" y="745" font-size="10" fill="#92400e">厭氧分解</text>
+      <text x="1360" y="700" font-size="11" fill="#92400e" font-weight="700">第三格</text>
+      <text x="1360" y="745" font-size="10" fill="#92400e">清水</text>
+
+      <!-- 進水口（只接馬桶糞管） -->
+      <line x1="1130" y1="695" x2="1150" y2="700" stroke="#ea580c" stroke-width="6"/>
+      <text x="1128" y="685" font-size="10" fill="#92400e" text-anchor="end">馬桶糞管進入 →</text>
+
+      <!-- 化糞池通氣 (白蓋) -->
+      <line x1="1180" y1="680" x2="1180" y2="630" stroke="#94a3b8" stroke-width="3"/>
+      <rect x="1163" y="620" width="34" height="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="1205" y="628" font-size="11" font-weight="700" fill="#475569">化糞池通氣蓋</text>
+      <text x="1205" y="642" font-size="10" fill="#475569">（你看到的那個白蓋）</text>
+
+      <!-- 放流出口 -->
+      <line x1="1450" y1="740" x2="1490" y2="758" stroke="#60a5fa" stroke-width="5" marker-end="url(#arrR)"/>
+      <text x="1455" y="733" font-size="11" font-weight="700" fill="#0284c7">放流</text>
+      <text x="1455" y="775" font-size="9" fill="#0284c7">側溝/滲透井</text>
+
+      <!-- ═══════ 冷氣冷凝水獨立框 (右上) ═══════ -->
+      <g>
+        <rect x="1155" y="70" width="300" height="110" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="5,3" rx="6"/>
+        <text x="1305" y="92" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">冷氣冷凝水（3 台）</text>
+        <text x="1165" y="115" font-size="11" fill="#0c4a6e">・大廳 3 馬 + 休息室 + 閣樓</text>
+        <text x="1165" y="133" font-size="11" fill="#0c4a6e">・3/4" 軟管 → 沿外牆 / 穿牆</text>
+        <text x="1165" y="151" font-size="11" fill="#0c4a6e">・<tspan fill="#c0392b" font-weight="700">直接排戶外地面 / 雨水側溝</tspan></text>
+        <text x="1165" y="169" font-size="11" fill="#c0392b" font-weight="700">・不進化糞池！</text>
+      </g>
+
+      <!-- ═══════ 圖例 (頂部條) ═══════ -->
+      <g transform="translate(320, 58)">
+        <rect x="-10" y="-18" width="800" height="32" fill="#ffffff" stroke="#e2e8f0" rx="4"/>
+        <text x="0" y="0" font-size="11" font-weight="700" fill="#334155">管線顏色</text>
+        <line x1="60" y1="-4" x2="88" y2="-4" stroke="#1e6fb8" stroke-width="4"/><text x="92" y="0" font-size="10" fill="#0c4a6e">冷水</text>
+        <line x1="128" y1="-4" x2="156" y2="-4" stroke="#c0392b" stroke-width="4"/><text x="160" y="0" font-size="10" fill="#991b1b">熱水</text>
+        <line x1="196" y1="-4" x2="224" y2="-4" stroke="#ea580c" stroke-width="6"/><text x="228" y="0" font-size="10" fill="#9a3412">糞管 3.5"</text>
+        <line x1="284" y1="-4" x2="312" y2="-4" stroke="#64748b" stroke-width="4"/><text x="316" y="0" font-size="10" fill="#334155">灰水 / 雨水排水 3"</text>
+        <line x1="376" y1="-4" x2="404" y2="-4" stroke="#1a7f4a" stroke-width="3" stroke-dasharray="4,2"/><text x="408" y="0" font-size="10" fill="#166534">糞管通氣</text>
+        <line x1="452" y1="-4" x2="480" y2="-4" stroke="#334155" stroke-width="3" stroke-dasharray="6,3"/><text x="484" y="0" font-size="10" fill="#334155">設備電源</text>
+        <line x1="538" y1="-4" x2="566" y2="-4" stroke="#60a5fa" stroke-width="3"/><text x="570" y="0" font-size="10" fill="#0284c7">化糞池水流</text>
+        <text x="625" y="0" font-size="10" fill="#475569">地排 = 防臭型</text>
+      </g>
+
+    </svg>
+    <div class="diagram-caption">圖 1・水系統全景：山泉 → 水塔 → 三級過濾 → B1 加壓機 + 壓力罐 → 木屋。黑水只有馬桶糞管進右前方坡地下化糞池；灰水（洗手台 + 衛生間地排 3 只，含淋浴 + 前後陽臺地排）各自走支管後匯入地下室灰水主排。屋簷兩側各有一支雨水排水管，靠落地門側屋簷雨排編號 R1，需穿戶外廊道鋼板預留；另一支屋簷雨排沿外牆走。通氣只做糞管屋外通氣，灰水不設通氣管。</div>
+  </div>
+
+  <div class="callout info">
+    <strong>讀圖重點</strong>：
+    （1）<strong>山泉</strong> → 集水井 → <strong>水塔</strong>（山腳低處蓄水）→ <strong>三級過濾器</strong>（砂濾+PP+活性碳，保護加壓機與熱水器）→ <strong>B1 水泥地上加壓機+壓力罐</strong> → 總閥 → 穿 B1 鋼構層 → 1F 天花冷水主幹 → 分配到 8 個冷水末端。
+    （2）<strong>30 加侖 220V 儲熱式電熱水器</strong>位於 B1 地下室設備區，冷水在 B1 加壓/總閥後分支補水給熱水器；熱水由熱水器出口走 <strong>B7 熱水上升管穿鋼板</strong>到 1F 天花，再分 2 支給洗手台、淋浴。WH1 220V 專用迴路、定時器與漏電保護設在 B1 設備區。
+    （3）<strong>免治馬桶只接冷水</strong>，不拉熱水管（免治坐墊內建即熱加熱器）。
+    （4）排水分三類：<strong>馬桶糞管</strong>獨立往右前方下坡地進化糞池；<strong>灰水</strong>（洗手台、衛生間地排 3 只、前後陽臺地排）各自走支管後匯入地下室灰水主排；<strong>屋簷雨排</strong>左右各一支獨立管，匯入地下室主排後出戶。衛生間地排 3 只已包含淋浴下方，不能再另外多算一只淋浴地排。
+    （5）通氣採<strong>糞管傳統屋外通氣管</strong>：從 B1 糞管高點取氣，通氣立管可從 B1 地板高度附近出外牆後往上升，高位收頭並加通氣帽 / 防雨帽；灰水不設通氣管。<strong>冷氣冷凝水不進化糞池</strong>，到 B1 後轉出戶外地面或雨水側溝。
+    （6）<strong>化糞池頂端白色 T 型通氣蓋</strong>是排池內厭氧氣體，與屋內排水管的屋外通氣立管是兩個不同系統，不能互相取代。
+  </div>
+
+</section>
+
+<!-- ============ 每支管的完整路徑 ============ -->
+<section class="water">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title">每支管的完整路徑</div>
+    <div class="section-sub">逐支列出：起點 → 經過的元件 → 終點 → 是否進化糞池</div>
+  </div>
+
+  <div class="callout info">
+    <strong>本節核對原則</strong>：這裡只列「實際會走水、排水、冷凝水或冷媒的路徑」。前後陽臺地排是地板排水，屋簷雨排是屋簷 / 天溝落水，兩者是不同管。穿孔與預留套管另在 3.3 / 3.4 列出；屋簷靠落地門側雨排為 <strong>R1</strong>，會穿戶外廊道鋼板。休息室冷氣另設 <strong>ACR1</strong>，讓冷媒銅管與冷凝水穿後陽臺鋼板到 B1 壓縮機區。
+  </div>
+
+  <h3 class="block-title">2.1 給水管路（藍色冷水 / 紅色熱水）</h3>
+  <table>
+    <thead>
+      <tr><th>管線</th><th>起點</th><th>經過元件（依序）</th><th>終點</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pill water">冷水主管</span></td>
+        <td>山泉集水井（山上）</td>
+        <td>① 取水口（過濾網）→ ② 下管到<strong>水塔</strong>（2~3 噸 FRP，放山腳低處）→ ③ 水塔底部出水 → ④ <strong>三級過濾器</strong>（砂濾+PP 棉 5μm+活性碳，保護後端設備）→ ⑤ <strong>B1 設備區加壓機 1/2 HP（半馬）220V</strong> → ⑥ 進屋總閥（止水閥）→ ⑦ B1 先分出熱水器補水與 B1 水龍頭 → ⑧ 1"（DN25）主幹穿 B1 鋼構層（套管 B1）→ ⑨ 進 1F 衛生間天花後降為 3/4"（DN20）冷水主幹 → ⑩ 分歧接頭</td>
+        <td>分 7 支 / 8 個冷水末端（見下）</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 A</td>
+        <td>B1 加壓機 / 總閥後</td>
+        <td>B1 設備區內分支 → 熱水器前止水閥；<strong>此支在地下室完成，不穿 B1 鋼構樓板</strong></td>
+        <td>B1 電熱水器冷水補水口</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 B</td>
+        <td>B1 加壓機 / 總閥後</td>
+        <td>B1 設備區內分支 → 止水閥 → 水龍頭；<strong>此支在地下室完成，不穿 B1 鋼構樓板</strong></td>
+        <td>B1 地下室水龍頭（加壓後）</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 C</td>
+        <td>分歧接頭</td>
+        <td>角閥（牆內）→ 軟管</td>
+        <td>淋浴冷水龍頭</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 D</td>
+        <td>分歧接頭</td>
+        <td>角閥 → 軟管</td>
+        <td>洗手台冷水龍頭</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 E</td>
+        <td>分歧接頭</td>
+        <td>冷水管到馬桶旁 → 分成兩個角閥：① 免治馬桶進水 ② 馬桶旁小噴槍</td>
+        <td>免治馬桶 + 沖洗小噴槍（冷水）</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 F</td>
+        <td>分歧接頭</td>
+        <td>止水閥 → 穿外牆（後側）</td>
+        <td>後陽臺水龍頭</td>
+      </tr>
+      <tr>
+        <td>　└ 冷水分支 G</td>
+        <td>分歧接頭</td>
+        <td>止水閥 → 穿外牆（前側）</td>
+        <td>前陽臺水龍頭</td>
+      </tr>
+      <tr style="background:#fee2e2;">
+        <td><span class="pill" style="background:#fee2e2;color:#c0392b;">熱水主管</span></td>
+        <td>B1 電熱水器熱水出口</td>
+        <td>① B1 設備區熱水器出水 → ② 保溫棉包覆（13 mm 厚）→ ③ <strong>B7 熱水上升管穿鋼板</strong> → ④ 1F 天花熱水主幹 <strong>3/4"（DN20）</strong>→ ⑤ 分歧接頭</td>
+        <td>分 2 支（見下）</td>
+      </tr>
+      <tr>
+        <td>　└ 熱水分支 H1</td>
+        <td>熱水主管</td>
+        <td>角閥 → 軟管</td>
+        <td>淋浴熱水龍頭</td>
+      </tr>
+      <tr>
+        <td>　└ 熱水分支 H2</td>
+        <td>熱水主管</td>
+        <td>角閥 → 軟管</td>
+        <td>洗手台熱水龍頭</td>
+      </tr>
+      <tr style="background:#f0fdf4;">
+        <td>　（免治馬桶）</td>
+        <td>—</td>
+        <td>標準免治馬桶自帶即熱加熱器，<strong>只接冷水</strong>，不拉熱水管。馬桶旁小噴槍同樣只接冷水，可與免治馬桶共管後分兩個角閥。</td>
+        <td>（見 2.1 冷水分支 D）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="block-title">2.2 排水管路（橘色糞管 / 灰色灰水雨水 / 綠色糞管通氣）</h3>
+  <table>
+    <thead>
+      <tr><th>管線</th><th>起點</th><th>經過元件（依序）</th><th>終點</th><th>進化糞池？</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fff7ed;">
+        <td><span class="pill" style="background:#fed7aa;color:#ea580c;">馬桶糞管</span></td>
+        <td>免治馬桶底座排出口</td>
+        <td>① 馬桶法蘭接（<strong>馬桶內建存水彎</strong>，不需外加）→ ② 穿 1F 樓板（套管 B2，開孔依實際外徑 +10 mm）→ ③ B1 吊頂下 3.5" 暫定橫管（獨立一支，坡度 1/100）→ ④ 穿外牆 → ⑤ 埋地管</td>
+        <td><strong>化糞池第一格進水口</strong></td>
+        <td><strong style="color:#ea580c;">✔ 進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">洗手台排水</span></td>
+        <td>洗手台下水口</td>
+        <td>① <strong>防臭型下水 / 防臭型存水彎</strong>（由水電師傅選型，不寫成純 S 彎定案）→ ② 穿樓板（套管 B3, Φ60）→ ③ B1 吊頂下 1.5" 支管 → ④ 匯入 3" 灰水主排水管 → ⑤ 接雨水排水管另排</td>
+        <td><strong>灰水 / 雨水排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">淋浴排水</span></td>
+        <td>淋浴下方防臭型地排</td>
+        <td>① <strong>防臭型地排（機械防臭 / 防乾式，依師傅選型）</strong>→ ② 穿樓板（套管 B4, Φ75）→ ③ B1 吊頂下 2" 支管 → ④ 匯入 3" 灰水主排水管</td>
+        <td><strong>灰水 / 雨水排水管</strong>（此點已算在衛生間 3 個地排內）</td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">馬桶旁地排</span></td>
+        <td>馬桶旁防臭型地排</td>
+        <td>① <strong>防臭型地排（機械防臭 / 防乾式）</strong>→ ② 穿樓板（套管 B5, Φ75）→ ③ B1 吊頂下 2" 支管 → ④ 匯入 3" 灰水主排水管</td>
+        <td><strong>灰水 / 雨水排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">洗手槽旁地排</span></td>
+        <td>洗手槽旁 / 洗手台旁防臭型地排</td>
+        <td>① <strong>防臭型地排（機械防臭 / 防乾式）</strong>→ ② 穿樓板（套管 B6, Φ75）→ ③ B1 吊頂下 2" 支管 → ④ 匯入 3" 灰水主排水管</td>
+        <td><strong>灰水 / 雨水排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">前陽臺地排</span></td>
+        <td>前陽臺防臭型落水頭 / 地排</td>
+        <td>① 陽臺完成面預留地排落水頭孔 → ② 地面找坡到地排 → ③ 2" 支管 → ④ 沿陽臺 / 外牆轉入 B1 灰水主排 → ⑤ 與其他灰水、雨排在主排會合後出戶</td>
+        <td><strong>B1 灰水主排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">後陽臺地排</span></td>
+        <td>後陽臺防臭型落水頭 / 地排</td>
+        <td>① 陽臺完成面預留地排落水頭孔 → ② 地面找坡到地排 → ③ 2" 支管 → ④ 沿陽臺 / 外牆轉入 B1 灰水主排 → ⑤ 與其他灰水、雨排在主排會合後出戶</td>
+        <td><strong>B1 灰水主排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">屋簷靠落地門側雨排 R1</span></td>
+        <td>靠落地門側屋簷 / 天溝落水口</td>
+        <td>① 屋簷 / 天溝集水 → ② 落水頭接 2"~3" 雨水管 → ③ <strong>R1 穿戶外廊道鋼板預留</strong> → ④ 下到 B1 / 地下室主排水管 → ⑤ 出戶排放</td>
+        <td><strong>B1 雨水 / 灰水主排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr>
+        <td><span class="pill" style="background:#f1f5f9;color:#64748b;">屋簷另一側雨排</span></td>
+        <td>另一側屋簷 / 天溝落水口</td>
+        <td>① 屋簷 / 天溝集水 → ② 落水頭接 2"~3" 雨水管 → ③ 沿外牆下行，不穿戶外廊道鋼板 → ④ 下到 B1 / 地下室主排水管 → ⑤ 出戶排放</td>
+        <td><strong>B1 雨水 / 灰水主排水管</strong></td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr style="background:#e0f2fe;">
+        <td><span class="pill" style="background:#e0f2fe;color:#0369a1;">大廳 / 閣樓冷氣冷媒 + 冷凝水</span></td>
+        <td>大廳、閣樓冷氣室內機</td>
+        <td>① 冷媒銅管成對包保溫 + 冷凝水 3/4" 排水管 → ② 直接從房屋外側沿外牆下行 → ③ 到 B1 地下室壓縮機區；冷凝水到 B1 後轉出戶外地面 / 雨水側</td>
+        <td>B1 壓縮機區 + 戶外排水點</td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr style="background:#e0f2fe;">
+        <td><span class="pill" style="background:#e0f2fe;color:#0369a1;">休息室冷氣 ACR1</span></td>
+        <td>休息室冷氣室內機</td>
+        <td>① 冷媒銅管成對包保溫 + 冷凝水 3/4" 排水管 → ② 沿外牆出來會碰到後陽臺 → ③ 共走 <strong>ACR1 穿後陽臺鋼板</strong> → ④ 下到 B1 地下室壓縮機區；冷凝水到 B1 後轉出戶外地面 / 雨水側</td>
+        <td>B1 壓縮機區 + 戶外排水點</td>
+        <td><strong style="color:#0369a1;">✘ 不進</strong></td>
+      </tr>
+      <tr style="background:#f8fafc;">
+        <td><span class="pill">預留管 SP</span></td>
+        <td>預留套管兩端封蓋</td>
+        <td><strong>SP1~SP3</strong>：SP1 優先給戶外活動插座群 / 臨時配電箱方向，管徑由水電師傅確認，必要時大於 1" 或增設第二支；SP2 給未來抽水馬達；SP3 留其他未來需求；兩端封蓋</td>
+        <td>兩端封蓋，標籤留存</td>
+        <td>—</td>
+      </tr>
+      <tr style="background:#f0fdf4;">
+        <td><span class="pill ok">屋外糞管通氣</span></td>
+        <td>B1 糞管橫管高點 / 靠近馬桶落管處</td>
+        <td>① B1 糞管高點以 45° Y / 三通取氣 → ② 2" 通氣管往外牆延伸，避免形成積水低點 → ③ 從 B1 地板高度附近出外牆，屋外立管再往上升 → ④ 管口高於衛浴器具溢水位，並依水電師傅 / 規範決定最終高位收頭，加通氣帽 / 防雨帽</td>
+        <td>直接通到屋外空氣中</td>
+        <td>—（不出水）</td>
+      </tr>
+      <tr style="background:#f8fafc;">
+        <td><span class="pill">灰水不設通氣</span></td>
+        <td>灰水主排水管</td>
+        <td><strong>不設通氣管</strong>；灰水直接走灰水 / 雨水排水路徑，防臭由各落水頭 / 防臭下水處理</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr style="background:#f0fdf4;">
+        <td><span class="pill ok">化糞池通氣（屋外）</span></td>
+        <td>化糞池頂部</td>
+        <td>T 型通氣管（白色 PVC 帽）</td>
+        <td>排到戶外空氣中（讓沼氣、硫化氫散出）</td>
+        <td>—（這是化糞池本身的通氣）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok">
+    <strong>化糞池內部水流</strong>：本案只接馬桶糞管。進水 → 第一格（固體沉澱）→ 第二格（厭氧菌分解）→ 第三格（上層清水）→ 放流口 → 側溝 / 滲透井 / 公共下水道。
+    三格之間靠上方「過水孔」連通，只讓上層清水過，固體留在前格。<strong>化糞池每 2~3 年要抽水肥一次</strong>，把沉澱污泥抽走。灰水、陽臺地排與屋簷雨排不接化糞池，另走灰水 / 雨水排水。
+  </div>
+
+</section>
+
+<!-- 管徑對照 -->
+<section class="water">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-title">管徑對照 & 穿孔清單</div>
+    <div class="section-sub">給師傅訂料與放樣</div>
+  </div>
+
+  <h3 class="block-title">3.1 管徑對照表（陸方 → 台灣）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:12%;">分類</th>
+        <th>陸方圖示</th>
+        <th>台灣實際規格</th>
+        <th>材質（建議）</th>
+        <th>顏色標示</th>
+        <th>用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="5" style="background:#eff6ff;"><span class="pill water">給水</span></td>
+        <td>台方新增：山泉進屋主管</td>
+        <td><strong>1"（DN25）</strong></td>
+        <td>PE 管 / 不鏽鋼壓接 SUS304</td>
+        <td>藍色標帶</td>
+        <td>水塔 / B1 加壓機 → 穿 B1 套管 → 進屋總閥；這是進屋主幹，不是器具分支</td>
+      </tr>
+      <tr>
+        <td>台方新增：1F 冷水主幹</td>
+        <td><strong>6 分管（3/4"，DN20）</strong><br>外徑約 28 mm</td>
+        <td>不鏽鋼壓接 SUS304 / PVC-U</td>
+        <td>藍色標帶</td>
+        <td>1F 衛生間天花冷水主幹；由 1" 進屋主幹降徑後分配</td>
+      </tr>
+      <tr>
+        <td>DN15 冷水管</td>
+        <td><strong>4 分管（1/2"，DN15）</strong><br>外徑約 22 mm</td>
+        <td>不鏽鋼壓接 SUS304 / PVC-U</td>
+        <td>藍色標帶</td>
+        <td>冷水分支：B1 電熱水器補水、B1 地下室水龍頭、淋浴、洗手台、免治馬桶、馬桶旁小噴槍、前後陽臺水龍頭；B1 熱水器補水與 B1 水龍頭在地下室完成，不穿鋼板</td>
+      </tr>
+      <tr>
+        <td>DN20 熱水管</td>
+        <td><strong>6 分管（3/4"，DN20）</strong><br>外徑約 28 mm</td>
+        <td><strong>不鏽鋼壓接 SUS304</strong>（首選）</td>
+        <td>紅色標帶</td>
+        <td>B1 電熱水器經 B7 上升後的 1F 天花熱水主幹</td>
+      </tr>
+      <tr>
+        <td>DN15 熱水分支</td>
+        <td><strong>4 分管（1/2"，DN15）</strong><br>外徑約 22 mm</td>
+        <td><strong>不鏽鋼壓接 SUS304</strong>（首選）</td>
+        <td>紅色標帶</td>
+        <td>熱水分支：淋浴、洗手台</td>
+      </tr>
+      <tr class="highlight">
+        <td rowspan="9" style="background:#fff7ed;"><span class="pill warn">排水 / 套管</span></td>
+        <td>馬桶糞管</td>
+        <td><strong>3.5"（暫定）</strong><br>實際外徑下料前確認</td>
+        <td>PVC-U 厚管（橘色 / 灰色）</td>
+        <td>橘色</td>
+        <td>馬桶糞管（獨立走 1 支到化糞池）</td>
+      </tr>
+      <tr>
+        <td>DN40 小排水</td>
+        <td>1.5"（DN40）</td>
+        <td>PVC-U</td>
+        <td>灰色</td>
+        <td>洗手台排水</td>
+      </tr>
+      <tr>
+        <td>灰水主排水管</td>
+        <td>3"（DN75）</td>
+        <td>PVC-U 厚管</td>
+        <td>灰色</td>
+        <td>洗手台 + 衛生間地排 3 只匯入後，另接雨水 / 灰水排水，不進化糞池</td>
+      </tr>
+      <tr>
+        <td>DN50 地排</td>
+        <td>2"（DN50）</td>
+        <td>PVC-U</td>
+        <td>灰色</td>
+        <td>衛生間地排共 3 只（淋浴下方、馬桶旁、洗手槽旁）+ 前後陽臺地排；皆接 B1 灰水主排，不進化糞池。屋簷雨排另有左右兩支獨立管，冷氣冷凝水另走戶外不進化糞池</td>
+      </tr>
+      <tr>
+        <td>陽臺地排排水</td>
+        <td>2"（DN50）或依落水頭</td>
+        <td>PVC-U 厚管</td>
+        <td>灰色</td>
+        <td>前後陽臺地板上的地排，各自獨立支管接到 B1 灰水主排；不是屋簷雨排</td>
+      </tr>
+      <tr>
+        <td>屋簷雨水排水</td>
+        <td>2"~3"（依落水頭與師傅放樣）</td>
+        <td>PVC-U 厚管</td>
+        <td>灰色</td>
+        <td>屋簷 / 天溝左右兩側各一支獨立雨排；靠落地門側 R1 穿戶外廊道鋼板預留，另一支沿外牆走；兩支最後接 B1 雨水 / 灰水主排後出戶</td>
+      </tr>
+      <tr>
+        <td>冷氣冷凝水</td>
+        <td>3/4" PVC / 軟管（依機型）</td>
+        <td>PVC / 冷凝水專用軟管</td>
+        <td>淺藍或灰色</td>
+        <td>三台冷氣冷凝水皆到 B1 後轉出戶外；休息室那台因路徑碰到後陽臺，冷凝水與冷媒銅管共走 ACR1 穿後陽臺鋼板</td>
+      </tr>
+      <tr>
+        <td>冷媒銅管套管</td>
+        <td>套管暫抓 Φ75~100 mm，依冷氣機型</td>
+        <td>PVC 厚管 / 防水套管</td>
+        <td>標籤 ACR1</td>
+        <td>ACR1 只供休息室冷氣冷媒銅管 + 冷凝水穿後陽臺鋼板到 B1 壓縮機區；大廳、閣樓兩台沿房屋外側外牆下行</td>
+      </tr>
+      <tr>
+        <td>預留套管</td>
+        <td>SP1~SP3 預留管；SP1 給戶外活動插座群 / 臨時配電箱方向，必要時大於 1" 或增設第二支；SP2 給未來抽水馬達；SP3 備用；開孔 / 套管尺寸待水電師傅依實際管材確認</td>
+        <td>PVC 厚管，兩端封蓋</td>
+        <td>標籤 SP</td>
+        <td>保留日後追加管線；兩端需封蓋防蟲防水，標示兩端位置</td>
+      </tr>
+      <tr>
+        <td style="background:#f0fdf4;"><span class="pill ok">通氣</span></td>
+        <td>（陸方未畫）</td>
+        <td><strong>傳統屋外通氣管（2"）</strong></td>
+        <td>PVC-U 厚管 + 通氣帽 / 防雨帽</td>
+        <td>灰色</td>
+        <td>僅馬桶糞管近端補氣；灰水不設通氣管。管口直接在戶外高位收頭，遠離窗戶與進風口</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="block-title">3.1.1 水管 / 排水 / 預埋套管訂料核對表</h3>
+  <div class="callout warn">
+    <strong>訂料原則</strong>：本表是「不要漏項」清單，長度與實際支數仍以現場丈量為準。明天先以預埋套管、穿板孔、排水主路徑與 B1 設備區材料為優先，衛浴器具端零件可在器具型號確定後補齊。
+  </div>
+  <table>
+    <thead>
+      <tr><th>系統</th><th>品項</th><th>規格 / 數量抓法</th><th>對應位置</th><th>核對重點</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:#eff6ff;"><td><strong>山泉給水</strong></td><td>水塔進屋主管</td><td>1"（DN25）PE 管或不鏽鋼壓接管；長度現場丈量</td><td>水塔 → B1 三級過濾 / 加壓機</td><td>對應 C-IN1；套管尺寸待師傅確認，需保溫 / 防曬 / 防凍依現場環境處理</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>山泉給水</strong></td><td>三級過濾器</td><td>砂濾 + PP 棉 5μm + 活性碳，各 1 組</td><td>水塔出水後、加壓機前</td><td>保護加壓機與電熱水器；需旁通或可維修閥件</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>山泉給水</strong></td><td>加壓機 + 壓力桶 / 壓力罐</td><td>1/2 HP 220V 加壓機；壓力桶依師傅配置</td><td>B1 水泥地設備區</td><td>需止水閥、逆止閥、由任、壓力表、避震墊與維修空間；Z1 專用迴路</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>冷水</strong></td><td>加壓後出水主管</td><td>1"（DN25）或依水力計算；長度現場丈量</td><td>加壓機 / 總閥後 → B1 水龍頭 + 1F 冷水主幹</td><td>對應 C-OUT1；先分 B1 水龍頭與熱水器補水，再穿 B1 鋼構層進 1F</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>冷水</strong></td><td>1F 冷水主幹</td><td>3/4"（DN20）</td><td>1F 衛生間天花</td><td>由 1" 主幹降徑後分歧；需留檢修與固定吊架</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>冷水</strong></td><td>冷水分支管</td><td>1/2"（DN15），8 個冷水末端</td><td>B1 熱水器補水、B1 水龍頭、淋浴、洗手台、免治馬桶、馬桶旁小噴槍、前後陽臺水龍頭</td><td>B1 熱水器補水與 B1 水龍頭不穿鋼板；馬桶旁小噴槍需獨立角閥或與免治馬桶分接後各自可關</td></tr>
+      <tr style="background:#eff6ff;"><td><strong>給水配件</strong></td><td>閥件 / 接頭 / 固定件</td><td>1" 總閥、逆止閥、由任、壓力表、1/2" 角閥、管夾吊架，數量依現場</td><td>B1 設備區、衛生間、前後陽臺</td><td>加壓機前後、過濾器前後、熱水器補水、B1 水龍頭、免治馬桶與小噴槍都要可單獨關水維修</td></tr>
+      <tr style="background:#fee2e2;"><td><strong>熱水</strong></td><td>B1 電熱水器冷水補水 / 熱水出水</td><td>冷水 1/2" 或依機型；熱水上升 3/4"（DN20）</td><td>B1 30 加侖電熱水器 → B7 → 1F 天花</td><td>熱水管全程保溫；B7 套管需容納保溫棉；WH1 型號確定後再定閥件與接頭</td></tr>
+      <tr style="background:#fee2e2;"><td><strong>熱水</strong></td><td>熱水分支管</td><td>1/2"（DN15），2 個熱水末端</td><td>淋浴、洗手台</td><td>免治馬桶只接冷水；熱水不供馬桶旁小噴槍</td></tr>
+      <tr style="background:#fee2e2;"><td><strong>熱水配件</strong></td><td>保溫棉 / 耐熱接頭</td><td>熱水管保溫棉、耐熱接頭、固定管夾，數量依現場</td><td>B1 電熱水器出口、B7、1F 天花熱水主幹</td><td>熱水上升管與天花內熱水管需保溫，避免熱損與冷凝</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>黑水</strong></td><td>馬桶糞管</td><td>3.5" 暫定；實際外徑與管材下料前確認</td><td>B2 → B1 橫管 → 右前方坡地下化糞池</td><td>獨立一支，不接灰水；用 45° 彎減少阻塞，需清潔口</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>黑水</strong></td><td>糞管屋外通氣</td><td>2" PVC-U 厚管 + 通氣帽 / 防雨帽</td><td>B1 糞管高點取氣 → 外牆 → 屋外高位收頭</td><td>灰水不設通氣；通氣口遠離窗戶、進風口與常停留區</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>灰水</strong></td><td>灰水主排水管</td><td>3"（DN75）PVC-U 厚管</td><td>B1 灰水 / 雨水主排</td><td>接洗手台、衛生間 3 地排、前後陽臺地排與屋簷雨排後出戶，不進化糞池</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>灰水</strong></td><td>洗手台排水</td><td>1.5"（DN40）PVC-U + 防臭型下水 / 存水彎</td><td>B3</td><td>不寫死純 S 彎；由師傅依空間選防臭型式</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>排水配件</strong></td><td>清潔口 / 45° 彎 / 管夾吊架</td><td>3.5"、3"、2"、1.5" 對應配件，數量依現場</td><td>B1 黑水橫管、灰水主排、各地排支管</td><td>糞管轉折與長距離橫管需留清潔口；優先用 45° 彎減少阻塞</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>地排</strong></td><td>衛生間防臭地排</td><td>2"（DN50）支管 + 防臭地排 3 只</td><td>B4 淋浴下方、B5 馬桶旁、B6 洗手槽旁</td><td>總共 3 只，淋浴已包含在內，不能再多算第 4 只</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>地排</strong></td><td>前後陽臺地排</td><td>2"（DN50）支管 + 防臭落水頭 / 地排 2 只</td><td>前陽臺、後陽臺</td><td>這是陽臺地板排水，不是屋簷雨排；各自獨立支管接 B1 灰水主排</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>雨水</strong></td><td>屋簷 / 天溝雨排</td><td>2"~3" PVC-U 厚管，左右各 1 支</td><td>R1 靠落地門側穿戶外廊道鋼板；R2 沿外牆</td><td>R1 需先留穿板套管；R2 不穿鋼板但仍需落水頭、管夾與出戶接點</td></tr>
+      <tr style="background:#e0f2fe;"><td><strong>冷氣</strong></td><td>冷凝水管</td><td>3/4" PVC / 冷凝水軟管，3 台冷氣</td><td>大廳、休息室、閣樓 → B1 後轉戶外</td><td>休息室與冷媒共走 ACR1 穿後陽臺鋼板；冷凝水不進化糞池</td></tr>
+      <tr style="background:#e0f2fe;"><td><strong>冷氣</strong></td><td>冷媒銅管套管</td><td>ACR1 暫抓 Φ75~100 mm，依冷氣機型</td><td>休息室冷氣穿後陽臺鋼板</td><td>需容納冷媒銅管、保溫、控制線與冷凝水；大廳、閣樓沿外牆下行</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>預埋套管</strong></td><td>B1~B7 / R1 / ACR1</td><td>依 3.3 穿孔表開孔</td><td>B1 鋼構樓板、戶外廊道鋼板、後陽臺鋼板</td><td>套管先固定，孔位避梁，管口封蓋並貼標籤</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>B1 水泥地預埋</strong></td><td>C-PWR1 / C-ELV1 / C-IN1 / C-OUT1 / C-GND1</td><td>強弱電與水管分管；尺寸待師傅確認</td><td>地下室水泥地澆置前</td><td>所有穿水泥地管線由水泥底部穿出，管口高出完成面，保留拉線繩</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>預留管</strong></td><td>SP1 / SP2 / SP3</td><td>SP1 可能需大於 1" 或增設第二支；SP2 / SP3 暫 1"</td><td>SP1 戶外活動插座群 / 臨時配電箱；SP2 未來抽水馬達；SP3 備用</td><td>三支都要兩端封蓋、拉線繩、標籤；SP1 管徑明天務必問師傅</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block-title">3.2 衛生間內部剖面圖（1F 工班施工用）</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+
+      <defs>
+        <pattern id="ceilpat" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line stroke="#cbd5e1" stroke-width="1" y2="12"/>
+        </pattern>
+        <pattern id="floorpat" width="14" height="14" patternUnits="userSpaceOnUse">
+          <rect width="14" height="14" fill="#f5f5f4"/>
+          <line stroke="#d6d3d1" stroke-width="0.8" x1="0" y1="14" x2="14" y2="14"/>
+          <line stroke="#d6d3d1" stroke-width="0.8" x1="0" y1="0" x2="0" y2="14"/>
+        </pattern>
+        <pattern id="b1pat" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line stroke="#94a3b8" stroke-width="1.2" y2="10"/>
+        </pattern>
+      </defs>
+
+      <!-- 牆體 -->
+      <rect x="120" y="60" width="880" height="520" fill="#fffef7" stroke="#334155" stroke-width="2"/>
+      <!-- 吊頂 -->
+      <rect x="120" y="60" width="880" height="60" fill="url(#ceilpat)" opacity="0.4"/>
+      <line x1="120" y1="120" x2="1000" y2="120" stroke="#334155" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="135" y="90" font-size="12" fill="#475569" font-weight="600">衛生間吊頂內（糞管通氣支管 + 管路空間；灰水不設通氣）</text>
+
+      <!-- 地板 -->
+      <rect x="120" y="460" width="880" height="14" fill="url(#floorpat)"/>
+      <line x1="120" y1="460" x2="1000" y2="460" stroke="#334155" stroke-width="2"/>
+
+      <!-- B1 鋼構層 -->
+      <rect x="120" y="474" width="880" height="106" fill="url(#b1pat)" opacity="0.2"/>
+      <text x="140" y="555" font-size="11" fill="#64748b">B1 鋼構層（吊頂下走橫管）</text>
+
+      <!-- 高度尺 (左側) -->
+      <line x1="90" y1="60" x2="90" y2="460" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="85" y1="60" x2="95" y2="60" stroke="#94a3b8"/>
+      <line x1="85" y1="460" x2="95" y2="460" stroke="#94a3b8"/>
+      <text x="48" y="65" font-size="10" fill="#64748b">吊頂</text>
+      <text x="48" y="75" font-size="10" fill="#64748b">+2400</text>
+      <text x="52" y="460" font-size="10" fill="#64748b">±0</text>
+      <text x="48" y="472" font-size="10" fill="#64748b">地板</text>
+
+      <!-- 標高水平虛線 -->
+      <line x1="100" y1="300" x2="120" y2="300" stroke="#94a3b8" stroke-dasharray="3,3"/>
+      <text x="46" y="303" font-size="9" fill="#94a3b8">H=900</text>
+      <line x1="100" y1="400" x2="120" y2="400" stroke="#94a3b8" stroke-dasharray="3,3"/>
+      <text x="46" y="403" font-size="9" fill="#94a3b8">H=300</text>
+
+      <!-- ═════════ 屋外糞管通氣 ═════════ -->
+      <g>
+        <rect x="540" y="72" width="120" height="32" fill="#dcfce7" stroke="#1a7f4a" stroke-width="2" rx="4"/>
+        <text x="600" y="88" font-size="12" font-weight="700" fill="#1a7f4a" text-anchor="middle">屋外糞管通氣</text>
+        <text x="600" y="100" font-size="9" fill="#166534" text-anchor="middle">傳統 2"</text>
+        <!-- 維修蓋 -->
+        <rect x="430" y="104" width="50" height="10" fill="#fef3c7" stroke="#92400e" stroke-width="1.2"/>
+        <text x="320" y="112" font-size="10" fill="#92400e">← 維修蓋 200×200 mm</text>
+      </g>
+      <!-- ═════════ 灰水不設通氣 ═════════ -->
+      <g>
+        <rect x="200" y="72" width="120" height="32" fill="#f1f5f9" stroke="#64748b" stroke-width="2" rx="4"/>
+        <text x="260" y="88" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">灰水無通氣</text>
+        <text x="260" y="100" font-size="9" fill="#64748b" text-anchor="middle">不設通氣管</text>
+      </g>
+      <text x="268" y="200" font-size="9" fill="#64748b">防臭靠</text>
+      <text x="268" y="212" font-size="9" fill="#64748b">各地排</text>
+
+      <!-- ═════════ 淋浴 (最左) ═════════ -->
+      <g>
+        <!-- 淋浴花灑 -->
+        <circle cx="200" cy="200" r="10" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+        <line x1="200" y1="210" x2="200" y2="260" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- 龍頭 -->
+        <rect x="178" y="275" width="44" height="10" fill="#64748b" stroke="#334155" stroke-width="1"/>
+        <!-- 地面 -->
+        <rect x="160" y="450" width="90" height="10" fill="#e0e7ff" stroke="#334155"/>
+        <text x="205" y="165" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">淋浴</text>
+        <text x="205" y="445" font-size="8" fill="#64748b" text-anchor="middle">花灑 H=2100</text>
+      </g>
+      <!-- 淋浴冷水 + 熱水角閥 -->
+      <line x1="185" y1="120" x2="185" y2="275" stroke="#1e6fb8" stroke-width="3"/>
+      <line x1="215" y1="120" x2="215" y2="275" stroke="#c0392b" stroke-width="3"/>
+      <circle cx="185" cy="280" r="4" fill="#1e6fb8"/>
+      <circle cx="215" cy="280" r="4" fill="#c0392b"/>
+      <text x="155" y="262" font-size="9" fill="#0c4a6e" text-anchor="end">冷</text>
+      <text x="230" y="262" font-size="9" fill="#991b1b">熱</text>
+      <!-- 淋浴地漏 + 水封存水彎 -->
+      <ellipse cx="205" cy="455" rx="20" ry="4" fill="#94a3b8" stroke="#334155"/>
+      <path d="M205 460 L205 475 Q205 488 216 488 Q227 488 227 475 L227 495" fill="none" stroke="#64748b" stroke-width="3.5"/>
+      <text x="237" y="485" font-size="9" fill="#475569">深碗</text>
+      <text x="237" y="498" font-size="9" fill="#475569">存水彎</text>
+      <line x1="227" y1="495" x2="227" y2="540" stroke="#64748b" stroke-width="3.5"/>
+      <text x="232" y="525" font-size="9" fill="#64748b">淋浴 2"</text>
+
+      <!-- ═════════ 洗手台 ═════════ -->
+      <g>
+        <rect x="330" y="300" width="150" height="16" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+        <rect x="365" y="316" width="80" height="40" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <ellipse cx="405" cy="336" rx="30" ry="10" fill="#e0e7ff" stroke="#334155" stroke-width="1"/>
+        <rect x="390" y="288" width="30" height="14" fill="#94a3b8" stroke="#334155"/>
+        <rect x="395" y="274" width="20" height="15" fill="#94a3b8"/>
+        <rect x="380" y="272" width="50" height="5" fill="#64748b"/>
+        <text x="405" y="265" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">洗手台</text>
+        <text x="405" y="375" font-size="9" fill="#64748b" text-anchor="middle">檯面高 +850 mm</text>
+      </g>
+      <!-- 洗手台冷水 -->
+      <line x1="380" y1="120" x2="380" y2="395" stroke="#1e6fb8" stroke-width="3"/>
+      <circle cx="380" cy="398" r="4" fill="#1e6fb8"/>
+      <text x="340" y="395" font-size="9" fill="#0c4a6e" text-anchor="end">冷 H=400</text>
+      <!-- 洗手台熱水 -->
+      <line x1="430" y1="120" x2="430" y2="395" stroke="#c0392b" stroke-width="3"/>
+      <circle cx="430" cy="398" r="4" fill="#c0392b"/>
+      <text x="470" y="395" font-size="9" fill="#991b1b">熱 H=400</text>
+      <!-- 防臭下水 -->
+      <path d="M405 356 L405 400 Q405 420 417 420 Q429 420 429 405 L429 460" fill="none" stroke="#64748b" stroke-width="3"/>
+      <text x="440" y="425" font-size="10" fill="#475569">防臭下水</text>
+      <text x="440" y="438" font-size="9" fill="#64748b">1.5"</text>
+
+      <!-- ═════════ 免治馬桶 ═════════ -->
+      <g>
+        <rect x="570" y="350" width="60" height="60" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <path d="M550 410 Q550 420 560 430 L630 430 Q650 420 650 410 L650 450 L550 450 Z" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <ellipse cx="600" cy="420" rx="40" ry="8" fill="#e0e7ff" stroke="#334155"/>
+        <text x="600" y="340" font-size="11" font-weight="600" fill="#334155" text-anchor="middle">免治馬桶</text>
+        <text x="600" y="475" font-size="9" fill="#64748b" text-anchor="middle">底座排出口 H=+200</text>
+      </g>
+      <!-- 馬桶冷水 (水箱進水) - 免治馬桶只接冷水 -->
+      <line x1="545" y1="120" x2="545" y2="380" stroke="#1e6fb8" stroke-width="3"/>
+      <circle cx="545" cy="383" r="4" fill="#1e6fb8"/>
+      <text x="510" y="380" font-size="9" fill="#0c4a6e" text-anchor="end">冷水</text>
+      <text x="510" y="392" font-size="8" fill="#475569" text-anchor="end">(免治內建</text>
+      <text x="510" y="403" font-size="8" fill="#475569" text-anchor="end">加熱)</text>
+      <!-- 馬桶糞管 -->
+      <line x1="600" y1="450" x2="600" y2="540" stroke="#ea580c" stroke-width="9"/>
+      <text x="615" y="495" font-size="13" font-weight="700" fill="#ea580c">糞管 3.5"</text>
+      <text x="615" y="510" font-size="10" fill="#9a3412">暫定，獨立一支到化糞池</text>
+
+      <!-- 糞管通氣支管 -->
+      <line x1="600" y1="104" x2="600" y2="350" stroke="#1a7f4a" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="607" y="240" font-size="9" fill="#166534">2" 通氣</text>
+      <text x="607" y="252" font-size="9" fill="#166534">支管（接糞管）</text>
+
+      <!-- ═════════ 另兩個乾區地排（淋浴下方為第三個地排） ═════════ -->
+      <g>
+        <rect x="760" y="450" width="70" height="12" fill="#fff" stroke="#334155" stroke-width="1.5"/>
+        <rect x="775" y="454" width="40" height="5" fill="#94a3b8"/>
+        <text x="795" y="445" font-size="11" font-weight="600" fill="#334155" text-anchor="middle">乾區地排×2</text>
+        <text x="795" y="482" font-size="9" fill="#64748b" text-anchor="middle">防臭型地排（依師傅選型）</text>
+      </g>
+      <!-- 地排存水彎 -->
+      <path d="M795 462 L795 475 Q795 488 805 488 Q815 488 815 475 L815 495" fill="none" stroke="#64748b" stroke-width="3"/>
+      <text x="825" y="482" font-size="9" fill="#475569">水封</text>
+      <line x1="815" y1="495" x2="815" y2="540" stroke="#64748b" stroke-width="3"/>
+      <text x="820" y="525" font-size="10" fill="#475569">乾區地排 2"</text>
+
+      <!-- ═════════ B1 橫管 ═════════ -->
+      <line x1="227" y1="540" x2="1000" y2="555" stroke="#64748b" stroke-width="4"/>
+      <line x1="429" y1="540" x2="1000" y2="555" stroke="#64748b" stroke-width="3"/>
+      <line x1="600" y1="540" x2="1000" y2="555" stroke="#ea580c" stroke-width="7"/>
+      <line x1="815" y1="540" x2="1000" y2="557" stroke="#64748b" stroke-width="3"/>
+        <text x="830" y="535" font-size="11" fill="#334155" font-weight="600">B1 吊頂下橫管：糞管→化糞池；灰水→雨水排水</text>
+      <polygon points="994,552 1008,558 994,564" fill="#ea580c"/>
+
+      <!-- 牆體剖面標示 (右側) -->
+      <g>
+        <line x1="1010" y1="120" x2="1010" y2="460" stroke="#94a3b8" stroke-width="1"/>
+        <text x="1020" y="155" font-size="10" fill="#475569">B1設有</text>
+        <text x="1020" y="170" font-size="10" fill="#475569">B1電熱水器</text>
+        <text x="1020" y="182" font-size="9" fill="#64748b">（地下室設備區）</text>
+        <text x="1020" y="220" font-size="10" fill="#475569">冷水主管由</text>
+        <text x="1020" y="233" font-size="10" fill="#475569">水塔 ↘ B1 ↗</text>
+        <text x="1020" y="245" font-size="10" fill="#475569">1F 天花</text>
+      </g>
+
+      <!-- 圖例 (頂部) -->
+      <g transform="translate(140, 35)">
+        <rect x="-10" y="-18" width="700" height="30" fill="#ffffff" stroke="#e2e8f0" rx="4"/>
+        <text x="0" y="0" font-size="11" font-weight="700" fill="#334155">圖例</text>
+        <line x1="55" y1="-4" x2="83" y2="-4" stroke="#1e6fb8" stroke-width="3"/><text x="87" y="0" font-size="10" fill="#0c4a6e">冷水主幹 6分 / 分支4分</text>
+        <line x1="210" y1="-4" x2="238" y2="-4" stroke="#c0392b" stroke-width="3"/><text x="242" y="0" font-size="10" fill="#991b1b">熱水主幹 6分 / 分支4分</text>
+        <line x1="255" y1="-4" x2="283" y2="-4" stroke="#ea580c" stroke-width="6"/><text x="287" y="0" font-size="10" fill="#9a3412">糞管 3.5"</text>
+        <line x1="345" y1="-4" x2="373" y2="-4" stroke="#64748b" stroke-width="3"/><text x="377" y="0" font-size="10" fill="#334155">主排 3" / 支管 1.5"~2"</text>
+        <line x1="455" y1="-4" x2="483" y2="-4" stroke="#1a7f4a" stroke-width="2" stroke-dasharray="4,2"/><text x="487" y="0" font-size="10" fill="#166534">糞管通氣</text>
+        <text x="535" y="0" font-size="10" fill="#475569">H = 高度 mm（地面為 ±0）</text>
+      </g>
+    </svg>
+    <div class="diagram-caption">圖 2・衛生間內部剖面（依陸方原圖一樓給排水平面圖位置繪製，高度為台灣常用 CNS 施工值）</div>
+  </div>
+
+
+  <!-- 3.3 穿孔總清單：B1 鋼構樓板 / 戶外廊道鋼板 / 後陽臺鋼板 / 外牆套管 -->
+  <h3 class="block-title">3.3 穿孔總清單（B1 鋼構樓板 / 戶外廊道鋼板 / 後陽臺鋼板 / 外牆套管）</h3>
+  <div class="callout info">
+    <strong>穿孔定位原則</strong>：B1 開孔先採「相對定位」，絕對座標於現場放樣確認。以 1F 衛生間完成面、器具中心線、濕牆線為基準，B1~B7 集中在浴室側樓層鋼板與濕牆管道帶；排水孔盡量垂直落在各器具正下方。B1 地下室設備區的電熱水器以 B7 熱水上升管穿鋼板到 1F 天花。EL1 電源主幹另走乾區/電氣路徑，避免與原施工圖 E1 休息室筒燈代號混淆。靠落地門側屋簷雨排為 R1，會穿戶外廊道鋼板，不列入浴室側 B1~B7 孔群；另一支屋簷雨排沿外牆走，不穿鋼板。休息室冷氣的冷媒銅管與冷凝水因路徑碰到後陽臺，走 ACR1 穿後陽臺鋼板到 B1 壓縮機區。SP1~SP3 為預留管，暫定 SP1 給戶外活動插座群 / 臨時配電箱方向（管徑需依未來迴路數確認，必要時大於 1" 或增設第二支）、SP2 給未來抽水馬達方向、SP3 留作其他未來需求，位置現場放樣。現場放樣時必須把 B1 鋼梁中心線、翼板、柱位標出，所有孔位離鋼梁邊與焊接/螺栓節點至少保留 100 mm，禁止穿主梁。
+  </div>
+  <table>
+    <thead>
+      <tr><th>編號</th><th>內容</th><th>台灣管徑</th><th>套管開孔</th><th>方向</th><th>備註</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>B1</strong></td><td>冷水進屋主管</td><td>1"（DN25）</td><td>Φ50 mm</td><td>↑ 上升</td><td>B1 加壓機/總閥到屋內主幹；進 1F 天花後降為 3/4"（DN20）</td></tr>
+      <tr class="highlight"><td><strong>B2</strong></td><td>馬桶糞管（免治）</td><td><strong>3.5"（暫定）</strong></td><td>暫抓 Φ110~125 mm</td><td>↓ 下降</td><td>不是地排；孔位優先對準馬桶法蘭中心，獨立往右前方坡地下化糞池；套管依實際管外徑 + 10 mm 放樣</td></tr>
+      <tr><td><strong>B3</strong></td><td>洗手台排水</td><td>1.5"（DN40）</td><td>Φ60 mm</td><td>↓ 下降</td><td>上方接防臭型下水 / 防臭型存水彎，不寫死純 S 彎；可用 45° 彎微調避梁</td></tr>
+      <tr><td><strong>B4</strong></td><td>淋浴下方地排</td><td>2"（DN50）</td><td>Φ75 mm</td><td>↓ 下降</td><td>防臭型地排，優先直落，必要時短距離橫移</td></tr>
+      <tr><td><strong>B5</strong></td><td>馬桶旁地排</td><td>2"（DN50）</td><td>Φ75 mm</td><td>↓ 下降</td><td>防臭型地排，供乾區清洗與窗邊濕氣排水；與 B4 匯入灰水 / 雨水排水，不進化糞池</td></tr>
+      <tr><td><strong>B6</strong></td><td>洗手槽旁地排</td><td>2"（DN50）</td><td>Φ75 mm</td><td>↓ 下降</td><td>防臭型地排，位置靠洗手槽 / 洗手台側；與 B4、B5 一起形成衛生間 3 個地排，匯入灰水 / 雨水排水</td></tr>
+      <tr class="highlight"><td><strong>B7</strong></td><td>熱水上升管（B1 電熱水器出水）</td><td>3/4"（DN20）</td><td>Φ75 mm 建議</td><td>↑ 上升</td><td>B1 電熱水器熱水出口 → 穿鋼板進 1F 天花熱水主幹；套管需容納保溫棉與熱脹冷縮，熱水管全程保溫</td></tr>
+      <tr class="highlight"><td><strong>R1</strong></td><td>靠落地門側屋簷雨排穿戶外廊道鋼板</td><td>2"~3"</td><td>依管徑 + 10 mm，暫抓 Φ75~110 mm</td><td>↓ / ↘ 排水</td><td>屋簷 / 天溝落水管 R1 先穿戶外廊道鋼板預留，再下到 B1 雨水 / 灰水主排；孔位不得穿主梁，套管與防水收邊需獨立標示。另一支屋簷雨排沿外牆走，不穿鋼板</td></tr>
+      <tr class="highlight"><td><strong>ACR1</strong></td><td>休息室冷氣銅管 + 冷凝水穿後陽臺鋼板</td><td>冷媒銅管依機型<br>冷凝水 3/4"</td><td>暫抓 Φ75~100 mm，依機型</td><td>↔ / ↓</td><td>休息室那台冷氣沿外牆出來會碰到後陽臺，因此冷媒銅管、保溫、控制線與冷凝水共走 ACR1 穿後陽臺鋼板，到 B1 地下室壓縮機區；冷凝水到 B1 後再轉出戶外地面 / 雨水側</td></tr>
+      <tr><td><strong>SP1</strong></td><td>戶外活動插座群 / 臨時配電箱預留管</td><td>暫記 1"（DN25）；可能需上修或增設第二支</td><td>待水電師傅確認</td><td>預留</td><td>優先給戶外活動插座群 / 臨時配電箱方向；兩端封蓋並貼標籤「SP1 戶外活動」，管徑依未來戶外迴路數與拉線距離確認</td></tr>
+      <tr><td><strong>SP2</strong></td><td>未來抽水馬達預留管</td><td>1"（DN25）；可能依馬達 HP / 距離上修</td><td>待水電師傅確認</td><td>預留</td><td>兩端封蓋並貼標籤「SP2 未來抽水馬達」；位置由現場放樣決定</td></tr>
+      <tr><td><strong>SP3</strong></td><td>其他未來需求預留管</td><td>1"（DN25）</td><td>待水電師傅確認</td><td>預留</td><td>兩端封蓋並貼標籤「SP3 備用」；所有預留管需封蓋防水防蟲</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>EL1</strong></td><td><strong>電源主幹（進戶）</strong></td><td>L1 / L2 / N 建議<strong>至少 22 mm²</strong><br>接地線依主開關容量校核</td><td><strong>Φ75 mm 建議</strong><br>或 Φ50 + 備用管</td><td>↑ 上升</td><td>從 B1 進戶位置上升到 1F 大廳分電盤；22 mm² 作為討論下限，不再以 8.0 mm² × 4 色下料；需依台電申請容量、主開關、線長、電熱水器、冷氣、戶外活動用電與 Z2 未來抽水馬達校核，必要時再上修</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <strong>施工時機</strong>：必須在 B1 鋼構樓板封板（混凝土澆築 / OSB 地板鋪設）<strong>之前</strong>完成套管預埋。
+    套管孔徑以「管外徑 + 至少 10 mm」取整到常用開孔尺寸，縫隙以發泡填縫劑或防火填塞材填實，避免剛性接觸導致管材龜裂。
+    <strong>電源主幹 EL1</strong>用保護管穿入（EMT 或 PVC 厚管），因為木構造防火要求嚴格。EL1 不列入浴室側 B1~B7 水管孔群；WH1 電熱水器電源在 B1 設備區就近配置防潮設備箱 / 隔離開關。R1、ACR1、SP1~SP3 需在現場另外標在戶外廊道 / 後陽臺 / 外牆對應位置，與浴室孔群分開放樣；SP1~SP2 優先預留給戶外活動插座群 / 臨時配電箱與未來抽水馬達，避免日後再打水泥地。
+  </div>
+
+  <h3 class="block-title">3.3.1 B1 地下室水泥地預埋管線（澆置前）</h3>
+  <div class="callout warn">
+    <strong>明天監工先看這張</strong>：地下室水泥地澆置前，凡是會穿過水泥地的管線都先用套管由水泥底部穿出；套管需固定、不漂浮，兩端封蓋，管口高出完成面，並貼上編號標籤。
+  </div>
+  <table>
+    <thead>
+      <tr><th>編號</th><th>內容</th><th>管徑 / 套管</th><th>完整路徑</th><th>澆置前確認</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fff7ed;"><td><strong>C-PWR1</strong></td><td>強電進戶 / 設備電源套管</td><td>EMT 或 PVC 厚管；尺寸由電工依進戶線徑與迴路數確認</td><td>戶外 / 台電側或 B1 底部 → 由水泥地底部穿出 → B1 設備區 / 1F 分電盤方向</td><td>與弱電分管；保留拉線繩；轉彎半徑需可拉線；管口高出完成面並防水封蓋</td></tr>
+      <tr style="background:#f8fafc;"><td><strong>C-ELV1</strong></td><td>弱電套管</td><td>建議至少 1"；依網路、監控、感測線數量確認</td><td>弱電入戶 / 戶外設備方向 → 由水泥地底部穿出 → 弱電箱或設備預留位</td><td>與強電分開走；交叉時盡量 90°；保留拉線繩並標示兩端</td></tr>
+      <tr><td><strong>C-IN1</strong></td><td>水塔到屋子的進水管</td><td>1"（DN25）冷水主管；套管尺寸待水電師傅確認</td><td>水塔出水 → 水泥地底部穿出 → B1 三級過濾器 / 加壓機 / 總閥</td><td>套管與水管保留間隙；穿出點需靠近 B1 設備區，方便裝止水閥、過濾器與加壓機</td></tr>
+      <tr><td><strong>C-OUT1</strong></td><td>加壓後出水管</td><td>1"（DN25）或依水電師傅水力計算；套管尺寸待水電師傅確認</td><td>B1 水泥地上加壓機 / 總閥後 → 分一支給 B1 地下室水龍頭 → 另一支由水泥地底部穿出或轉入 B1 立管位置 → B1 / B7 管群往 1F 供水</td><td>現場用箭頭標清楚出水方向；與 C-IN1 分色或貼不同標籤，避免進出水接反</td></tr>
+      <tr style="background:#ecfdf5;"><td><strong>C-GND1</strong></td><td>接地線 / 接地棒導線路徑</td><td>依電工配置；需要套管時先預留</td><td>接地棒 / 接地極 → B1 由水泥地底部穿出 → 分電盤接地端子</td><td>與強電進戶一起現場確認；澆置前把接地路徑、測試點與標籤留好</td></tr>
+      <tr><td><strong>SP1</strong></td><td>戶外活動插座群 / 臨時配電箱預留管</td><td>暫記 1"（DN25）；若未來要多迴路 / 臨時配電箱，管徑需由水電師傅上修確認</td><td>水泥地底部 → B1 / 戶外防潮副電箱或戶外活動區方向</td><td>兩端封蓋，拉線繩，標籤「SP1 戶外活動」；請師傅確認 1" 是否足夠，必要時改大管或增設第二支</td></tr>
+      <tr><td><strong>SP2</strong></td><td>未來抽水馬達預留管</td><td>1"（DN25）；開孔 / 套管尺寸待水電師傅確認，必要時依馬達 HP / 距離上修</td><td>水泥地底部 → B1 / 戶外防潮副電箱 → 未來抽水馬達預定方向</td><td>兩端封蓋，拉線繩，標籤「SP2 未來抽水馬達」</td></tr>
+      <tr><td><strong>SP3</strong></td><td>其他未來需求預留管</td><td>1"（DN25）；開孔 / 套管尺寸待水電師傅確認</td><td>水泥地底部 → B1 設備區或其他未來設備方向</td><td>兩端封蓋，拉線繩，標籤「SP3 備用」</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>B1 設備落地備註</strong>：加壓機、30 加侖電熱水器與三台冷氣壓縮機都放在地下室水泥地上。加壓機需避震墊、止水閥與維修空間；加壓機出水後另分一支 B1 地下室水龍頭，供清洗與維修使用。冷氣壓縮機需留散熱通風、排熱方向、維修空間與冷凝水轉出戶外路徑。
+  </div>
+
+  <h3 class="block-title">3.4 外牆 / 設備點位清單（木屋組立時 / 組立後）</h3>
+  <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px;">這些是外牆或設備端點位。B1 電熱水器的熱水由 B7 穿鋼板上升。V1 為糞管傳統屋外通氣出口；灰水不設通氣管。陽臺地排與屋簷雨排分開列；W14 / ACR1 為休息室冷氣銅管 + 冷凝水穿後陽臺鋼板。</p>
+  <table>
+    <thead>
+      <tr><th>編號</th><th>內容</th><th>台灣管徑</th><th>套管開孔</th><th>位置</th><th>備註</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>W5</strong></td><td>前陽臺水龍頭冷水</td><td>1/2"（DN15）</td><td>Φ32 mm</td><td>前外牆</td><td>沿 1F 天花冷水主管分支</td></tr>
+      <tr><td><strong>W6</strong></td><td>後陽臺水龍頭冷水</td><td>1/2"（DN15）</td><td>Φ32 mm</td><td>後外牆</td><td>沿 1F 天花冷水主管分支</td></tr>
+      <tr><td><strong>W7</strong></td><td>大廳冷氣冷媒 + 冷凝水</td><td>冷媒銅管依機型<br>冷凝水 3/4"</td><td>依機型</td><td>1F 大廳外牆</td><td>直接沿房屋外側外牆下到 B1 壓縮機區，冷凝水再轉出戶外</td></tr>
+      <tr><td><strong>W8</strong></td><td>休息室冷氣冷媒 + 冷凝水</td><td>冷媒銅管依機型<br>冷凝水 3/4"</td><td>見 ACR1</td><td>休息室外牆 → 後陽臺</td><td>此台會碰到後陽臺，需走 W14 / ACR1 穿後陽臺鋼板到 B1 壓縮機區</td></tr>
+      <tr><td><strong>W9</strong></td><td>閣樓冷氣冷媒 + 冷凝水</td><td>冷媒銅管依機型<br>冷凝水 3/4"</td><td>依機型</td><td>閣樓外牆</td><td>直接沿房屋外側外牆下到 B1 壓縮機區，冷凝水再轉出戶外</td></tr>
+      <tr><td><strong>W10</strong></td><td>1F 大廳小排氣扇</td><td>—</td><td>依機型 Φ100~150 mm</td><td>大廳高位外牆</td><td>台規低噪音機型；需防雨罩、逆止風門、紗網與獨立開關/定時器</td></tr>
+      <tr><td><strong>W11</strong></td><td>閣樓小排氣扇</td><td>—</td><td>依機型 Φ100~150 mm</td><td>閣樓高位外牆</td><td>睡眠區建議低噪音、可弱速或定時；需補氣縫/可開窗</td></tr>
+      <tr><td><strong>W12</strong></td><td>前陽臺地排</td><td>2"（DN50）</td><td>依地排落水頭</td><td>前陽臺低點</td><td>陽臺地板排水，獨立支管接 B1 灰水主排；不是屋簷雨排</td></tr>
+      <tr><td><strong>W13</strong></td><td>後陽臺地排</td><td>2"（DN50）</td><td>依地排落水頭</td><td>後陽臺低點</td><td>陽臺地板排水，獨立支管接 B1 灰水主排；不是屋簷雨排</td></tr>
+      <tr><td><strong>R1</strong></td><td>靠落地門側屋簷雨排</td><td>2"~3"</td><td>依雨排管徑 + 10 mm</td><td>靠落地門側屋簷 / 天溝</td><td>此支先穿戶外廊道鋼板預留，再下到 B1 雨水 / 灰水主排</td></tr>
+      <tr><td><strong>R2</strong></td><td>另一側屋簷雨排</td><td>2"~3"</td><td>依落水頭與管徑</td><td>另一側屋簷 / 天溝</td><td>沿外牆下到 B1 雨水 / 灰水主排，不穿戶外廊道鋼板</td></tr>
+      <tr><td><strong>W14 / ACR1</strong></td><td>休息室冷氣銅管 + 冷凝水穿後陽臺鋼板</td><td>冷媒銅管依機型<br>冷凝水 3/4"</td><td>暫抓 Φ75~100 mm</td><td>後陽臺穿板位置</td><td>給休息室冷氣冷媒銅管、保溫、控制線與冷凝水通過，到 B1 壓縮機區；冷凝水到 B1 後轉出戶外</td></tr>
+      <tr><td><strong>V1</strong></td><td>糞管傳統屋外通氣出口</td><td>2"（DN50）</td><td>Φ75 mm</td><td>B1 糞管側外牆 → 屋外高位立管</td><td>從 B1 地板高度附近出外牆，再於屋外立管往上；管口需高於衛浴器具溢水位並遠離可開窗、排氣扇進風與人常停留位置。灰水不設通氣</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>重點</strong>：B1 電熱水器的熱水由 B7 穿鋼板上升。前後陽臺地排是地板排水，各自獨立支管；屋簷雨排是屋簷 / 天溝落水，左右各一支，其中靠落地門側 R1 穿戶外廊道鋼板，另一支 R2 沿外牆走。休息室冷氣走 W14 / ACR1 穿後陽臺鋼板；大廳與閣樓冷氣沿房屋外牆直接下到 B1 壓縮機區。
+  </div>
+
+  <!-- 測試驗收 -->
+  <h3 class="block-title">3.5 水系統驗收標準</h3>
+  <div class="three-col">
+    <div class="card">
+      <div class="k">給水加壓測試</div>
+      <div class="v">10 kgf/cm² × 30 分鐘</div>
+      <div class="note">無洩漏，壓力降不得超過 0.5 kgf/cm²</div>
+    </div>
+    <div class="card">
+      <div class="k">排水灌水測試</div>
+      <div class="v">滿水靜止 15 分鐘</div>
+      <div class="note">各接頭無滴漏、地排水順暢</div>
+    </div>
+    <div class="card">
+      <div class="k">通氣系統測試</div>
+      <div class="v">連續沖水 3 次</div>
+      <div class="note">糞管屋外通氣需確認；灰水不設通氣，防臭地排不返味、無異音負壓聲</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 電 ============ -->
+<section class="elec">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-title">電氣部分</div>
+    <div class="section-sub">每一迴路的線徑、NFB、保護器一次列清（共 18 迴路）</div>
+  </div>
+
+  <!-- 規格差異 -->
+  <h3 class="block-title">4.1 陸方 vs. 台灣電氣規格差異（必調整）</h3>
+  <table>
+    <thead>
+      <tr><th>項目</th><th>陸方原規</th><th>台灣實際</th><th>處理方式</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>電壓</td><td>220V 單相</td><td><strong>單相三線 110 / 220V</strong></td><td>照明＋一般插座採 110V；冷氣、加壓機與電熱水器維持 220V 專用迴路</td></tr>
+      <tr><td>頻率</td><td>50 Hz</td><td><strong>60 Hz</strong></td><td>馬達類設備（冷氣/排氣扇）<strong>不可沿用陸方配給</strong></td></tr>
+      <tr><td>插座形式</td><td>陸規扁圓六孔</td><td>台規 CNS 雙扁 + 三孔接地</td><td>全案採台規面板，需有 BSMI 認證</td></tr>
+      <tr><td>開關盒尺寸</td><td>86 型（86×86 mm）</td><td><strong>國際 138 型（138×86 mm）</strong></td><td>請陸方勿預埋暗盒，由台方現場加裝</td></tr>
+      <tr><td>接地</td><td>常省略</td><td><strong>強制獨立接地（綠黃線）</strong></td><td>B1 外側打入接地棒，電阻 ≤ 100Ω</td></tr>
+      <tr><td>漏電保護</td><td>很少裝</td><td><strong>浴廁 / 戶外 / 電熱水器配置 RCBO 或 ELCB</strong></td><td>分電盤內配置；戶外與濕區插座用 15mA，電熱水器依機型與水電師傅校核</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 配電盤單線圖 -->
+  <h3 class="block-title">4.2 配電盤單線圖（台灣實作版，共 18 迴路）</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 1160 790" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <!-- 電表 -->
+      <rect x="40" y="30" width="110" height="60" fill="#fff4e0" stroke="#d97706" stroke-width="2" rx="4"/>
+      <text x="68" y="55" font-size="13" fill="#92400e" font-weight="bold">台電電表</text>
+      <text x="58" y="75" font-size="11" fill="#92400e">110/220V 60Hz</text>
+
+      <!-- 連線 -->
+      <line x1="150" y1="60" x2="200" y2="60" stroke="#334155" stroke-width="2"/>
+
+      <!-- 主 NFB -->
+      <rect x="200" y="30" width="130" height="60" fill="#fff" stroke="#d97706" stroke-width="2" rx="4"/>
+      <text x="223" y="52" font-size="13" fill="#d97706" font-weight="bold">主 NFB</text>
+      <text x="214" y="70" font-size="11" fill="#d97706">2P 待定</text>
+      <text x="202" y="83" font-size="9.5" fill="#92400e">主幹≥22 mm²</text>
+
+      <!-- 到分電盤 -->
+      <line x1="330" y1="60" x2="410" y2="60" stroke="#334155" stroke-width="2"/>
+      <polygon points="405,55 415,60 405,65" fill="#334155"/>
+
+      <!-- 分電盤匯流排 -->
+      <rect x="410" y="30" width="30" height="710" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="418" y="28" font-size="11" fill="#d97706" font-weight="bold">分電盤</text>
+
+      <!-- 迴路表 -->
+      <g font-size="11.5" fill="#1f2937">
+
+        <!-- 1 -->
+        <line x1="440" y1="80" x2="510" y2="80" stroke="#334155"/>
+        <rect x="510" y="66" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="85" fill="#92400e" font-weight="bold">NFB 1P 15A</text>
+        <text x="620" y="85" font-weight="600">L1 照明・大廳吊燈＋燈帶＋軌道</text>
+        <text x="800" y="85" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="85" fill="#64748b">A1 / A2 / C1燈</text>
+        <text x="1040" y="85" fill="#64748b">110V</text>
+
+        <!-- 2 -->
+        <line x1="440" y1="110" x2="510" y2="110" stroke="#334155"/>
+        <rect x="510" y="96" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="115" fill="#92400e" font-weight="bold">NFB 1P 15A</text>
+        <text x="620" y="115" font-weight="600">L2 照明・過道</text>
+        <text x="800" y="115" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="115" fill="#64748b">A3 過道</text>
+        <text x="1040" y="115" fill="#64748b">110V</text>
+
+        <!-- 3 -->
+        <line x1="440" y1="140" x2="510" y2="140" stroke="#334155"/>
+        <rect x="510" y="126" width="100" height="28" fill="#fde8e6" stroke="#c0392b"/>
+        <text x="520" y="145" fill="#c0392b" font-weight="bold">RCBO 1P 15A</text>
+        <text x="620" y="145" font-weight="600">L3 照明・衛生間</text>
+        <text x="800" y="145" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="145" fill="#64748b">D1 / D2</text>
+        <text x="1040" y="145" fill="#c0392b">110V +漏電</text>
+
+        <!-- 4 -->
+        <line x1="440" y1="170" x2="510" y2="170" stroke="#334155"/>
+        <rect x="510" y="156" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="175" fill="#92400e" font-weight="bold">NFB 1P 15A</text>
+        <text x="620" y="175" font-weight="600">L4 照明・休息室</text>
+        <text x="800" y="175" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="175" fill="#64748b">E / F / G</text>
+        <text x="1040" y="175" fill="#64748b">110V</text>
+
+        <!-- 5 -->
+        <line x1="440" y1="200" x2="510" y2="200" stroke="#334155"/>
+        <rect x="510" y="186" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="205" fill="#92400e" font-weight="bold">NFB 1P 15A</text>
+        <text x="620" y="205" font-weight="600">L5 照明・閣樓</text>
+        <text x="800" y="205" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="205" fill="#64748b">J1 / J2 / J3 / K</text>
+        <text x="1040" y="205" fill="#64748b">110V</text>
+
+        <!-- 6 -->
+        <line x1="440" y1="230" x2="510" y2="230" stroke="#334155"/>
+        <rect x="510" y="216" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="235" fill="#92400e" font-weight="bold">NFB 1P 15A</text>
+        <text x="620" y="235" font-weight="600">L6 照明・B1 鋼構層</text>
+        <text x="800" y="235" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="235" fill="#64748b">H1 / H2 燈帶</text>
+        <text x="1040" y="235" fill="#64748b">110V</text>
+
+        <!-- 7 -->
+        <line x1="440" y1="266" x2="510" y2="266" stroke="#334155" stroke-width="2"/>
+        <rect x="510" y="252" width="100" height="28" fill="#fff4e0" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="271" fill="#92400e" font-weight="bold">NFB 1P 20A</text>
+        <text x="620" y="271" font-weight="600">P1 插座・1F 一般＋USB</text>
+        <text x="800" y="271" fill="#d97706">3.5 mm²</text>
+        <text x="970" y="271" fill="#64748b">10 口以內</text>
+        <text x="1040" y="271" fill="#64748b">110V</text>
+
+        <!-- 8 -->
+        <line x1="440" y1="296" x2="510" y2="296" stroke="#334155" stroke-width="2"/>
+        <rect x="510" y="282" width="100" height="28" fill="#fff4e0" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="301" fill="#92400e" font-weight="bold">NFB 1P 20A</text>
+        <text x="620" y="301" font-weight="600">P2 插座・閣樓</text>
+        <text x="800" y="301" fill="#d97706">3.5 mm²</text>
+        <text x="970" y="301" fill="#64748b">10 口以內</text>
+        <text x="1040" y="301" fill="#64748b">110V</text>
+
+        <!-- 9 -->
+        <line x1="440" y1="326" x2="510" y2="326" stroke="#334155" stroke-width="2"/>
+        <rect x="510" y="312" width="100" height="28" fill="#fff4e0" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="331" fill="#92400e" font-weight="bold">NFB 1P 20A</text>
+        <text x="620" y="331" font-weight="600">P3 插座・B1 地下室</text>
+        <text x="800" y="331" fill="#d97706">3.5 mm²</text>
+        <text x="970" y="331" fill="#64748b">4 口</text>
+        <text x="1040" y="331" fill="#64748b">110V</text>
+
+        <!-- 10 -->
+        <line x1="440" y1="360" x2="510" y2="360" stroke="#334155" stroke-width="2.5"/>
+        <rect x="510" y="346" width="100" height="28" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="365" fill="#92400e" font-weight="bold">NFB 2P 20A</text>
+        <text x="620" y="365" font-weight="600">C1 冷氣・1F 大廳（3馬力）</text>
+        <text x="800" y="365" fill="#d97706" font-weight="600">5.5 mm²</text>
+        <text x="970" y="365" fill="#64748b">獨立迴</text>
+        <text x="1040" y="365" fill="#c0392b" font-weight="bold">220V</text>
+
+        <!-- 11 -->
+        <line x1="440" y1="390" x2="510" y2="390" stroke="#334155" stroke-width="2.5"/>
+        <rect x="510" y="376" width="100" height="28" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="395" fill="#92400e" font-weight="bold">NFB 2P 20A</text>
+        <text x="620" y="395" font-weight="600">C2 冷氣・休息室（1.5馬）</text>
+        <text x="800" y="395" fill="#d97706" font-weight="600">3.5 mm²</text>
+        <text x="970" y="395" fill="#64748b">獨立迴</text>
+        <text x="1040" y="395" fill="#c0392b" font-weight="bold">220V</text>
+
+        <!-- 12 -->
+        <line x1="440" y1="420" x2="510" y2="420" stroke="#334155" stroke-width="2.5"/>
+        <rect x="510" y="406" width="100" height="28" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="425" fill="#92400e" font-weight="bold">NFB 2P 20A</text>
+        <text x="620" y="425" font-weight="600">C3 冷氣・閣樓（1.5馬）</text>
+        <text x="800" y="425" fill="#d97706" font-weight="600">3.5 mm²</text>
+        <text x="970" y="425" fill="#64748b">獨立迴</text>
+        <text x="1040" y="425" fill="#c0392b" font-weight="bold">220V</text>
+
+        <!-- 13 -->
+        <line x1="440" y1="456" x2="510" y2="456" stroke="#334155"/>
+        <rect x="510" y="442" width="100" height="28" fill="#fff4e0" stroke="#d97706"/>
+        <text x="520" y="461" fill="#c0392b" font-weight="bold">ELCB 2P 待定</text>
+        <text x="620" y="461" font-weight="600">WH1 電熱水器・專用迴路</text>
+        <text x="800" y="461" fill="#d97706">依機型</text>
+        <text x="970" y="461" fill="#c0392b">漏電/IP55</text>
+        <text x="1040" y="461" fill="#c0392b">220V</text>
+
+        <!-- 14 -->
+        <line x1="440" y1="490" x2="510" y2="490" stroke="#334155"/>
+        <rect x="510" y="476" width="100" height="28" fill="#fde8e6" stroke="#c0392b"/>
+        <text x="520" y="495" fill="#c0392b" font-weight="bold">RCBO 1P 20A</text>
+        <text x="620" y="495" font-weight="600">O1 戶外・露台一般插座</text>
+        <text x="800" y="495" fill="#d97706">3.5 mm²</text>
+        <text x="970" y="495" fill="#64748b">IP55 防水</text>
+        <text x="1040" y="495" fill="#64748b">110V</text>
+
+        <!-- 15 Z1 加壓機 (半馬 220V) -->
+        <line x1="440" y1="522" x2="510" y2="522" stroke="#334155" stroke-width="2.5"/>
+        <rect x="510" y="508" width="100" height="28" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="517" y="527" fill="#92400e" font-weight="bold">RCBO/NFB 2P</text>
+        <text x="620" y="527" font-weight="600">Z1 山泉加壓機（1/2 HP 半馬）</text>
+        <text x="800" y="527" fill="#d97706" font-weight="600">3.5 mm²</text>
+        <text x="970" y="527" fill="#c0392b">含漏電30mA</text>
+        <text x="1040" y="527" fill="#c0392b" font-weight="bold">220V</text>
+
+        <!-- 16 L7 戶外燈 -->
+        <line x1="440" y1="555" x2="510" y2="555" stroke="#334155"/>
+        <rect x="510" y="541" width="100" height="28" fill="#fde8e6" stroke="#c0392b"/>
+        <text x="520" y="560" fill="#c0392b" font-weight="bold">RCBO 1P 15A</text>
+        <text x="620" y="560" font-weight="600">L7 戶外燈・庭園/外牆/廊道</text>
+        <text x="800" y="560" fill="#d97706">2.0 mm²</text>
+        <text x="970" y="560" fill="#64748b">多區開關/定時</text>
+        <text x="1040" y="560" fill="#c0392b">110V +漏電</text>
+
+        <!-- 17 O2 戶外活動插座 -->
+        <line x1="440" y1="590" x2="510" y2="590" stroke="#334155"/>
+        <rect x="510" y="576" width="100" height="28" fill="#fde8e6" stroke="#c0392b"/>
+        <text x="520" y="595" fill="#c0392b" font-weight="bold">RCBO 1P 20A</text>
+        <text x="620" y="595" font-weight="600">O2 戶外活動・插座群/臨時配電</text>
+        <text x="800" y="595" fill="#d97706">3.5 mm²</text>
+        <text x="970" y="595" fill="#64748b">活動/音響預留</text>
+        <text x="1040" y="595" fill="#c0392b">110V +漏電</text>
+
+        <!-- 18 Z2 未來抽水馬達 -->
+        <line x1="440" y1="625" x2="510" y2="625" stroke="#334155" stroke-width="2.5"/>
+        <rect x="510" y="611" width="100" height="28" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="520" y="630" fill="#92400e" font-weight="bold">NFB 2P 待定</text>
+        <text x="620" y="630" font-weight="600">Z2 未來戶外抽水馬達預留</text>
+        <text x="800" y="630" fill="#d97706" font-weight="600">依距離/HP</text>
+        <text x="970" y="630" fill="#c0392b">+ ELCB</text>
+        <text x="1040" y="630" fill="#c0392b" font-weight="bold">220V</text>
+
+      </g>
+
+      <!-- 接地 -->
+      <line x1="200" y1="715" x2="440" y2="715" stroke="#1a7f4a" stroke-width="2"/>
+      <line x1="200" y1="705" x2="200" y2="755" stroke="#1a7f4a" stroke-width="3"/>
+      <path d="M180 755 L220 755 M185 763 L215 763 M190 771 L210 771" stroke="#1a7f4a" stroke-width="2" fill="none"/>
+      <text x="135" y="738" font-size="11" fill="#1a7f4a" font-weight="bold">接地匯流排</text>
+      <text x="155" y="782" font-size="10" fill="#1a7f4a">接地棒 ≤100Ω</text>
+
+      <!-- 說明 -->
+      <rect x="740" y="10" width="410" height="50" fill="none" stroke="none"/>
+      <text x="750" y="25" font-size="11" fill="#475569">以下為 18 迴路完整清單</text>
+      <text x="750" y="40" font-size="10" fill="#64748b">■ 照明 × 7（含戶外燈 L7）　■ 室內插座 × 3（P1~P3）　■ 冷氣 × 3（C1~C3）</text>
+      <text x="750" y="53" font-size="10" fill="#64748b">■ 電熱水器 × 1（WH1）　■ 戶外用電 × 2（O1~O2，副電箱預留 O3/O4）　■ 泵浦 × 2（Z1~Z2）</text>
+    </svg>
+    <div class="diagram-caption">圖 3・分電盤單線圖 + 18 迴路配置一覽</div>
+  </div>
+
+  <h3 class="block-title">4.2.1 與原施工圖的差異核對</h3>
+  <div class="callout warn">
+    <strong>結論</strong>：原施工圖沒有提供完整配電盤單線圖；原圖主要是第 17~23 頁的燈具圖例、開關控制關係圖、1F / 閣樓 / B1 照明平面圖與插座平面圖，並標出 AL3 配電箱位置。本版 4.2 是依台灣 110 / 220V、60Hz、漏電保護、接地、B1 設備與戶外活動用電重新整理出的施工單線圖，所以一定會和原圖有差異。
+  </div>
+  <table>
+    <thead>
+      <tr><th>項目</th><th>原施工圖內容</th><th>本版 HTML 單線圖</th><th>判斷</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>圖面型態</td><td>燈具 / 開關控制關係 + 照明、插座平面；未列主開關、分路 NFB、線徑、漏電保護與接地</td><td>改成 18 迴路單線圖，列主 NFB、分路斷路器、線徑、電壓與保護方式</td><td><strong>本版新增</strong>，給台灣水電師傅施工與訂料用</td></tr>
+      <tr><td>配電箱位置</td><td>1F 圖面有 AL3 配電箱符號</td><td>主分電盤仍以 1F AL3 附近為基準；另建議 B1 / 戶外防潮副電箱處理戶外活動、設備與預留迴路</td><td>位置概念對齊，但容量與是否加副電箱需現場確認</td></tr>
+      <tr><td>電壓 / 插座</td><td>插座圖例為單相二、三極暗插座 220 / 10A；防濺與熱水器插座 220 / 16A</td><td>照明與一般插座改 110V；冷氣、電熱水器、加壓機、未來抽水馬達維持 220V 專用迴路</td><td><strong>台灣化必要差異</strong></td></tr>
+      <tr><td>照明迴路</td><td>A1 / A2 / A3、B1 / B2、D1 / D2、E / F / G、J / K、H1 / H2 等照明點位已標示</td><td>L1~L6 對應原室內照明點位；新增 L7 戶外燈獨立迴路；大廳、閣樓、衛生間小排氣扇併照明迴路但獨立開關</td><td>室內點位大致對齊；戶外燈與排氣扇為新增整理</td></tr>
+      <tr><td>冷氣</td><td>1F 大廳、休息室、閣樓各有空調插座，共 3 處</td><td>C1 / C2 / C3 三條 220V 專用冷氣迴路；壓縮機集中放 B1，休息室冷媒銅管與冷凝水走後陽臺穿孔</td><td>數量對齊；路徑與台規線徑需依現場重拉</td></tr>
+      <tr><td>熱水器</td><td>1F 休息室 / 衛浴旁標 R 熱水器插座 H=1200 mm</td><td>改為 B1 30 加侖 220V 儲熱式電熱水器，WH1 專用迴路，熱水管由 B7 上升到 1F 天花</td><td><strong>與原圖不同</strong>，依最新實際設計執行；1F 原 R 插座不再作熱水器主電源</td></tr>
+      <tr><td>B1 / 戶外 / 山泉設備</td><td>原圖未列山泉水塔、過濾器、加壓機、戶外活動用電、未來抽水馬達與 B1 / 戶外副電箱</td><td>新增 P3 B1 插座、Z1 加壓機、O1 戶外一般插座、O2 戶外活動插座群、Z2 未來抽水馬達與 O3 / O4 副電箱預留位</td><td><strong>本案新增需求</strong>，不是原圖錯漏；需明天和師傅確認管路、箱位與容量</td></tr>
+      <tr><td>進戶主幹 / 接地 / 漏電</td><td>原圖未提供進戶線徑、主開關容量、接地棒與漏電斷路器配置</td><td>進戶主幹先抓至少 22 mm²，獨立接地，衛生間 / 戶外 / 電熱水器 / 泵浦配置 RCBO 或 ELCB</td><td>原圖資料不足；台方必須依台電申請容量、線長與實際負載校核</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>明天現場要確認</strong>：AL3 位置是否適合放 30 路以上主分電盤；是否採 24 路主電箱 + B1 / 戶外 12 路以上防潮副電箱；EL1 進戶主幹至少 22 mm² 是否足夠；WH1 電熱水器銘牌功率、Z2 未來抽水馬達預留容量、SP1 戶外活動預留管是否需要加大或增設第二支。
+  </div>
+
+  <!-- 完整迴路表 -->
+  <h3 class="block-title">4.3 迴路規格一覽表（給水電師傅訂料用）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>編號</th><th>用途</th><th>電壓</th><th>斷路器</th>
+        <th style="background:#fef3c7;">線徑（台規）</th>
+        <th>保護</th><th>負載估算</th><th>迴路目的</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>L1</strong></td><td>1F 大廳吊燈＋燈帶＋軌道燈＋小排氣扇</td><td>110V</td><td>NFB 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td>—</td><td>~850W</td><td>A1 吊燈 + A2 燈帶 + 原圖 C1 軌道燈（非冷氣 C1）+ W10 排氣扇獨立開關</td></tr>
+      <tr><td><strong>L2</strong></td><td>1F 過道照明</td><td>110V</td><td>NFB 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td>—</td><td>~300W</td><td>A3 過道筒燈；戶外燈改列 L7 獨立迴路</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>L3</strong></td><td>衛生間照明＋排氣扇</td><td>110V</td><td>RCBO 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td><span class="pill warn">漏電 15mA</span></td><td>~250W</td><td>D1 筒燈 + D2 燈帶 + 衛生間排氣扇，建議獨立開關/延遲關閉</td></tr>
+      <tr><td><strong>L4</strong></td><td>休息室＋樓梯照明</td><td>110V</td><td>NFB 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td>—</td><td>~350W</td><td>E/F/F3 樓梯壁燈；戶外燈改列 L7 獨立迴路</td></tr>
+      <tr><td><strong>L5</strong></td><td>閣樓照明＋小排氣扇</td><td>110V</td><td>NFB 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td>—</td><td>~450W</td><td>J1/J2/J3/K 筒燈+燈帶+壁燈 + W11 排氣扇獨立開關/定時器</td></tr>
+      <tr><td><strong>L6</strong></td><td>B1 鋼構層暗藏燈帶</td><td>110V</td><td>NFB 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td>—</td><td>~600W</td><td>H1 筒燈 + H2 LED 燈帶</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>L7</strong></td><td>戶外燈（庭園 / 外牆 / 廊道 / 前後露台）</td><td>110V</td><td>RCBO 1P 15A</td><td style="background:#fef9c3;"><strong>2.0 mm²</strong></td><td><span class="pill warn">漏電 15mA / 戶外防水</span></td><td>待燈具數量確認</td><td>戶外燈獨立迴路；可分多區開關、定時器、光控或感應器，不與活動插座共用</td></tr>
+      <tr><td><strong>P1</strong></td><td>1F 一般插座＋USB</td><td>110V</td><td>NFB 1P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td>—</td><td>10 口內</td><td>大廳、休息室、過道</td></tr>
+      <tr><td><strong>P2</strong></td><td>閣樓插座</td><td>110V</td><td>NFB 1P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td>—</td><td>10 口內</td><td>床頭 USB + 備用</td></tr>
+      <tr><td><strong>P3</strong></td><td>B1 地下室插座</td><td>110V</td><td>NFB 1P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td>—</td><td>4 口</td><td>地下室設備 / 維修用插座，與 B1 照明分開</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>C1</strong></td><td>冷氣・1F 大廳（3 馬力）</td><td>220V</td><td>NFB 2P 20A</td><td style="background:#fef9c3;"><strong>5.5 mm²</strong></td><td>—</td><td>~2500W</td><td>大空間用，建議 3 馬分離式</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>C2</strong></td><td>冷氣・休息室（1.5 馬）</td><td>220V</td><td>NFB 2P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td>—</td><td>~1400W</td><td>壁掛分離</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>C3</strong></td><td>冷氣・閣樓（1.5 馬）</td><td>220V</td><td>NFB 2P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td>—</td><td>~1400W</td><td>壁掛分離</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>WH1</strong></td><td>B1 電熱水器專用迴路</td><td>220V</td><td>ELCB / NFB 2P，依機型銘牌；暫抓 2P 30A</td><td style="background:#fef9c3;"><strong>依機型定案</strong><br>暫預留 5.5 mm²</td><td><span class="pill warn">漏電保護 / B1 防潮設備箱</span></td><td>30 加侖儲熱式，依銘牌（常見 3~6kW）</td><td>儲熱式電熱水器放 B1 水泥地設備區；加定時器 / 接觸器控制，一般插座型定時器不得承載熱水器主電流。型號確認後由水電師傅校核斷路器、線徑與接地</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>O1</strong></td><td>戶外前後露台一般插座</td><td>110V</td><td>RCBO 1P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td><span class="pill warn">漏電 15mA / IP55</span></td><td>20A 內</td><td>前後露台日常用電、防水插座附蓋；不作為婚禮 / 音響 / 活動主電源</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>O2</strong></td><td>戶外活動插座群 / 森林側臨時配電預留</td><td>110V</td><td>RCBO 1P 20A</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td><span class="pill warn">漏電 15mA / IP55 以上</span></td><td>20A 內</td><td>給戶外活動、婚禮、小型音響、臨時設備或攤位用；可在森林側設防水插座箱，點位與數量現場定。大型活動不可只靠延長線，應由 B1 / 戶外防潮副電箱分路供電</td></tr>
+      <tr style="background:#fef2f2;"><td><strong>Z1</strong></td><td>山泉加壓機（水塔泵浦 1/2HP 半馬）</td><td>220V</td><td>NFB / RCBO 2P 20A，含漏電保護</td><td style="background:#fef9c3;"><strong>3.5 mm²</strong></td><td><span class="pill warn">漏電 30mA / B1 防潮箱</span></td><td>~370W（0.5HP）</td><td>放 B1 水泥地設備區，需避震墊、維修空間與止水閥；若用 RCBO 就不用再另買普通 NFB + ELCB 兩套</td></tr>
+      <tr style="background:#fff7ed;"><td><strong>Z2</strong></td><td>未來戶外抽水馬達 / 設備電源預留</td><td>220V</td><td>NFB 2P + ELCB，依馬達 HP 定案</td><td style="background:#fef9c3;"><strong>依 HP / 距離定案</strong><br>暫抓 3.5~5.5 mm²</td><td><span class="pill warn">漏電 30mA / 防潮箱</span></td><td>待設備確認</td><td>先預留迴路與管路，不一定立即裝設備；若馬達距離遠或 HP 較大，線徑需上修，並確認啟動電流</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>戶外活動用電配置</strong>：本版改按 1 座主分電盤 + 18 迴路設計，且建議預留 <strong>B1 / 戶外防潮副電箱</strong>。森林側未來可能有婚禮、小型音響、臨時設備、戶外照明與額外抽水馬達，不能全部壓在 O1 一條 110V 20A 插座迴路上。O2 是基本活動插座群 / 臨時配電預留；若日後活動設備較多，請水電師傅在副電箱內預留至少 <strong>O3 / O4 兩個 110V 20A 空迴路</strong>與 <strong>2~4 個 2P 空位</strong>，並確認 SP1 戶外活動插座群 / 臨時配電箱預留管是否需要加大或增設。台電申請容量、主開關與進戶主幹線也需把戶外活動負載與 Z2 一起納入校核。副電箱需有獨立接地、漏電保護、防潮箱體、清楚迴路標籤與足夠預留空位。
+  </div>
+  <div class="callout warn">
+    <strong>戶外活動現場提醒</strong>：婚禮 / 小型音樂會若會同時用音響、燈光、投影、餐飲保溫、咖啡機或工具類設備，請當成臨時活動配電規劃。O2 只是一條基本 20A 迴路；大量設備需從 B1 / 戶外副電箱分多迴路，並由水電師傅確認總容量、漏電保護、接地、線徑、電壓降與防水插座箱位置。
+  </div>
+
+  <!-- 訂料摘要 -->
+  <h3 class="block-title">4.4 電氣訂料摘要（直接報給材料行）</h3>
+  <div class="callout warn">
+    <strong>電氣訂料原則</strong>：O1、O2 是本版正式迴路；O3/O4 是 B1 / 戶外副電箱內的預留空位，不是現在一定要拉線。Z2 未來抽水馬達先留管路與電箱空位，實際線徑、斷路器容量需等馬達 HP、距離與啟動電流確認。
+  </div>
+  <table>
+    <thead>
+      <tr><th>品項</th><th>規格</th><th>數量估算</th><th>備註</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PVC 絕緣電線 <strong>2.0 mm²</strong></td><td>黑 / 白 / 綠</td><td><strong>~420 m 暫估</strong>（7 照明迴路，戶外燈長度待現場丈量）</td><td>照明 L1~L7；戶外燈需防水接線盒與防水燈具</td></tr>
+      <tr><td>PVC 絕緣電線 <strong>3.5 mm²</strong></td><td>黑 / 白 / 綠 / 紅</td><td><strong>~520 m 暫估 + 戶外距離另加</strong>（P1~P3、O1~O2、C2/C3/Z1；Z2 依馬達 HP 與距離校核）</td><td>室內插座、小冷氣、戶外一般 / 活動插座、加壓機；O3/O4 先留空位不先算線長，戶外活動區距離需現場丈量</td></tr>
+      <tr><td>PVC 絕緣電線 <strong>5.5 mm²</strong></td><td>黑 / 紅 / 綠</td><td><strong>~60 m 暫估</strong>（C1 + B1 WH1 走線，待現場丈量）</td><td>C1 大廳 3 馬冷氣 + B1 電熱水器 WH1 暫預留；若熱水器銘牌需求較大需上修線徑</td></tr>
+      <tr><td>進戶主幹線</td><td>L1 / L2 / N：<strong>22 mm² 起跳</strong><br>接地線依主開關容量校核</td><td><strong>待現場丈量</strong></td><td>22 mm² 作為本案討論下限；依台電申請容量、主開關、線長、電熱水器、冷氣、戶外活動用電與 Z2 未來抽水馬達校核，必要時上修。8.0 mm² × 4 色不列為本案下料規格</td></tr>
+      <tr><td>EMT 金屬管 / PVC 厚管</td><td>Φ16~25 mm</td><td>依放樣而定</td><td>所有線路穿管</td></tr>
+      <tr><td>主分電盤</td><td>崁入式 <strong>30 路以上</strong>，尺寸依品牌</td><td>1 座</td><td>18 迴路 + 主開關 + 預留空位；若現場空間不足，採 24 路主電箱 + B1 / 戶外防潮副電箱</td></tr>
+      <tr><td>B1 / 戶外防潮副電箱</td><td>IP55 以上，建議 12 路以上</td><td>建議 1 座</td><td>供戶外燈、戶外活動插座 O1~O2、Z2 未來抽水馬達或 B1 設備集中管理；預留 O3/O4 戶外活動空迴路與 2P 空位，需獨立標籤、接地與漏電保護</td></tr>
+      <tr><td>主 NFB 2P</td><td>進戶總開關</td><td>1 只</td><td>容量待台電申請容量與總負載計算後定案</td></tr>
+      <tr><td>分路 NFB 1P 15A</td><td>一般照明（L1/L2/L4/L5/L6）</td><td>5 只</td><td>衛生間照明採 RCBO</td></tr>
+      <tr><td>分路 NFB 1P 20A</td><td>室內插座 P1~P3</td><td>3 只</td><td>戶外插座另採 RCBO</td></tr>
+      <tr><td>分路 NFB 2P 20A</td><td>冷氣 × 3 + 加壓機 Z1（半馬 220V）</td><td>4 只</td><td>Z1 若採漏電斷路器 / RCBO，可與 ELCB 保護整合，避免重複下料；Z2 未來抽水馬達依 HP 另定</td></tr>
+      <tr><td>ELCB / NFB 2P（暫抓 30A）</td><td>30 加侖電熱水器 WH1</td><td>1 只</td><td>依熱水器銘牌與水電師傅校核後定案</td></tr>
+      <tr><td>電熱水器定時器 / 接觸器</td><td>WH1 220V 專用</td><td>1 組</td><td>需額定容量足夠，由水電師傅配置；一般插座型定時器不得承載熱水器主電流</td></tr>
+      <tr><td>RCBO 1P 15A（漏電 15mA）</td><td>衛生間照明 + 戶外燈 L7</td><td>2 只</td><td>濕區照明 / 排氣扇、戶外燈</td></tr>
+      <tr><td>RCBO 1P 20A（漏電 15mA）</td><td>戶外一般 / 活動插座 O1~O2</td><td>2 只 + O3/O4 預留空位</td><td>前後露台與森林側活動用電分開；日後活動量增加時再把 O3/O4 拉線成獨立迴路</td></tr>
+      <tr><td>ELCB / NFB 2P（容量待定）</td><td>未來抽水馬達 Z2</td><td>1 組預留</td><td>依馬達 HP、啟動電流、距離與電壓降校核；可先預留空開關位與管路</td></tr>
+      <tr><td>ELCB / RCBO 2P 20A（漏電 30mA）</td><td>加壓機 B1 設備區</td><td>1 只</td><td>220V 加壓機用，B1 防潮箱內；若已採 RCBO 2P 20A，就不再另買普通 NFB + ELCB 兩套</td></tr>
+      <tr><td>台規插座面板</td><td>110V 雙孔+三孔（BSMI）</td><td>~40 組</td><td>Panasonic / 中一電工</td></tr>
+      <tr><td>台規 220V 大圓三孔插座</td><td>空調專用</td><td>3 組</td><td>C1 / C2 / C3</td></tr>
+      <tr><td>IP55 戶外防水插座箱 / B1 防潮設備箱</td><td>附蓋、防水盒或戶外活動插座箱</td><td>依現場</td><td>前後露台 + 森林側活動區；戶外活動插座需分區標示 O1 / O2，副電箱保留 O3 / O4 擴充</td></tr>
+      <tr><td>接地棒</td><td>銅包鋼 Φ14 × L1500mm</td><td>2 支</td><td>串聯打入 B1 外側</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>線徑對照備忘</strong>：台灣現行規範與訂料以「平方 mm²」為主。若師傅講「直徑」，可對照:
+    <code>2.0 mm² ≈ 1.6 mm</code>、<code>3.5 mm² ≈ 2.0 mm</code>、<code>5.5 mm² ≈ 2.6 mm</code>、<code>8.0 mm² ≈ 3.2 mm</code>；本案進戶主幹先抓 <code>22 mm²</code> 起跳，接地線由水電依主開關容量另算。
+    訂料講「3.5 平方黑線 100 米」即可。
+  </div>
+
+  <h3 class="block-title">4.5 1F 瑜伽大廳空氣策略預留（小排氣 / 補氣 / 除濕 / 循環）</h3>
+  <table>
+    <thead>
+      <tr><th>項目</th><th>建議做法</th><th>水電預留</th><th>原因</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>小排氣扇</strong></td>
+        <td>大廳高位外牆設 1 台台規低噪音排氣扇，獨立開關或定時器；出風口加防雨罩、逆止風門與紗網</td>
+        <td>可併 L1 照明迴路供電但獨立開關控制；外牆依機型預留 Φ100~150 mm 套管</td>
+        <td>你已決定加小排氣扇，這是最基本且便宜的換氣手段</td>
+      </tr>
+      <tr>
+        <td><strong>補氣 / 新風</strong></td>
+        <td>先靠可開窗、門縫或高低位小百葉補氣；若日後常態 6~10 人上課且關窗開冷氣，再升級全熱交換器 / 新風機</td>
+        <td>先預留 1 個備用外牆套管或可施工位置；全熱交換器另需 110V 20A 插座與 Φ100~150 mm 進/排氣孔</td>
+        <td>只有排氣沒有補氣時，排風量會變小，也可能把浴廁或縫隙氣味拉進室內</td>
+      </tr>
+      <tr>
+        <td><strong>除濕</strong></td>
+        <td>先預留除濕機 / 吊隱式除濕機位置；日後依使用人數選 20~30 L/day 家用機或商用除濕</td>
+        <td>110V 20A 插座 1 組、3/4" 冷凝水排水管接到戶外或冷氣冷凝水管線</td>
+        <td>瑜伽墊、木地板、木牆與山區濕氣都怕長期高濕；冷氣除濕不一定足夠</td>
+      </tr>
+      <tr>
+        <td><strong>空氣循環</strong></td>
+        <td>預留 2 組低噪音循環扇 / 吊扇線路，沿屋脊或側牆高位布置，避免直吹墊位</td>
+        <td>110V 控制線 + 開關位；與燈具迴路分開標示</td>
+        <td>斜屋頂挑高會積熱，循環扇可把上方熱空氣打散，讓冷氣效率穩定</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>先做預留，不急著買大型新風設備</strong>：目前先把大廳小排氣扇、補氣路徑、除濕機插座與冷凝水排水路徑留好。若實際上課時 CO2 / 濕度偏高，再升級全熱交換器或新風機。
+  </div>
+
+  <!-- 50/60Hz 對照 -->
+  <h3 class="block-title">4.6 陸方隨貨電器 50/60Hz 相容性判斷</h3>
+  <table>
+    <thead>
+      <tr><th>設備</th><th>陸方 50Hz</th><th>到台灣 60Hz 影響</th><th>處置</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fef2f2;"><td>壁掛分離式冷氣 × 3（大廳 / 休息室 / 閣樓）</td><td>220V/50Hz</td><td>轉速上升 20%、壓縮機過熱風險</td><td><strong class="pill warn">在台採購（日立/大金/東元）</strong></td></tr>
+      <tr style="background:#fef2f2;"><td>電熱水器</td><td>陸方 220V/50Hz 或未定型號</td><td>需確認台灣 220V/60Hz、BSMI、銘牌電流與接地需求</td><td><strong class="pill warn">建議在台採購 30 加侖儲熱式，WH1 專用迴路依銘牌定案</strong></td></tr>
+      <tr style="background:#fef2f2;"><td>排氣扇（衛生間、大廳、閣樓）</td><td>220V/50Hz</td><td>馬達轉速變高、噪音變大</td><td><strong class="pill warn">在台採購</strong></td></tr>
+      <tr style="background:#f0fdf4;"><td>LED 筒燈、軌道燈、吊燈</td><td>220V / 寬壓</td><td>驅動器多為寬壓 50/60Hz 通用</td><td><span class="pill ok">驅動銘牌標「100-240V / 50-60Hz」即可沿用</span></td></tr>
+      <tr style="background:#f0fdf4;"><td>LED 燈帶 + 24V DC 變壓器</td><td>220V → 24V</td><td>寬壓變壓器通用</td><td><span class="pill ok">可沿用，變壓器需可維修</span></td></tr>
+      <tr style="background:#fef2f2;"><td>插座 / 開關面板</td><td>陸方常用 86 型</td><td>孔位不符台規 138 型</td><td><strong class="pill warn">台灣現場採購台規面板</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <strong>電熱水器選購與配線要點</strong>：
+    （1）暫定選 30 加侖台灣 220V / 60Hz、具 BSMI 的儲熱式機型，型號確定後再定 WH1 線徑與斷路器。
+    （2）裝定時器時，應由水電師傅以足額定時器 / 接觸器配置，普通插座型定時器不得承載熱水器主電流。
+    （3）設備端需有漏電保護、接地與 B1 防潮設備箱 / 隔離開關，地下室需留維修空間。
+    （4）水路為 B1 冷水分支補水，熱水由 B7 上升管穿鋼板到 1F 天花。
+  </div>
+
+</section>
+
+<!-- ============ 施工順序 ============ -->
+<section class="seq">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title">施工順序（6 階段）</div>
+    <div class="section-sub">給水電師傅 + 業主一同對照</div>
+  </div>
+
+  <div class="timeline">
+    <div class="t-step">
+      <div class="t-num">STEP 1</div>
+      <h4>放樣定位</h4>
+      <p>水電師傅到 B1 現場，依本文件 3.3 / 3.3.1 / 3.4 節清單，用粉筆標示 B1~B7 水管穿板點、R1 靠落地門側屋簷雨排穿板點、R2 另一側屋簷雨排、ACR1 休息室冷氣穿後陽臺鋼板點、SP1~SP3 預留管、C-PWR1 / C-ELV1 / C-IN1 / C-OUT1 地下室水泥地預埋套管、EL1 電源主幹點、W5~W14 外牆/設備點位與 V1 糞管屋外通氣出口。</p>
+    </div>
+    <div class="t-step">
+      <div class="t-num">STEP 2</div>
+      <h4>鋼構封板前<br>預埋套管</h4>
+      <p>鋼構吊頂封板／OSB 地板鋪設前，完成所有穿板套管 + 排水橫管（坡度 1/50~1/100）；地下室水泥地澆置前，完成 C-PWR1、C-ELV1、C-IN1、C-OUT1、C-GND1 與 SP1~SP3 預埋套管。</p>
+    </div>
+    <div class="t-step">
+      <div class="t-num">STEP 3</div>
+      <h4>木屋組立期間<br>走電線管</h4>
+      <p>木屋到貨立起後、內牆板封板前，所有迴路 CD 管 / EMT 管先佈設完成。</p>
+    </div>
+    <div class="t-step">
+      <div class="t-num">STEP 4</div>
+      <h4>封板後拉線<br>裝燈具插座</h4>
+      <p>拉 18 迴路電線、接面板、裝 LED 燈具、安裝衛浴設備、完成糞管傳統屋外通氣管；灰水不設通氣。戶外燈 L7、戶外一般插座 O1、戶外活動插座群 O2、未來抽水馬達 Z2 分開標示，B1 / 戶外副電箱保留 O3/O4 空迴路。</p>
+    </div>
+    <div class="t-step">
+      <div class="t-num">STEP 5</div>
+      <h4>三大驗收測試</h4>
+      <p>① 給水 10kg 加壓 30 分鐘 ② 排水滿水 15 分鐘 ③ 電氣絕緣 + 接地電阻 ≤100Ω。</p>
+    </div>
+    <div class="t-step">
+      <div class="t-num">STEP 6</div>
+      <h4>送電＋竣工交付</h4>
+      <p>分電盤標籤貼妥、交付修訂版電氣單線圖 + 給排水立管圖 + 所有 BSMI 保固單據。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 陸方同步調整 ============ -->
+<section>
+  <div class="section-header">
+    <div class="section-num" style="color:#334155;">06</div>
+    <div class="section-title">給陸方（嘉興鼎匠）的確認清單</div>
+    <div class="section-sub">木屋出貨前務必確認，避免到貨後無法接線</div>
+  </div>
+
+  <ul class="checklist">
+    <li><strong>預留穿線孔 / 穿板孔</strong>：依本文件 3.3 / 3.3.1 / 3.4 節，在木牆 / 木樓板 / 戶外廊道鋼板預開孔，包含 B1~B7、R1、R2、ACR1、SP1~SP3、E1、W5~W14、V1 與地下室水泥地預埋套管；常用尺寸 Φ32 / Φ40 / Φ50 / Φ60 / Φ75 / Φ100~150 / Φ125 mm。</li>
+    <li><strong>配電盤預留位</strong>：一樓大廳東北角（原 AL3 位置）留出主分電盤位置；本版因增加戶外活動用電，建議主分電盤 30 路以上，或採 24 路主電箱 + B1 / 戶外防潮副電箱。B1 / 戶外副電箱建議 12 路以上，保留 O3/O4 戶外活動空迴路與 2P 設備空位。實際開口尺寸依電箱品牌與路數現場確認，木牆封板前預留。</li>
+    <li><strong>開關 / 插座暗盒</strong>：陸方 86 型暗盒尺寸不符台規 138 型，僅預留盒位開口，由台方現場加裝台規暗盒與面板。</li>
+    <li><strong>台灣現場採購的電器</strong>：壁掛冷氣 × 3、排氣扇（衛生間 / 大廳 / 閣樓）、插座面板、開關面板，皆依台灣 60Hz 與台規面板採購。</li>
+    <li><strong>B1 220V 30 加侖儲熱式電熱水器</strong>：若陸方供貨，須先提供 220V / 60Hz、BSMI 或可合法使用的銘牌資料；定時器 / 接觸器由台灣水電師傅配置。</li>
+    <li><strong>可以隨貨的</strong>：LED 筒燈、軌道燈、吊燈、壁燈、燈帶 + 驅動器（條件：銘牌需有「100-240V / 50-60Hz」標示）。</li>
+    <li><strong>衛浴設備建議不發</strong>：陸方馬桶 + 洗手台進排水接口為公制，台灣水電接不上，建議直接在台採購 TOTO / 和成 / 凱撒。</li>
+    <li><strong>糞管傳統屋外通氣</strong>：從 B1 糞管高點取氣，往外牆延伸後在屋外立管抬高並高位收頭，管口加通氣帽 / 防雨帽，遠離窗戶與進風口。灰水不設通氣管。</li>
+    <li><strong>電熱水器位置預留</strong>：B1 地下室設備區須預留 30 加侖儲熱式電熱水器位置、WH1 220V 防潮設備電源與定時器 / 接觸器；熱水出水以 B7 穿鋼板上升到 1F 天花。</li>
+    <li><strong>B1 水泥地預埋套管</strong>：澆置前完成強電、弱電、加壓後出水管、水塔到屋子的進水管、SP1~SP3 預留管與接地導線路徑；SP1 標戶外活動插座群 / 臨時配電箱方向並確認是否需大於 1" 或增設第二支，SP2 標未來抽水馬達方向，SP3 備用。</li>
+  </ul>
+</section>
+
+<!-- ============ 附錄：顏色標示 ============ -->
+<section>
+  <div class="section-header">
+    <div class="section-num" style="color:#334155;">07</div>
+    <div class="section-title">管線 / 線路顏色識別</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3 class="block-title" style="color:var(--water);">水管顏色</h3>
+      <div class="legend">
+        <span><span class="dot" style="background:#1e6fb8;"></span>藍色 = 冷水</span>
+        <span><span class="dot" style="background:#c0392b;"></span>紅色 = 熱水</span>
+        <span><span class="dot" style="background:#ea580c;"></span>橘色 = 糞管 3.5"（暫定）</span>
+        <span><span class="dot" style="background:#64748b;"></span>灰色 = 灰水 / 雨水排水 / 地排</span>
+        <span><span class="dot" style="background:#1a7f4a;"></span>綠色 = 糞管傳統屋外通氣</span>
+      </div>
+    </div>
+    <div>
+      <h3 class="block-title" style="color:var(--elec);">電線顏色（CNS）</h3>
+      <div class="legend">
+        <span><span class="dot" style="background:#000;"></span>黑 = 火線 L1</span>
+        <span><span class="dot" style="background:#dc2626;"></span>紅 = 火線 L2（220V）</span>
+        <span><span class="dot" style="background:#fff;border:1px solid #333;"></span>白 = 中性線 N</span>
+        <span><span class="dot" style="background:#16a34a;"></span>綠 / 綠黃 = 接地 G</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 附錄：通氣觀念澄清 ============ -->
+<section class="water">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <div class="section-title">附錄・通氣觀念澄清（業主參考）</div>
+    <div class="section-sub">化糞池蓋 vs 屋外通氣立管，兩者不同不可互替</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3 class="block-title" style="color:#78716c;">A. 化糞池通氣蓋（你看到的那個白蓋）</h3>
+      <div class="card">
+        <div class="k">位置</div>
+        <div class="v">化糞池頂部（戶外地面上）</div>
+      </div>
+      <div class="card">
+        <div class="k">外觀</div>
+        <div class="v">白色 PVC 管 + T 型帽 / 蘑菇帽</div>
+      </div>
+      <div class="card">
+        <div class="k">功能</div>
+        <div class="v">排出化糞池內厭氧分解產生的沼氣、硫化氫</div>
+      </div>
+      <div class="card">
+        <div class="k">不做會怎樣</div>
+        <div class="v">池內氣體累積 → 爆炸風險 + 臭氣從馬桶倒灌</div>
+      </div>
+      <div class="card">
+        <div class="k">你的現況</div>
+        <div class="v" style="color:var(--ok);">✔ 已經有了</div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-title" style="color:var(--ok);">B. 屋外傳統通氣立管</h3>
+      <div class="card">
+        <div class="k">位置</div>
+        <div class="v">B1 糞管高點取通氣後，可在 B1 地板高度附近出外牆，再接戶外立管抬高到安全高位；灰水不設通氣</div>
+      </div>
+      <div class="card">
+        <div class="k">外觀</div>
+        <div class="v">2" PVC 通氣管，戶外管口加通氣帽 / 防雨帽</div>
+      </div>
+      <div class="card">
+        <div class="k">功能</div>
+        <div class="v">馬桶沖水時糞管內產生負壓，需要近端補氣；灰水端以各防臭下水 / 防臭地排處理返味</div>
+      </div>
+      <div class="card">
+        <div class="k">不做會怎樣</div>
+        <div class="v">沖馬桶 → 洗手台 / 地排「咕嚕咕嚕」叫 → 防臭地排水封或逆止失效 → 臭氣倒灌</div>
+      </div>
+      <div class="card">
+        <div class="k">你的現況</div>
+        <div class="v" style="color:var(--ok);">✔ 採傳統屋外通氣</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>為什麼兩個不能互相取代</strong>：化糞池離衛生間有一段埋地距離，馬桶沖水瞬間的負壓在化糞池端來不及補氣，所以糞管需在靠近馬桶的位置取通氣，再引到戶外高位。化糞池通氣則是平常把池內生物反應氣體慢慢散出來，速度、位置、作用都不同。灰水主排水本版不設通氣管，另走雨水 / 灰水排水。
+  </div>
+
+  <div class="callout info">
+    <strong>本版通氣做法</strong>：
+    <br>・不做屋內 AAV，只做糞管傳統屋外通氣
+    <br>・灰水不設通氣管
+    <br>・通氣管不需要「坐在屋子裡」；可從 B1 糞管高點延伸到 B1 地板高度附近出外牆，再於屋外立管抬高
+    <br>・管口需高於衛浴器具溢水位，並依水電師傅 / 規範決定最終高位
+    <br>・管口需加通氣帽 / 防雨帽，並遠離可開窗、進風口與人常停留位置
+    <br>・衛生間吊頂仍建議留活動蓋板，方便檢查三通、管夾與防臭地排支管
+  </div>
+
+</section>
+
+<footer>
+  瑜珈館木屋 水電施工說明 / 台灣版 / v1.0 / 2026-04-23<br>
+  若本文件與陸方原圖衝突，一律以本文件為準。
+</footer>
+
+</div>
+</body>
+</html>
