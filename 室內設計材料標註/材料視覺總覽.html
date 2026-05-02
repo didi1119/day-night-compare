@@ -392,6 +392,35 @@
     .concept-callout.ceiling-light { top: 24%; right: 4%; }
     .concept-callout.stair-light { left: 5%; bottom: 25%; }
 
+    .hall-image { position: relative; }
+
+    .hall-callout {
+      position: absolute;
+      z-index: 3;
+      width: min(260px, 42%);
+      padding: 9px 11px;
+      border: 1px solid rgba(255,255,255,.78);
+      border-left: 5px solid #f4e5ca;
+      border-radius: 6px;
+      background: rgba(28,22,16,.8);
+      color: #fff8ec;
+      box-shadow: 0 10px 26px rgba(0,0,0,.26);
+      font-size: 13px;
+      line-height: 1.42;
+      pointer-events: none;
+    }
+
+    .hall-callout strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #fff1d5;
+      font-size: 15px;
+    }
+
+    .hall-callout.ceiling { top: 9%; left: 5%; }
+    .hall-callout.floor { left: 27%; bottom: 16%; }
+    .hall-callout.grille { top: 18%; right: 6%; }
+
     .detail-link {
       display: inline-flex;
       align-items: center;
@@ -527,6 +556,89 @@
     th { background: rgba(78,62,43,.11); color: #3d352b; }
     td { color: #4d4438; }
 
+    .procurement-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .procurement-summary .panel {
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(34, 26, 18, .06);
+    }
+
+    .procurement-summary h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .procurement-summary p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .group-row th {
+      padding: 12px 16px;
+      background: #4d3927;
+      color: #fff6e8;
+      font-size: 15px;
+      letter-spacing: .04em;
+    }
+
+    .item-name strong {
+      display: block;
+      color: #332a20;
+      font-size: 15px;
+    }
+
+    .item-name span {
+      display: inline-flex;
+      margin-top: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(188,134,66,.14);
+      color: #6b4a25;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .item-name span.is-pending {
+      background: rgba(155,81,56,.12);
+      color: #7e3e2a;
+    }
+
+    .item-name span.is-taiwan {
+      background: rgba(63,115,92,.14);
+      color: #2f6f57;
+    }
+
+    .item-name span.is-china {
+      background: rgba(80,96,132,.13);
+      color: #435477;
+    }
+
+    .item-name span.is-interface {
+      background: rgba(65,55,43,.1);
+      color: #5f574e;
+    }
+
+    .item-name span.is-install {
+      background: rgba(86,120,112,.14);
+      color: #3f7068;
+    }
+
+    .item-name span.is-review {
+      background: rgba(188,134,66,.16);
+      color: #75512a;
+    }
+
+    .item-name span.is-note {
+      background: rgba(65,55,43,.1);
+      color: #5f574e;
+    }
+
     .note {
       margin-top: 18px;
       padding: 18px 20px;
@@ -544,13 +656,13 @@
 
     @media (max-width: 900px) {
       .section-head, .feature { grid-template-columns: 1fr; }
-      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid, .procurement-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery { grid-template-columns: 1fr; }
       .hero-copy { padding: 28px; }
     }
 
     @media (max-width: 560px) {
-      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid { grid-template-columns: 1fr; }
+      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid, .procurement-summary { grid-template-columns: 1fr; }
       .links { display: none; }
       section { padding: 52px 0; }
       .hero { min-height: 72vh; }
@@ -578,6 +690,7 @@
         <a href="#bathroom">廁所</a>
         <a href="#lounge-lighting">休息室燈光</a>
         <a href="#terrace">露台</a>
+        <a href="#main-hall">大廳</a>
         <a href="#exterior">外觀</a>
         <a href="#gallery">標註圖</a>
         <a href="#procurement">完整清單</a>
@@ -639,6 +752,7 @@
             <h3>主屋鋼構骨架</h3>
             <ul>
               <li>鋼構防鏽底漆＋面漆</li>
+              <li>全屋主鋼構梁台灣先做</li>
               <li>外露或包覆處用深木色收斂</li>
               <li>樓梯系統另採純木作</li>
             </ul>
@@ -649,7 +763,7 @@
             <ul>
               <li>天花：木紋鋁板</li>
               <li>立面：木紋色一致的戶外立面材</li>
-              <li>地坪：木紋戶外止滑磁磚</li>
+              <li>地坪：木紋戶外止滑磁磚，台灣先貼</li>
             </ul>
           </article>
           <article class="decision" style="--accent:#9b9a91">
@@ -659,13 +773,14 @@
               <li>公共區、休息室、閣樓一致</li>
               <li>矽酸鈣板/纖維水泥板基底</li>
               <li>批土底漆＋米灰礦物塗料</li>
+              <li>室內地坪選 SPC，規格待確認</li>
             </ul>
           </article>
           <article class="decision" style="--accent:#181817">
             <div class="tag"><span class="dot"></span>外觀</div>
             <h3>深灰黑木質語彙</h3>
             <ul>
-              <li>黑色直立鎖邊金屬屋面</li>
+              <li>屋頂鋁合金長城板＋雨排泄水</li>
               <li>外牆：燒杉板拉絲款</li>
               <li>龜裂款不作主外牆</li>
               <li>玻璃依區域分級，不統一套 Low-E</li>
@@ -680,6 +795,7 @@
           <div class="swatch"><div class="chip" style="background:#d8d4ca"></div><strong>灰白石紋</strong><span>廁所地坪、浴室牆面</span></div>
           <div class="swatch"><div class="chip" style="background:#191918"></div><strong>霧黑金屬</strong><span>窗框、五金、收邊</span></div>
           <div class="swatch"><div class="chip" style="background:#c58a4e"></div><strong>戶外木感</strong><span>WPC、木紋鋁板</span></div>
+          <div class="swatch"><div class="chip" style="background:#c58a4e"></div><strong>雲杉原木色</strong><span>大廳天花、同露台內牆</span></div>
         </div>
       </div>
     </section>
@@ -712,14 +828,16 @@
               <div class="layer">五分木板基底<span>作為牆面平整與固定基層，厚度依現場規格確認</span></div>
               <div class="layer">0.5cm 防水水泥纖維板<span>浴室牆面基底，不用竹木纖維板或一般木板外露</span></div>
               <div class="layer">防水層＋陰角補強<span>淋浴區做到頂，窗台、地牆交界與管口加強</span></div>
-              <div class="layer">閉水/淋水測試<span>確認防水後，大陸師傅再進場貼磁磚</span></div>
-              <div class="layer">磁磚膠＋灰白石紋瓷質磚<span>整間浴室牆面與地坪同系列灰白石紋磚</span></div>
+              <div class="layer">閉水/淋水測試＋貼磚完成<span>廁所內牆與地坪由台灣先做到磁磚貼好，大陸端不再重複報浴室磁磚施工</span></div>
+              <div class="layer">磁磚膠＋灰白石紋瓷質磚<span>地坪已選與叢林屋地板相同款式，牆面同系列灰白石紋磚</span></div>
+              <div class="layer">大陸採購衛浴設備<span>馬桶、淋浴設備、衛浴櫃等可由大陸採購，但需先提供尺寸與安裝圖</span></div>
+              <div class="layer">台灣水電安裝收口<span>現場給排水、五金安裝、矽利康與保護由台灣端整合</span></div>
               <div class="layer">環氧填縫<span>比一般填縫更耐污、耐刷、好清潔</span></div>
             </div>
           </aside>
         </div>
 
-        <div class="note">定版方向：整間浴室牆面與地坪用同系列灰白石紋霧面瓷質磚；地坪選止滑 R10-R11；牆面基底為五分木板＋0.5cm 防水水泥纖維板＋防水層；天花用防潮矽酸鈣板＋防霉漆，中央搭木紋鋁板飾條。</div>
+        <div class="note">定版方向：整間浴室牆面與地坪用同系列灰白石紋霧面瓷質磚；地坪已選與叢林屋地板相同款式，止滑 R10-R11；牆面基底為五分木板＋0.5cm 防水水泥纖維板＋防水層。馬桶、淋浴設備、衛浴櫃可由大陸採購，但台灣水電/現場端負責安裝、五金、矽利康與收口。</div>
       </div>
     </section>
 
@@ -802,7 +920,7 @@
             <h3>採購與施工層次</h3>
             <p>露台先用材料標註圖溝通，不顯示原始視角。採購時要把表面材、底層、防水與五金分開列，才不會只選到漂亮表面但漏掉戶外耐候細節。</p>
             <div class="stack">
-              <div class="layer">地坪表面<span>木紋戶外止滑磁磚，R11 以上，實品再確認色號</span></div>
+              <div class="layer">地坪表面<span>木紋戶外止滑磁磚，R11 以上，由台灣先做並與叢林屋地板款式邏輯對齊</span></div>
               <div class="layer">地坪底層<span>防水層、排水找坡、戶外磁磚膠與戶外填縫材</span></div>
               <div class="layer">天花表面<span>木紋鋁板，色系需與立面一致</span></div>
               <div class="layer">立面表面<span>戶外級木紋立面材，可用共擠塑木 WPC 或同色木紋鋁板系統</span></div>
@@ -811,7 +929,47 @@
           </aside>
         </div>
 
-        <div class="note">露台施工提醒：天花與立面先一起送樣比色，確認同一個木紋色系後再下單；地坪木紋磁磚要現場看實品，避免太紅、太黃或紋路太假。排水坡度、防水收頭、門檻防水與戶外填縫，是露台能不能長期好維護的關鍵。</div>
+        <div class="note">露台施工提醒：天花與立面先一起送樣比色，確認同一個木紋色系後再下單；露台地坪磁磚由台灣先做，大陸端不再報地磚與貼磚。排水坡度、防水收頭、門檻防水與戶外填縫，是露台能不能長期好維護的關鍵。</div>
+      </div>
+    </section>
+
+    <section id="main-hall">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Main Hall Materials</p>
+            <h2>大廳／瑜珈廳：銜接露台的主空間</h2>
+          </div>
+          <p>大廳是從露台進入室內後最重要的第一個畫面，材料語言要跟露台木感接得上，但室內要更乾淨、安定。這區目前定為天花用雲杉裝潢板，顏色與戶外露台內牆原木色一致；地坪用 SPC，端景格柵用塑木。</p>
+        </div>
+
+        <div class="feature">
+          <div class="bathroom-split">
+            <a class="image-frame hall-image" href="01_材料標註圖/01_大廳一_材料標註.png">
+              <img src="01_材料標註圖/01_大廳一_材料標註.png" alt="大廳一雲杉天花 SPC 地坪材料標註">
+              <div class="hall-callout ceiling"><strong>天花</strong>雲杉裝潢板，顏色同戶外露台內牆原木色。</div>
+              <div class="hall-callout floor"><strong>地坪</strong>SPC 木紋地材，規格待確認。</div>
+              <div class="image-caption">01 大廳一<span>雲杉天花＋SPC 地坪</span></div>
+            </a>
+            <a class="image-frame hall-image" href="01_材料標註圖/02_大廳二_材料標註.png">
+              <img src="01_材料標註圖/02_大廳二_材料標註.png" alt="大廳二雲杉天花塑木格柵材料標註">
+              <div class="hall-callout ceiling"><strong>天花</strong>雲杉裝潢板，顏色同戶外露台內牆原木色。</div>
+              <div class="hall-callout grille"><strong>端景格柵</strong>塑木格柵，色系銜接雲杉與露台木色。</div>
+              <div class="image-caption">02 大廳二<span>端景格柵選塑木</span></div>
+            </a>
+          </div>
+          <aside class="panel">
+            <h3>材料重點</h3>
+            <p>這區的重點不是增加很多材料，而是把露台木感延伸進室內，同時把地坪控制成耐磨、好清潔、適合瑜珈使用的 SPC 系統。</p>
+            <div class="stack">
+              <div class="layer">天花<span>雲杉裝潢板，顏色與戶外露台內牆原木色一致</span></div>
+              <div class="layer">地坪<span>SPC 木紋地材已定方向，厚度、耐磨層、防滑等級與色號待確認</span></div>
+              <div class="layer">端景格柵<span>塑木格柵，色系需銜接雲杉天花與露台木色，避免突兀</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="note">大廳施工提醒：大廳天花以雲杉裝潢板為準，顏色同戶外露台內牆原木色；圖面上新增的覆蓋標註優先於原圖舊字。SPC 地坪、端景塑木格柵要一起比色，讓露台木紋、室內雲杉天花、SPC 地板和格柵銜接。SPC 規格待確認，正式採購前需確認厚度、耐磨層、防滑、收邊條與門檻銜接。</div>
       </div>
     </section>
 
@@ -822,7 +980,7 @@
             <p class="eyebrow">Exterior Reference</p>
             <h2>屋體外觀參考</h2>
           </div>
-          <p>你給的外觀參考是深灰黑木質外牆、黑色金屬屋面、暖木露台內凹面。主外牆已確認用燒杉板拉絲款：比龜裂款更安靜、細緻、耐看，適合整棟大面積使用；龜裂款只保留為局部端景候選。</p>
+          <p>你給的外觀參考是深灰黑木質外牆、深色屋頂鋁合金長城板、暖木露台內凹面。主外牆已確認用燒杉板拉絲款：比龜裂款更安靜、細緻、耐看，適合整棟大面積使用；龜裂款只保留為局部端景候選。</p>
         </div>
 
         <div class="exterior-grid">
@@ -840,14 +998,14 @@
               <tr><th>位置</th><th>建議材料</th><th>原因</th><th>狀態</th></tr>
             </thead>
             <tbody>
-              <tr><td>屋頂</td><td>黑色直立鎖邊金屬屋面板</td><td>線條乾淨、耐候，符合參考圖的黑色屋頂語彙。</td><td>建議</td></tr>
+              <tr><td>屋頂</td><td>屋頂鋁合金長城板＋雨排泄水系統</td><td>線條乾淨、耐候，符合參考圖的深色屋頂語彙；此項由台灣先做。</td><td>台灣先做</td></tr>
               <tr><td>外牆主體</td><td>燒杉板拉絲款，深黑/深灰黑霧面保護塗裝</td><td>拉絲款比龜裂款更細緻耐看，適合大面積主外牆；龜裂款僅作局部端景候選。</td><td>已定版，板寬/塗裝待樣品確認</td></tr>
               <tr><td>露台內凹面</td><td>木紋鋁板天花＋同色系木紋戶外立面材</td><td>木質感明確，保養量比實木低；天花與立面需一起比色。</td><td>已定版，色號待樣品確認</td></tr>
-              <tr><td>露台滑門</td><td>霧黑鋁框＋5+5 中空玻璃</td><td>露台玻璃不做 Low-E，改用中空 5+5，兼顧隔音、隔熱與成本。</td><td>已更新</td></tr>
-              <tr><td>屋頂三面窗</td><td>霧黑鋁框＋Low-E 膠合玻璃</td><td>屋頂日照與熱負荷較高，保留 Low-E；膠合提高安全性。</td><td>已更新</td></tr>
-              <tr><td>公共空間四面大窗、廁所、休息室</td><td>霧黑鋁框＋5+5 膠合玻璃，不做 Low-E</td><td>以安全、氣密、防水與預算控制為主；避免廠商誤報 Low-E。</td><td>已更新</td></tr>
-              <tr><td>閣樓窗</td><td>霧黑鋁框＋Low-E 中空玻璃</td><td>閣樓受熱與結露風險較高，使用 Low-E 中空提高舒適度。</td><td>已更新</td></tr>
-              <tr><td>隱形紗窗</td><td>磁吸/摺疊式隱形紗窗候選</td><td>依你提供的天貓款式作為方向，最後依窗型、開啟方式與尺寸確認。</td><td>候選</td></tr>
+              <tr><td>露台滑門</td><td>霧黑鋁框＋5+5 膠合玻璃</td><td>鋁門玻璃不做 Low-E，改用 5+5 膠合玻璃，重點放在安全、氣密與防水。</td><td>台灣先做</td></tr>
+              <tr><td>屋頂三面窗</td><td>霧黑鋁框＋Low-E 膠合玻璃</td><td>屋頂日照與熱負荷較高，保留 Low-E；膠合提高安全性。</td><td>台灣先做</td></tr>
+              <tr><td>公共空間四面大窗、廁所、休息室</td><td>霧黑鋁框＋5+5 膠合玻璃，不做 Low-E</td><td>以安全、氣密、防水與預算控制為主；避免廠商誤報 Low-E。</td><td>台灣先做</td></tr>
+              <tr><td>閣樓窗</td><td>淺色/白色窗框＋Low-E 中空玻璃</td><td>閣樓受熱與結露風險較高，使用 Low-E 中空提高舒適度；窗框色依新版方向確認。</td><td>台灣先做</td></tr>
+              <tr><td>隱形紗窗</td><td>隱形紗窗/防蚊紗窗系統</td><td>此項由台灣鋁門窗一起處理，最後依窗型、開啟方式與尺寸確認。</td><td>台灣先做</td></tr>
             </tbody>
           </table>
         </div>
@@ -865,8 +1023,8 @@
         </div>
 
         <div class="gallery">
-          <figure class="shot"><a href="01_材料標註圖/01_大廳一_材料標註.png"><img src="01_材料標註圖/01_大廳一_材料標註.png" alt="大廳一材料標註"></a><figcaption><span>01 大廳一</span><small>瑜伽廳</small></figcaption></figure>
-          <figure class="shot"><a href="01_材料標註圖/02_大廳二_材料標註.png"><img src="01_材料標註圖/02_大廳二_材料標註.png" alt="大廳二材料標註"></a><figcaption><span>02 大廳二</span><small>端景牆</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/01_大廳一_材料標註.png"><img src="01_材料標註圖/01_大廳一_材料標註.png" alt="大廳一材料標註"></a><figcaption><span>01 大廳一</span><small>雲杉天花／SPC</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/02_大廳二_材料標註.png"><img src="01_材料標註圖/02_大廳二_材料標註.png" alt="大廳二材料標註"></a><figcaption><span>02 大廳二</span><small>雲杉天花／塑木格柵</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/03_露台_材料標註.png"><img src="01_材料標註圖/03_露台_材料標註.png" alt="露台材料標註"></a><figcaption><span>03 露台</span><small>已更新方向</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/05_休息室一_材料標註.png"><img src="01_材料標註圖/05_休息室一_材料標註.png" alt="休息室一材料標註"></a><figcaption><span>05 休息室一</span><small>純木作樓梯</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/06_休息室二_材料標註.png"><img src="01_材料標註圖/06_休息室二_材料標註.png" alt="休息室二材料標註"></a><figcaption><span>06 休息室二</span><small>小房間</small></figcaption></figure>
@@ -893,7 +1051,22 @@
             <p class="eyebrow">Procurement Language</p>
             <h2>完整材料清單</h2>
           </div>
-          <p>這區把材料拆成「表面材料」、「底層構造」與「產品對照」。休息室與閣樓白牆已定案跟公共區相同，統一使用礦物塗料系統；休息室天花與樓梯燈光另列，避免報價時被併入一般木作。</p>
+          <p>這版是給大陸廠商看的分工清單：先標出台灣已負責或會先完成的工程，剩下才是大陸端需要叫貨、加工或現場安裝的項目。每列仍保留產品連結與實體圖欄位，後續你給產品或樣品照就可以直接補進來。</p>
+        </div>
+
+        <div class="procurement-summary" aria-label="採購狀態摘要">
+          <article class="panel">
+            <h3>台灣先做</h3>
+            <p>所有磁磚、廁所內牆貼磚完成、衛浴現場水電/五金安裝、主鋼構梁、屋頂鋁合金長城板、雨排泄水、鋁門窗、玻璃與紗窗。</p>
+          </article>
+          <article class="panel">
+            <h3>大陸端叫貨/施工</h3>
+            <p>燒杉板拉絲款外牆、露台木紋天花與立面材、大廳雲杉天花、SPC 地坪、塑木格柵、室內木作、休息室/閣樓天花、牆面塗料、有質感燈具與插座面板、樓梯木作與踏步燈；衛浴只買馬桶、淋浴設備、衛浴櫃等產品。</p>
+          </article>
+          <article class="panel">
+            <h3>銜接重點</h3>
+            <p>大陸端報價前需避開台灣已做項目，只核對接口：產品尺寸圖、預留孔、收邊、色樣、防水交界、天花高度與檢修位置。</p>
+          </article>
         </div>
 
         <div class="table-wrap">
@@ -902,24 +1075,93 @@
               <tr><th>位置</th><th>表面材料</th><th>底層構造/採購</th><th>施工重點</th><th>產品連結</th><th>產品實體圖</th></tr>
             </thead>
             <tbody>
+              <tr class="group-row"><th colspan="6">01 屋體外殼 / 結構 / 外觀</th></tr>
               <tr>
-                <td>廁所牆面</td>
+                <td class="item-name"><strong>主屋結構</strong><span class="is-taiwan">台灣先做</span><span class="is-interface">大陸端避開重複報價</span></td>
+                <td>鋼結構骨架，外露或包覆處用深色收斂</td>
+                <td>鋼構、防鏽底漆、面漆、焊接/螺栓、預埋件、結構收邊</td>
+                <td>全屋主鋼構梁由台灣先做。大陸端只需依完成後尺寸銜接木作、外牆副骨架與收邊，不再報主鋼構。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>屋頂</strong><span class="is-taiwan">台灣先做</span><span class="is-interface">銜接收邊</span></td>
+                <td>屋頂鋁合金長城板，深色系</td>
+                <td>鋁合金長城板、防水層、屋面副料、泛水板、滴水收邊、雨排泄水、固定扣件</td>
+                <td>屋頂鋁合金長城板與雨排泄水由台灣施作。大陸端只需銜接外牆、天花、檢修與收邊，不再報屋頂主材。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>外牆主體</strong><span class="is-china">大陸叫貨</span><span>已定版</span></td>
+                <td>燒杉板拉絲款，深黑/深灰黑霧面質感</td>
+                <td>燒杉板、戶外級保護塗裝、通風背襯、副骨架、防水透氣膜、304/316 不鏽鋼固定件、外牆收邊條</td>
+                <td>拉絲款作主外牆；龜裂款不作大面積主外牆，只可作入口或端景候選。需確認板寬、厚度、炭化深度、保護塗裝、通風層與陰陽角收邊樣式。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+
+              <tr class="group-row"><th colspan="6">02 衛浴間 / 防水 / 設備</th></tr>
+              <tr>
+                <td class="item-name"><strong>衛浴間格局</strong><span class="is-pending">施工圖需調整</span><span class="is-interface">台灣/大陸接口</span></td>
+                <td>新版衛浴配置：淋浴/馬桶/窗/衛浴櫃依新版圖面</td>
+                <td>給排水定位、防水高度、門窗位置、衛浴設備尺寸、立面尺寸、水電管線</td>
+                <td>這不是只有材料更換，格局已與原設計不同。施工圖需重畫平面、立面、給排水、防水、門檻與設備定位。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供新版施工圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>廁所牆面</strong><span class="is-taiwan">台灣貼磚完成</span><span>已定版</span></td>
                 <td>同系列灰白石紋霧面瓷質磚，淋浴牆、馬桶牆、洗手台背牆與整間浴室牆面滿貼</td>
                 <td>五分木板基底、0.5cm 防水水泥纖維板、防水層、磁磚膠、環氧填縫</td>
-                <td>防水完成並測試後，大陸師傅再進場貼磁磚；可用較強清潔劑，但避免酸洗傷五金與填縫。</td>
+                <td>廁所內牆由台灣先做到磁磚貼好；現場水電、五金安裝、矽利康與保護也由台灣端整合。大陸端只需提供衛浴設備產品尺寸與安裝圖，不再報牆磚與貼磚施工。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>廁所地坪</td>
-                <td>灰白石紋止滑瓷質磁磚 R10-R11</td>
+                <td class="item-name"><strong>廁所地坪</strong><span class="is-taiwan">台灣貼磚完成</span><span>已定版</span></td>
+                <td>已選定款式：與叢林屋地板相同款式，灰白石紋止滑瓷質磁磚 R10-R11</td>
                 <td>防水層、排水找坡、地坪磁磚膠、環氧填縫</td>
-                <td>止滑與排水優先，不選亮面磚。</td>
+                <td>所有磁磚由台灣先做，地坪需與排水坡、防水、門檻一起完成；大陸端不再重複報磁磚。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>露台天花</td>
+                <td class="item-name"><strong>廁所天花</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
+                <td>防潮矽酸鈣板＋防霉漆，中央可搭木紋鋁板飾條</td>
+                <td>防潮矽酸鈣板、輕鋼架/木作骨架、防霉漆、檢修口、換氣設備</td>
+                <td>預留換氣設備高度與檢修；不另列浴室加熱設備，冷暖由冷暖氣處理。木紋飾條只作點綴，不讓潮濕區大面積木材外露。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>衛浴櫃/檯面</strong><span class="is-china">大陸採購</span><span class="is-install">台灣水電/現場安裝</span><span class="is-pending">待選型</span></td>
+                <td>懸浮式衛浴櫃，白色人造石/石英石一體盆</td>
+                <td>防潮夾板或鋁蜂巢櫃體、石材檯面/一體盆、緩衝五金、給排水配件</td>
+                <td>產品可由大陸採購，但給排水、插座、五金固定、矽利康與現場收口由台灣水電/現場端完成。大陸端需先提供尺寸、安裝孔位與給排水圖。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>馬桶/淋浴設備</strong><span class="is-china">大陸採購</span><span class="is-install">台灣水電安裝</span><span class="is-pending">待選型</span></td>
+                <td>馬桶、淋浴花灑/龍頭、排水配件與相關衛浴設備</td>
+                <td>產品本體、安裝配件、給排水尺寸圖、牆面出水高度、預埋/明裝五金規格</td>
+                <td>設備可由大陸採購；台灣端負責給排水、水電銜接、五金安裝與矽利康收口。採購前需先核對孔距、排水方式、牆出水位置與維修空間。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>淋浴玻璃/隔屏</strong><span class="is-pending">來源/尺寸待確認</span></td>
+                <td>透明強化玻璃推拉門或固定玻璃，霧黑/拉絲鎳五金方向</td>
+                <td>強化玻璃、滑軌/鉸鏈、止水條、把手、防水收邊</td>
+                <td>只圍淋浴區；馬桶區不做門、不做隔板。需依新版格局確認玻璃寬高、開門方式，以及是否由台灣現場或大陸端供貨。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+
+              <tr class="group-row"><th colspan="6">03 露台 / 戶外耐候系統</th></tr>
+              <tr>
+                <td class="item-name"><strong>露台天花</strong><span class="is-china">大陸叫貨/施工</span><span>已定版</span></td>
                 <td>木紋鋁板，與露台立面木紋色一致</td>
                 <td>鋁/鍍鋅副骨架、不鏽鋼扣件、收邊條</td>
                 <td>注意滴水、通風、燈具檢修口；先與立面材料一起比色。</td>
@@ -927,7 +1169,7 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>露台立面</td>
+                <td class="item-name"><strong>露台立面</strong><span class="is-china">大陸叫貨/施工</span><span class="is-pending">待樣品</span></td>
                 <td>木紋戶外立面材，可用共擠塑木 WPC 或木紋鋁板系統</td>
                 <td>通風背襯、副骨架、304/316 不鏽鋼扣件、伸縮縫</td>
                 <td>木紋色需與天花一致；選霧面低反光、戶外級抗 UV 材料。</td>
@@ -935,39 +1177,75 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>露台地坪</td>
+                <td class="item-name"><strong>露台地坪</strong><span class="is-taiwan">台灣貼磚完成</span><span>已定版</span></td>
                 <td>木紋戶外止滑磁磚 R11 以上，確切顏色待確認</td>
                 <td>防水層、排水找坡、戶外填縫材</td>
-                <td>磁磚比 WPC 地坪更穩定好清潔；實品需確認木紋自然度與止滑係數。</td>
+                <td>所有磁磚由台灣先做；大陸端不再報露台地磚與貼磚，只需銜接天花、立面、門檻與收邊。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>外牆主體</td>
-                <td>燒杉板拉絲款，深黑/深灰黑霧面質感</td>
-                <td>燒杉板、戶外級保護塗裝、通風背襯、副骨架、防水透氣膜、304/316 不鏽鋼固定件、外牆收邊條</td>
-                <td>拉絲款作主外牆；龜裂款不作大面積主外牆，只可作入口或端景候選。需確認板寬、厚度、炭化深度、保護塗裝、通風層與陰陽角收邊樣式。</td>
+                <td class="item-name"><strong>露台防水/排水</strong><span class="is-taiwan">台灣先做</span><span class="is-interface">銜接確認</span></td>
+                <td>不可見工程：防水層、排水坡、門檻與滴水線</td>
+                <td>彈性防水材、排水溝/落水頭、門檻防水收頭、戶外矽利康/填縫材</td>
+                <td>防水收頭、排水坡度與地坪磁磚由台灣先做。大陸端施工露台天花/立面時，不可破壞既有防水與門檻收邊。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+
+              <tr class="group-row"><th colspan="6">04 室內乾區 / 地坪 / 天花 / 木作</th></tr>
+              <tr>
+                <td class="item-name"><strong>室內地坪</strong><span class="is-china">大陸叫貨</span><span class="is-pending">SPC 規格待確認</span></td>
+                <td>SPC 木紋地材，規格、厚度、耐磨層與色號待確認</td>
+                <td>SPC 地板、靜音/防潮墊、收邊條、踢腳板、門檻銜接條、地坪整平材料</td>
+                <td>室內地坪方向已選 SPC；公共區、休息室、閣樓需統一木色邏輯，正式採購前確認耐磨、防潮、防滑、腳感、厚度與木門/天花板色差。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>休息室天花</td>
+                <td class="item-name"><strong>大廳/瑜珈廳天花</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
+                <td>雲杉裝潢板，顏色同戶外露台內牆原木色</td>
+                <td>天花骨架、雲杉裝潢板、收邊條、燈具/吊扇/窗簾軌道開孔與檢修配置</td>
+                <td>大廳是接著露台的主空間，天花需作為重點說明；板色與戶外露台內牆原木色一致，並與 SPC、塑木格柵一起比色。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>大廳端景格柵</strong><span class="is-china">大陸叫貨/施工</span><span>塑木已選</span></td>
+                <td>塑木格柵，霧面木色</td>
+                <td>塑木格柵條、背襯骨架、固定扣件、收邊條、端部封口</td>
+                <td>端景格柵改選塑木；需確認條寬、間距、深度、顏色與收邊方式，色系要銜接雲杉天花與露台木紋。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>木門/櫃體木作</strong><span class="is-china">大陸叫貨/施工</span><span class="is-pending">待樣品</span></td>
+                <td>暖橡木、梣木或淺胡桃木皮/木紋板，霧面耐磨透明漆</td>
+                <td>E0/F1 夾板、木皮或木紋飾面板、封邊條、緩衝五金、門鎖五金</td>
+                <td>作為室內木色基準；休息室天花需與木門同色或同系列，避免天花、門片、地坪各自偏色。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>休息室天花</strong><span class="is-china">大陸叫貨/施工</span><span class="is-review">需設計/施工確認</span></td>
                 <td>與木門同色的大板木作/木紋板，少量寬分縫</td>
                 <td>木作骨架、矽酸鈣板或夾板基底、木皮/木紋板、收邊條、檢修口</td>
-                <td>不做格柵；板面要大、分縫要少，色系需與木門先比樣。需預留冷氣、燈具與變壓器檢修。</td>
+                <td>方向是不做格柵、板面要大、分縫要少，但需先跟設計方與施工方確認天花高度是否足夠，尤其冷氣、燈槽、變壓器與檢修空間。若高度不足，改薄型做法或局部天花。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>閣樓斜頂天花</td>
+                <td class="item-name"><strong>閣樓斜頂天花</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>大面木紋耐燃板或木皮耐燃板，少量寬分縫</td>
                 <td>木作骨架、耐燃基板、木皮/木紋飾面、收邊條、崁燈開孔與檢修配置</td>
                 <td>不做一條一條線性板；板面要大、接縫少，木色選煙燻淺橡木或淺胡桃，降低橘感。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
+
+              <tr class="group-row"><th colspan="6">05 燈光 / 電氣 / 控制</th></tr>
               <tr>
-                <td>休息室天花間接照明</td>
+                <td class="item-name"><strong>休息室天花間接照明</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>反折槽藏 LED，光朝白牆/礦物灰牆面洗</td>
                 <td>2700K-3000K LED 燈條、鋁槽、擴散罩、調光電源、維修暗門</td>
                 <td>光不是往內打木天花板，而是洗向牆面；建議獨立迴路並可調光，日常使用約 30%-50% 亮度。</td>
@@ -975,7 +1253,7 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>休息室崁燈</td>
+                <td class="item-name"><strong>休息室崁燈</strong><span class="is-china">大陸叫貨</span><span>已定版方向</span></td>
                 <td>6 顆深杯防眩崁燈，3000K、CRI 90+ 建議</td>
                 <td>崁燈本體、驅動器、天花開孔、散熱空間、線路分迴路</td>
                 <td>6 顆才足夠作基礎照明；建議 3+3 分迴路，避免全開太亮，也方便夜間只開半區。</td>
@@ -983,7 +1261,49 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>公共區/休息室/閣樓白牆</td>
+                <td class="item-name"><strong>公共區/閣樓照明</strong><span class="is-china">大陸叫貨</span><span class="is-pending">數量待確認</span></td>
+                <td>暖白光 2700K-3000K，CRI 90+，防眩崁燈或線性洗牆燈</td>
+                <td>燈具本體、驅動器、調光器、迴路配線、天花開孔、檢修點；設計圖暫示 8 顆，實際數量未定</td>
+                <td>先統一色溫與防眩等級；設計圖目前看到約 8 顆，但需由設計方/照明方確認是否真的需要這麼多，再補正式燈具配置圖。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>大廳吊燈/吊扇</strong><span class="is-china">大陸採購</span><span class="is-pending">待選型</span><span class="is-review">接口確認</span></td>
+                <td>造型吊燈、吊扇或吊扇燈，暖色系，依設計圖確認</td>
+                <td>燈具本體、吊桿/吊架、驅動器、吊扇控制器、補強吊點、迴路配線</td>
+                <td>大廳圖面有吊燈/吊扇語彙，但目前未列採購項。需確認是否保留、數量、高度、重量、補強吊點與是否影響雲杉天花開孔。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>冷暖氣設備</strong><span class="is-taiwan">台灣採購</span><span class="is-interface">預留接口</span></td>
+                <td>冷暖氣室內外機，型號由台灣端確認</td>
+                <td>冷媒管、排水管、電源、室外機架、檢修口、天花或牆面開孔收邊</td>
+                <td>冷氣為冷暖氣，由台灣採購；大陸端不報冷氣主機，只需依台灣冷氣位置預留天花、木作、排水與檢修接口。</td>
+                <td><span class="product-link is-empty">台灣採購</span></td>
+                <td class="sample-cell">待台灣型號資料</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>換氣設備</strong><span class="is-pending">待廠商推薦</span><span class="is-interface">預留接口</span></td>
+                <td>浴室/必要區域換氣設備，型號待廠商推薦後決定</td>
+                <td>換氣扇本體、排風管、止逆閥、電源、檢修口、出風口收邊</td>
+                <td>目前只列換氣設備；先看廠商推薦哪一台，再決定採購來源與型號。需先保留排風管路、電源與檢修位置。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td class="item-name"><strong>開關/插座面板</strong><span class="is-china">大陸採購</span><span class="is-pending">待選型</span></td>
+                <td>有質感的開關面板、插座面板，色系依牆面/木作搭配</td>
+                <td>開關面板、插座面板、底盒、弱電面板、USB/網路/特殊插座候選</td>
+                <td>開關插座面板改列為大陸採購項；需確認台灣電工規格、底盒尺寸、迴路需求、插座數量與面板顏色，避免買到不相容規格。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+
+              <tr class="group-row"><th colspan="6">06 室內牆面 / 基底</th></tr>
+              <tr>
+                <td class="item-name"><strong>公共區/休息室/閣樓白牆</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>米灰礦物塗料/礦物奈米塗層，低光澤霧面</td>
                 <td>輕隔間骨架、矽酸鈣板或纖維水泥板、接縫帶、批土、底漆、礦物塗料、保護面漆</td>
                 <td>三區白牆做同一套系統；不要改 HPL、抗倍特或竹木纖維裝潢板。浴室仍以瓷質磁磚為準。</td>
@@ -991,58 +1311,67 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>內牆基底</td>
+                <td class="item-name"><strong>內牆基底</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>矽酸鈣板/纖維水泥板基底，表面做礦物塗料</td>
                 <td>輕隔間骨架、矽酸鈣板、接縫帶、批土、底漆</td>
                 <td>乾區白牆基底一致；靠窗或較潮區可改纖維水泥板。潮濕浴室區另依防水構造處理。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
+
+              <tr class="group-row"><th colspan="6">07 門窗 / 玻璃 / 紗窗</th></tr>
               <tr>
-                <td>露台滑門玻璃</td>
-                <td>5+5 中空玻璃，不做 Low-E</td>
-                <td>霧黑粉體烤漆鋁框、5+5 中空玻璃、氣密膠條、門檻防水收邊</td>
-                <td>採購與報價需明寫「露台滑門：5+5 中空玻璃，不做 Low-E」。</td>
+                <td class="item-name"><strong>露台滑門玻璃</strong><span class="is-taiwan">台灣先做</span><span>已定版</span></td>
+                <td>5+5 膠合玻璃，不做 Low-E</td>
+                <td>霧黑粉體烤漆鋁框、5+5 膠合玻璃、氣密膠條、門檻防水收邊</td>
+                <td>鋁門窗與玻璃由台灣先做；大陸端不需報鋁門窗，只需避開既有門檻、防水與收邊。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>屋頂三面窗玻璃</td>
+                <td class="item-name"><strong>屋頂三面窗玻璃</strong><span class="is-taiwan">台灣先做</span><span>已定版</span></td>
                 <td>Low-E 膠合玻璃</td>
                 <td>霧黑鋁框、Low-E 膠合玻璃、防水收邊、排水溝槽</td>
-                <td>屋頂日照強，保留 Low-E；膠合玻璃提高安全性。</td>
+                <td>鋁門窗由台灣先做；屋頂窗日照強，保留 Low-E，並需與屋頂防水泛水收邊整合。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>公共空間四面大窗/廁所/休息室玻璃</td>
+                <td class="item-name"><strong>公共空間四面大窗/廁所/休息室玻璃</strong><span class="is-taiwan">台灣先做</span><span>已定版</span></td>
                 <td>5+5 膠合玻璃，不做 Low-E</td>
                 <td>霧黑鋁框、5+5 膠合玻璃、氣密膠條、收邊矽利康</td>
-                <td>這三類窗統一不列 Low-E，以免廠商誤報；重點是安全、氣密與防水。</td>
+                <td>鋁門窗與玻璃由台灣先做；大陸端不需再報窗框/玻璃，後續只銜接窗邊收邊、窗簾盒或木作。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>閣樓窗玻璃</td>
-                <td>Low-E 中空玻璃</td>
-                <td>霧黑鋁框、Low-E 中空玻璃、氣密膠條、防結露收邊</td>
-                <td>閣樓熱與結露風險較高，這裡保留 Low-E 中空。</td>
+                <td class="item-name"><strong>閣樓窗玻璃/窗框</strong><span class="is-taiwan">台灣先做</span><span>已定版方向</span></td>
+                <td>Low-E 中空玻璃，窗框顏色改走白色或淺色系概念</td>
+                <td>Low-E 中空玻璃、氣密膠條、防結露收邊、窗框粉體烤漆色樣</td>
+                <td>鋁門窗由台灣先做；閣樓保留 Low-E 中空，窗框色需配新版閣樓白窗框概念圖。大陸端只銜接室內木作收邊。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>隱形紗窗</td>
-                <td>依天貓候選款式：隱形紗窗/防蚊紗窗系統</td>
-                <td>依各窗型確認磁吸、摺疊或捲簾形式，框色配霧黑或深色窗框</td>
-                <td>最後要依可開窗方向、窗框深度、把手位置與現場尺寸下單。</td>
-                <td>
-                  <a class="product-link" href="https://detail.tmall.com/item.htm?abbucket=7&id=902735942317&mi_id=0000ZA9WV1FNd2KjCwlJnMLuI1CIHHpJ_MG7gC5MNC7Le_c&ns=1&skuId=5815836500339&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222ae9736b0a2dcc75bc17358b61a73d8d%22%7D&xxc=taobaoSearch">候選 1</a>
-                  <a class="product-link" href="https://detail.tmall.com/item.htm?abbucket=7&id=1040336644811&mi_id=00009q7P0RRHYyM203pfzME-CZzcZ_4-Y0FVJifEV8oi7r8&ns=1&skuId=6222829611599&spm=a21n57.1.hoverItem.13&utparam=%7B%22aplus_abtest%22%3A%229c9aa092321bea6d2d45f4febf272015%22%7D&xxc=taobaoSearch">候選 2</a>
-                </td>
-                <td class="sample-cell">待截圖/樣品圖</td>
+                <td class="item-name"><strong>隱形紗窗</strong><span class="is-taiwan">台灣門窗一起做</span><span class="is-pending">型式待確認</span></td>
+                <td>隱形紗窗/防蚊紗窗系統，型式依台灣門窗廠確認</td>
+                <td>依各窗型確認磁吸、摺疊或捲簾形式，框色配窗框，需與把手與開窗方向整合</td>
+                <td>此項改由台灣鋁門窗一起處理；大陸端不需採購。最後依可開窗方向、窗框深度、把手位置與現場尺寸下單。</td>
+                <td><span class="product-link is-empty">台灣廠商確認</span></td>
+                <td class="sample-cell">待台灣廠商型錄/樣品圖</td>
               </tr>
               <tr>
-                <td>樓梯</td>
+                <td class="item-name"><strong>窗簾/軟簾/軌道</strong><span class="is-pending">待選型</span><span class="is-interface">窗邊接口</span></td>
+                <td>透光紗簾、遮光簾或軟簾系統，顏色依室內米灰/雲杉木色調整</td>
+                <td>窗簾布、軌道、滑輪、固定件、窗簾盒或明裝收邊、拉繩/電動配件候選</td>
+                <td>大面窗與大廳圖面有軟簾需求，但採購來源未定。需和鋁門窗、天花、牆面收邊一起確認軌道位置、開合方向、遮光需求與是否預留電源。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+
+              <tr class="group-row"><th colspan="6">08 樓梯 / 木作 / 踏步燈</th></tr>
+              <tr>
+                <td class="item-name"><strong>樓梯</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>純木作踏板/扶手，霧面耐磨透明漆</td>
                 <td>結構集成材或實木踏板、夾板木作、緩衝五金</td>
                 <td>不是鋼構外包；踏鼻需做防滑細槽。</td>
@@ -1050,7 +1379,7 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
-                <td>樓梯踏步燈</td>
+                <td class="item-name"><strong>樓梯踏步燈</strong><span class="is-china">大陸叫貨/施工</span><span>已定版方向</span></td>
                 <td>每階踏鼻下緣藏線燈，暖色低亮度</td>
                 <td>2700K LED 燈條、鋁槽擴散罩、低壓變壓器、迴路配線、檢修點</td>
                 <td>光洗下一階踢面或踏面前緣，作夜間導引；燈珠不可外露，收邊需與純木作樓梯整合。</td>
@@ -1059,6 +1388,10 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="note">
+          <strong>目前仍需補齊：</strong>大陸端只需回填其負責項目的品牌型號、實體樣品照、正式產品連結、燈具規格表、開關插座面板、木作/天花/外牆收邊大樣。台灣先做的磁磚、主鋼構、屋頂長城板、雨排泄水、鋁門窗、玻璃、紗窗與冷暖氣，需提供完工尺寸與接口條件給大陸端銜接，不列入大陸採購報價。另需特別確認：SPC 地坪規格、雲杉裝潢板板型與色樣、塑木格柵條寬與間距、休息室天花高度是否足夠、公共區/閣樓燈具是否真的需要 8 顆、大廳吊燈/吊扇是否保留、換氣設備廠商推薦型號、窗簾/軟簾軌道位置、淋浴玻璃/隔屏供貨來源、衛浴設備尺寸與給排水孔位。
         </div>
       </div>
     </section>
