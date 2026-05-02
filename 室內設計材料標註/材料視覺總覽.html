@@ -151,6 +151,41 @@
     }
     .section-head p { color: var(--muted); margin-bottom: 0; }
 
+    .update-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .update-card {
+      background: rgba(255,250,240,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(34, 26, 18, .08);
+    }
+
+    .update-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #3c3329;
+      font-size: 18px;
+    }
+
+    .update-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .update-card.is-alert {
+      border-left: 7px solid #9b5138;
+    }
+
+    .update-card.is-fixed {
+      border-left: 7px solid var(--gold);
+    }
+
     .decision-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -409,6 +444,31 @@
       font-weight: 700;
     }
     .shot small { color: var(--muted); font-weight: 400; }
+
+    .archive-drawer {
+      margin-top: 22px;
+      border: 1px dashed rgba(58,49,39,.28);
+      border-radius: var(--radius);
+      background: rgba(255,250,240,.62);
+      overflow: hidden;
+    }
+
+    .archive-drawer summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      color: #4e4438;
+      font-weight: 700;
+    }
+
+    .archive-drawer summary span {
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 8px;
+    }
+
+    .archive-drawer .gallery {
+      padding: 0 18px 18px;
+    }
     .sample-cell {
       min-width: 150px;
       color: var(--muted);
@@ -484,13 +544,13 @@
 
     @media (max-width: 900px) {
       .section-head, .feature { grid-template-columns: 1fr; }
-      .decision-grid, .terrace-grid, .exterior-grid, .palette { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery { grid-template-columns: 1fr; }
       .hero-copy { padding: 28px; }
     }
 
     @media (max-width: 560px) {
-      .decision-grid, .terrace-grid, .exterior-grid, .palette { grid-template-columns: 1fr; }
+      .decision-grid, .terrace-grid, .exterior-grid, .palette, .update-grid { grid-template-columns: 1fr; }
       .links { display: none; }
       section { padding: 52px 0; }
       .hero { min-height: 72vh; }
@@ -513,6 +573,7 @@
     <div class="shell">
       <div class="brand">瑜珈館木屋材料總覽</div>
       <div class="links">
+        <a href="#drawing-updates">變更說明</a>
         <a href="#decisions">定版</a>
         <a href="#bathroom">廁所</a>
         <a href="#lounge-lighting">休息室燈光</a>
@@ -529,12 +590,39 @@
       <div class="hero-copy">
         <p class="eyebrow">Interior Material Board / Resort Cabin</p>
         <h1>材料視覺總覽</h1>
-        <p>整合目前討論過的圖面、材料定版與施工語言。方向是森林裡的高級 resort 小屋：主屋鋼構、純木作樓梯、耐候露台、耐清潔廁所，以及深灰黑木質外觀。</p>
+        <p>整合目前討論過的圖面、材料定版與施工語言。此版先標清楚施工圖需要跟著調整的地方：衛浴間格局已不同，休息室格局不變只改天花與燈光，閣樓則調整天花、色系與窗框顏色。</p>
       </div>
     </div>
   </header>
 
   <main>
+    <section id="drawing-updates">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Drawing Update Notes</p>
+            <h2>施工圖需先對齊的變更</h2>
+          </div>
+          <p>以下是目前圖面與原設計不同或需要施工圖同步修正的地方。材料標註圖用來確認方向，正式施工前仍要回到平面、立面、天花與水電圖一起調整。</p>
+        </div>
+
+        <div class="update-grid">
+          <article class="update-card is-alert">
+            <strong>衛浴間：格局已與原設計不同</strong>
+            <p>廁所/衛浴間不只是材料變更，格局配置已改成新版方向。施工圖需要同步調整平面、排水、防水、門窗、衛浴設備位置與立面尺寸。</p>
+          </article>
+          <article class="update-card is-fixed">
+            <strong>休息室：格局不變</strong>
+            <p>休息室維持原格局，只調整天花板樣式與打燈方式：吊頂改木門同色大板，間接照明改反折槽洗牆，樓梯每階加藏燈。</p>
+          </article>
+          <article class="update-card is-fixed">
+            <strong>閣樓：天花、顏色與窗框更新</strong>
+            <p>閣樓主要改天花板做法、整體木色與牆面配色，窗框顏色也改為新版方向。舊版閣樓圖只放在封存區，不作主動展示。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="decisions">
       <div class="shell">
         <div class="section-head">
@@ -542,7 +630,7 @@
             <p class="eyebrow">Current Decisions</p>
             <h2>目前材料定版</h2>
           </div>
-          <p>這裡列的是我們已經討論到比較明確的項目。廁所和露台已進入可採購語言；外牆主體仍可再最後確認品牌與板型。</p>
+          <p>這裡列的是我們已經討論到比較明確的項目。廁所和露台已進入可採購語言；外牆主體確認使用燒杉板拉絲款，後續只需確認品牌、板寬、塗裝與收邊系統。</p>
         </div>
 
         <div class="decision-grid">
@@ -578,7 +666,8 @@
             <h3>深灰黑木質語彙</h3>
             <ul>
               <li>黑色直立鎖邊金屬屋面</li>
-              <li>深灰黑木紋外牆</li>
+              <li>外牆：燒杉板拉絲款</li>
+              <li>龜裂款不作主外牆</li>
               <li>玻璃依區域分級，不統一套 Low-E</li>
             </ul>
           </article>
@@ -733,7 +822,7 @@
             <p class="eyebrow">Exterior Reference</p>
             <h2>屋體外觀參考</h2>
           </div>
-          <p>你給的外觀參考是深灰黑木質外牆、黑色金屬屋面、暖木露台內凹面。若要維護低，主外牆建議以深灰黑木紋纖維水泥板或木紋金屬外牆板優先，真燒杉質感最高但保養多。</p>
+          <p>你給的外觀參考是深灰黑木質外牆、黑色金屬屋面、暖木露台內凹面。主外牆已確認用燒杉板拉絲款：比龜裂款更安靜、細緻、耐看，適合整棟大面積使用；龜裂款只保留為局部端景候選。</p>
         </div>
 
         <div class="exterior-grid">
@@ -752,7 +841,7 @@
             </thead>
             <tbody>
               <tr><td>屋頂</td><td>黑色直立鎖邊金屬屋面板</td><td>線條乾淨、耐候，符合參考圖的黑色屋頂語彙。</td><td>建議</td></tr>
-              <tr><td>外牆主體</td><td>深灰黑木紋纖維水泥板，或木紋金屬外牆板</td><td>比真木更低維護，較能扛森林濕氣與日曬。</td><td>待確認</td></tr>
+              <tr><td>外牆主體</td><td>燒杉板拉絲款，深黑/深灰黑霧面保護塗裝</td><td>拉絲款比龜裂款更細緻耐看，適合大面積主外牆；龜裂款僅作局部端景候選。</td><td>已定版，板寬/塗裝待樣品確認</td></tr>
               <tr><td>露台內凹面</td><td>木紋鋁板天花＋同色系木紋戶外立面材</td><td>木質感明確，保養量比實木低；天花與立面需一起比色。</td><td>已定版，色號待樣品確認</td></tr>
               <tr><td>露台滑門</td><td>霧黑鋁框＋5+5 中空玻璃</td><td>露台玻璃不做 Low-E，改用中空 5+5，兼顧隔音、隔熱與成本。</td><td>已更新</td></tr>
               <tr><td>屋頂三面窗</td><td>霧黑鋁框＋Low-E 膠合玻璃</td><td>屋頂日照與熱負荷較高，保留 Low-E；膠合提高安全性。</td><td>已更新</td></tr>
@@ -772,21 +861,28 @@
             <p class="eyebrow">Annotated Views</p>
             <h2>全空間材料標註圖</h2>
           </div>
-          <p>這些圖是目前的材料標註版本。最後定版後，可以再一次統一更新文字與材料名稱。</p>
+          <p>主畫面只放目前要對外討論的版本。衛浴間以新版廁所段落為準；閣樓主動顯示新版天花、配色與窗框方向，舊版閣樓圖收在下方封存區。</p>
         </div>
 
         <div class="gallery">
           <figure class="shot"><a href="01_材料標註圖/01_大廳一_材料標註.png"><img src="01_材料標註圖/01_大廳一_材料標註.png" alt="大廳一材料標註"></a><figcaption><span>01 大廳一</span><small>瑜伽廳</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/02_大廳二_材料標註.png"><img src="01_材料標註圖/02_大廳二_材料標註.png" alt="大廳二材料標註"></a><figcaption><span>02 大廳二</span><small>端景牆</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/03_露台_材料標註.png"><img src="01_材料標註圖/03_露台_材料標註.png" alt="露台材料標註"></a><figcaption><span>03 露台</span><small>已更新方向</small></figcaption></figure>
-          <figure class="shot"><a href="01_材料標註圖/04_衛生間_材料標註.png"><img src="01_材料標註圖/04_衛生間_材料標註.png" alt="衛生間材料標註"></a><figcaption><span>04 衛生間舊標註</span><small>以新版廁所頁為準</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/05_休息室一_材料標註.png"><img src="01_材料標註圖/05_休息室一_材料標註.png" alt="休息室一材料標註"></a><figcaption><span>05 休息室一</span><small>純木作樓梯</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/06_休息室二_材料標註.png"><img src="01_材料標註圖/06_休息室二_材料標註.png" alt="休息室二材料標註"></a><figcaption><span>06 休息室二</span><small>小房間</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/07_休息室三_材料標註.png"><img src="01_材料標註圖/07_休息室三_材料標註.png" alt="休息室三材料標註"></a><figcaption><span>07 休息室三</span><small>睡眠角</small></figcaption></figure>
           <figure class="shot"><a href="01_材料標註圖/08_樓梯_材料標註.png"><img src="01_材料標註圖/08_樓梯_材料標註.png" alt="樓梯材料標註"></a><figcaption><span>08 樓梯</span><small>垂直動線</small></figcaption></figure>
-          <figure class="shot"><a href="01_材料標註圖/09_閣樓一_材料標註.png"><img src="01_材料標註圖/09_閣樓一_材料標註.png" alt="閣樓一材料標註"></a><figcaption><span>09 閣樓一</span><small>低矮睡眠區</small></figcaption></figure>
-          <figure class="shot"><a href="01_材料標註圖/10_閣樓二_材料標註.png"><img src="01_材料標註圖/10_閣樓二_材料標註.png" alt="閣樓二材料標註"></a><figcaption><span>10 閣樓二</span><small>觀景睡眠角</small></figcaption></figure>
+          <figure class="shot"><a href="03_概念參考圖/閣樓_雙床樓梯口大面木紋板_材料標示.png"><img src="03_概念參考圖/閣樓_雙床樓梯口大面木紋板_材料標示.png" alt="閣樓雙床樓梯口大面木紋板材料標示"></a><figcaption><span>09A 閣樓新版</span><small>大面木紋板</small></figcaption></figure>
+          <figure class="shot"><a href="03_概念參考圖/閣樓_同格局白窗框大面木紋板_材料標示.png"><img src="03_概念參考圖/閣樓_同格局白窗框大面木紋板_材料標示.png" alt="閣樓白窗框大面木紋板材料標示"></a><figcaption><span>10A 閣樓窗側新版</span><small>白窗框概念</small></figcaption></figure>
         </div>
+
+        <details class="archive-drawer">
+          <summary>封存：舊版閣樓標註圖<span>預設不顯示，僅保留對照紀錄</span></summary>
+          <div class="gallery">
+            <figure class="shot"><a href="01_材料標註圖/09_閣樓一_材料標註.png"><img src="01_材料標註圖/09_閣樓一_材料標註.png" alt="舊版閣樓一材料標註"></a><figcaption><span>09 舊版閣樓一</span><small>封存</small></figcaption></figure>
+            <figure class="shot"><a href="01_材料標註圖/10_閣樓二_材料標註.png"><img src="01_材料標註圖/10_閣樓二_材料標註.png" alt="舊版閣樓二材料標註"></a><figcaption><span>10 舊版閣樓二</span><small>封存</small></figcaption></figure>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -847,10 +943,26 @@
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
               <tr>
+                <td>外牆主體</td>
+                <td>燒杉板拉絲款，深黑/深灰黑霧面質感</td>
+                <td>燒杉板、戶外級保護塗裝、通風背襯、副骨架、防水透氣膜、304/316 不鏽鋼固定件、外牆收邊條</td>
+                <td>拉絲款作主外牆；龜裂款不作大面積主外牆，只可作入口或端景候選。需確認板寬、厚度、炭化深度、保護塗裝、通風層與陰陽角收邊樣式。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
                 <td>休息室天花</td>
                 <td>與木門同色的大板木作/木紋板，少量寬分縫</td>
                 <td>木作骨架、矽酸鈣板或夾板基底、木皮/木紋板、收邊條、檢修口</td>
                 <td>不做格柵；板面要大、分縫要少，色系需與木門先比樣。需預留冷氣、燈具與變壓器檢修。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>閣樓斜頂天花</td>
+                <td>大面木紋耐燃板或木皮耐燃板，少量寬分縫</td>
+                <td>木作骨架、耐燃基板、木皮/木紋飾面、收邊條、崁燈開孔與檢修配置</td>
+                <td>不做一條一條線性板；板面要大、接縫少，木色選煙燻淺橡木或淺胡桃，降低橘感。</td>
                 <td><span class="product-link is-empty">待提供</span></td>
                 <td class="sample-cell">待提供實體圖</td>
               </tr>
