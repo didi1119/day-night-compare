@@ -1,0 +1,4 @@
+name = "yoga-materials-board"
+main = "src/worker.js"
+compatibility_date = "2026-05-02"
+workers_dev = true
