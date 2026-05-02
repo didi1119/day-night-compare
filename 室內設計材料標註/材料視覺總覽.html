@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>瑜珈館木屋｜材料視覺總覽</title>
+  <style>
+    :root {
+      --ink: #211d18;
+      --muted: #6e665a;
+      --paper: #f4eee3;
+      --panel: #fffaf0;
+      --line: rgba(58, 49, 39, .16);
+      --gold: #bc8642;
+      --wood: #b87842;
+      --walnut: #55321f;
+      --stone: #cfc8bb;
+      --tile: #ddd9d0;
+      --black: #171716;
+      --terrace: #7b6a54;
+      --shadow: 0 20px 60px rgba(34, 26, 18, .16);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(60,43,29,.05) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(0deg, rgba(60,43,29,.04) 1px, transparent 1px) 0 0 / 44px 44px,
+        radial-gradient(circle at 10% 0%, rgba(188,134,66,.22), transparent 34rem),
+        #efe6d7;
+      font-family: "Hiragino Sans GB", "STHeiti", "PingFang TC", "Noto Sans TC", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: 38px 0 56px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(32,27,22,.88), rgba(32,27,22,.38) 52%, rgba(32,27,22,.1)),
+        url("04_外觀參考圖/S__56729620.jpg") center / cover;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, transparent, #efe6d7);
+      z-index: -1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(244, 238, 227, .84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav .shell {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .brand { font-weight: 700; letter-spacing: .04em; }
+    .links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+    .links a {
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: #4c443a;
+      font-size: 14px;
+    }
+    .links a:hover { border-color: var(--line); background: rgba(255,255,255,.44); }
+
+    .hero-copy {
+      max-width: 760px;
+      color: #fff6e8;
+      padding: 42px;
+      border-left: 7px solid var(--gold);
+      background: linear-gradient(90deg, rgba(20,18,15,.72), rgba(20,18,15,.22));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #e7cda6;
+      font-size: 14px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .92;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    h3 { font-size: 21px; margin-bottom: 8px; }
+
+    .hero-copy p {
+      max-width: 680px;
+      margin-bottom: 0;
+      font-size: 18px;
+      color: rgba(255,246,232,.88);
+    }
+
+    section { padding: 74px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-head p { color: var(--muted); margin-bottom: 0; }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .decision {
+      min-height: 190px;
+      background: rgba(255,250,240,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(34, 26, 18, .07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .decision::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 7px;
+      background: var(--accent, var(--gold));
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(33,29,24,.08);
+      color: #4d4438;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent, var(--gold));
+    }
+
+    .decision ul, .spec-list {
+      padding: 0;
+      margin: 14px 0 0;
+      list-style: none;
+    }
+    .decision li, .spec-list li {
+      padding: 8px 0;
+      border-top: 1px solid rgba(65,55,43,.1);
+      color: #4d4438;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .swatch {
+      background: rgba(255,250,240,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+    }
+    .chip {
+      height: 78px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.6);
+      box-shadow: inset 0 0 0 1px rgba(30,25,20,.08);
+      margin-bottom: 10px;
+    }
+    .swatch strong { display: block; font-size: 14px; }
+    .swatch span { color: var(--muted); font-size: 12px; }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .image-frame {
+      background: #211d18;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.42);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bathroom-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .image-caption {
+      padding: 12px 14px;
+      background: rgba(33,29,24,.9);
+      color: #fff6e8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .image-caption span {
+      display: block;
+      color: rgba(255,246,232,.72);
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .bathroom-split .image-frame img {
+      height: auto;
+      aspect-ratio: 16 / 9.2;
+      object-fit: cover;
+    }
+
+    .panel {
+      background: rgba(255,250,240,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(34, 26, 18, .08);
+    }
+
+    .stack {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .layer {
+      padding: 12px 14px;
+      background: #efe4d2;
+      border: 1px solid rgba(58,49,39,.14);
+      border-left: 6px solid var(--gold);
+      border-radius: 6px;
+      font-weight: 700;
+      color: #3c3329;
+    }
+    .layer span { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+    .terrace-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .material-card {
+      background: rgba(255,250,240,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(34, 26, 18, .08);
+    }
+    .material-card .texture {
+      height: 130px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.18), transparent 22%, rgba(0,0,0,.08) 23%, transparent 24%),
+        var(--texture);
+      background-size: 36px 100%, cover;
+    }
+    .material-card .copy { padding: 22px; }
+
+    .concept-image img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .concept-image { position: relative; display: block; }
+
+    .concept-callout {
+      position: absolute;
+      z-index: 2;
+      width: min(270px, 42%);
+      padding: 9px 11px;
+      border: 1px solid rgba(255,239,202,.76);
+      border-left: 5px solid #ffd98e;
+      border-radius: 6px;
+      background: rgba(24,18,12,.76);
+      color: #fff6e6;
+      box-shadow: 0 10px 26px rgba(0,0,0,.26);
+      font-size: 13px;
+      line-height: 1.42;
+      pointer-events: none;
+    }
+
+    .concept-callout strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #ffe0a2;
+      font-size: 15px;
+    }
+
+    .concept-callout.ceiling-material { top: 8%; left: 34%; }
+    .concept-callout.ceiling-light { top: 24%; right: 4%; }
+    .concept-callout.stair-light { left: 5%; bottom: 25%; }
+
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border: 1px solid rgba(65,55,43,.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,.48);
+      color: #4d3a24;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .detail-link:hover {
+      background: rgba(255,250,240,.86);
+      border-color: rgba(188,134,66,.42);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .single-shot {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .shot {
+      background: rgba(255,250,240,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(34, 26, 18, .08);
+    }
+    .shot a { text-decoration: none; }
+    .shot img {
+      width: 100%;
+      aspect-ratio: 16 / 8.6;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .shot:hover img { transform: scale(1.025); }
+    .shot figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      color: #4e4438;
+      font-weight: 700;
+    }
+    .shot small { color: var(--muted); font-weight: 400; }
+    .sample-cell {
+      min-width: 150px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid rgba(65,55,43,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.45);
+      text-decoration: none;
+      color: #4d3a24;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .product-link.is-empty {
+      color: var(--muted);
+      font-weight: 400;
+      border-style: dashed;
+    }
+    .sample-thumb {
+      width: 118px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #efe4d2;
+    }
+
+    .exterior-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .exterior-grid img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.5);
+      box-shadow: 0 10px 26px rgba(34, 26, 18, .12);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,.82);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 1080px; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { background: rgba(78,62,43,.11); color: #3d352b; }
+    td { color: #4d4438; }
+
+    .note {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 6px solid var(--gold);
+      background: rgba(255,250,240,.76);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: #4d4438;
+    }
+
+    .footer {
+      padding: 38px 0 56px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .section-head, .feature { grid-template-columns: 1fr; }
+      .decision-grid, .terrace-grid, .exterior-grid, .palette { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery { grid-template-columns: 1fr; }
+      .hero-copy { padding: 28px; }
+    }
+
+    @media (max-width: 560px) {
+      .decision-grid, .terrace-grid, .exterior-grid, .palette { grid-template-columns: 1fr; }
+      .links { display: none; }
+      section { padding: 52px 0; }
+      .hero { min-height: 72vh; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .nav { display: none; }
+      section { break-inside: avoid; padding: 28px 0; }
+      .hero { min-height: auto; color: #000; }
+      .hero::before, .hero::after { display: none; }
+      .hero-copy { color: #000; background: #fff; box-shadow: none; border: 1px solid #ddd; }
+      .hero-copy p, .eyebrow { color: #333; }
+      .panel, .decision, .material-card, .shot { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell">
+      <div class="brand">瑜珈館木屋材料總覽</div>
+      <div class="links">
+        <a href="#decisions">定版</a>
+        <a href="#bathroom">廁所</a>
+        <a href="#lounge-lighting">休息室燈光</a>
+        <a href="#terrace">露台</a>
+        <a href="#exterior">外觀</a>
+        <a href="#gallery">標註圖</a>
+        <a href="#procurement">完整清單</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Interior Material Board / Resort Cabin</p>
+        <h1>材料視覺總覽</h1>
+        <p>整合目前討論過的圖面、材料定版與施工語言。方向是森林裡的高級 resort 小屋：主屋鋼構、純木作樓梯、耐候露台、耐清潔廁所，以及深灰黑木質外觀。</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="decisions">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Current Decisions</p>
+            <h2>目前材料定版</h2>
+          </div>
+          <p>這裡列的是我們已經討論到比較明確的項目。廁所和露台已進入可採購語言；外牆主體仍可再最後確認品牌與板型。</p>
+        </div>
+
+        <div class="decision-grid">
+          <article class="decision" style="--accent:#5a3927">
+            <div class="tag"><span class="dot"></span>主結構</div>
+            <h3>主屋鋼構骨架</h3>
+            <ul>
+              <li>鋼構防鏽底漆＋面漆</li>
+              <li>外露或包覆處用深木色收斂</li>
+              <li>樓梯系統另採純木作</li>
+            </ul>
+          </article>
+          <article class="decision" style="--accent:#b87842">
+            <div class="tag"><span class="dot"></span>露台</div>
+            <h3>耐候木感三件組</h3>
+            <ul>
+              <li>天花：木紋鋁板</li>
+              <li>立面：木紋色一致的戶外立面材</li>
+              <li>地坪：木紋戶外止滑磁磚</li>
+            </ul>
+          </article>
+          <article class="decision" style="--accent:#9b9a91">
+            <div class="tag"><span class="dot"></span>室內白牆</div>
+            <h3>礦物塗料統一版</h3>
+            <ul>
+              <li>公共區、休息室、閣樓一致</li>
+              <li>矽酸鈣板/纖維水泥板基底</li>
+              <li>批土底漆＋米灰礦物塗料</li>
+            </ul>
+          </article>
+          <article class="decision" style="--accent:#181817">
+            <div class="tag"><span class="dot"></span>外觀</div>
+            <h3>深灰黑木質語彙</h3>
+            <ul>
+              <li>黑色直立鎖邊金屬屋面</li>
+              <li>深灰黑木紋外牆</li>
+              <li>玻璃依區域分級，不統一套 Low-E</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="palette" aria-label="材料色票">
+          <div class="swatch"><div class="chip" style="background:#c79f68"></div><strong>暖橡木/梣木</strong><span>木作、櫃體、欄杆</span></div>
+          <div class="swatch"><div class="chip" style="background:#5a311d"></div><strong>深胡桃木</strong><span>梁柱、重點收邊</span></div>
+          <div class="swatch"><div class="chip" style="background:#b9b0a2"></div><strong>礦物米灰</strong><span>室內乾區牆</span></div>
+          <div class="swatch"><div class="chip" style="background:#d8d4ca"></div><strong>灰白石紋</strong><span>廁所地坪、浴室牆面</span></div>
+          <div class="swatch"><div class="chip" style="background:#191918"></div><strong>霧黑金屬</strong><span>窗框、五金、收邊</span></div>
+          <div class="swatch"><div class="chip" style="background:#c58a4e"></div><strong>戶外木感</strong><span>WPC、木紋鋁板</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bathroom">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Bathroom System</p>
+            <h2>廁所：耐清潔瓷質磁磚版</h2>
+          </div>
+          <p>因為未來可能會使用強效清潔劑，廁所牆面不採礦物奈米塗層、不採竹木纖維板。以瓷質磁磚作為可見表面，縫隙用環氧填縫，衛浴櫃與淋浴馬桶區分兩張圖說明。</p>
+        </div>
+
+        <div class="feature">
+          <div class="bathroom-split">
+            <a class="image-frame" href="03_概念參考圖/廁所_淋浴馬桶窗天花地坪_材料標示.png">
+              <img src="03_概念參考圖/廁所_淋浴馬桶窗天花地坪_材料標示.png" alt="淋浴馬桶窗戶地坪天花材料標示圖">
+              <div class="image-caption">淋浴／馬桶／窗戶／地坪／天花<span>畫面不含衛浴櫃；淋浴與馬桶各半</span></div>
+            </a>
+            <a class="image-frame" href="03_概念參考圖/廁所_衛浴櫃正面左門懸浮版_材料標示.png">
+              <img src="03_概念參考圖/廁所_衛浴櫃正面左門懸浮版_材料標示.png" alt="衛浴櫃正面左門懸浮版材料標示圖">
+              <div class="image-caption">衛浴櫃正面立面<span>左側入口門＋右側懸浮式衛浴櫃</span></div>
+            </a>
+          </div>
+          <aside class="panel">
+            <h3>採購與施工層次</h3>
+            <p>這一組是工班比較容易理解的牆體語言。表面材料不是板材，是磁磚；五分木板與防水水泥纖維板是背後基底。</p>
+            <div class="stack">
+              <div class="layer">五分木板基底<span>作為牆面平整與固定基層，厚度依現場規格確認</span></div>
+              <div class="layer">0.5cm 防水水泥纖維板<span>浴室牆面基底，不用竹木纖維板或一般木板外露</span></div>
+              <div class="layer">防水層＋陰角補強<span>淋浴區做到頂，窗台、地牆交界與管口加強</span></div>
+              <div class="layer">閉水/淋水測試<span>確認防水後，大陸師傅再進場貼磁磚</span></div>
+              <div class="layer">磁磚膠＋灰白石紋瓷質磚<span>整間浴室牆面與地坪同系列灰白石紋磚</span></div>
+              <div class="layer">環氧填縫<span>比一般填縫更耐污、耐刷、好清潔</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="note">定版方向：整間浴室牆面與地坪用同系列灰白石紋霧面瓷質磚；地坪選止滑 R10-R11；牆面基底為五分木板＋0.5cm 防水水泥纖維板＋防水層；天花用防潮矽酸鈣板＋防霉漆，中央搭木紋鋁板飾條。</div>
+      </div>
+    </section>
+
+    <section id="lounge-lighting">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Lounge Ceiling & Lighting</p>
+            <h2>休息室：天花與樓梯燈光概念</h2>
+          </div>
+          <p>這張圖只作為燈光與材質方向的概念說明，不作格局、窗位、家具或尺寸定案。圖中只看三個標註重點：吊頂材質、吊頂間接照明、樓梯間接照明。</p>
+        </div>
+
+        <div class="feature">
+          <a class="image-frame concept-image" href="05_設計圖/休息室_洗牆間接照明概念圖.png">
+            <img src="05_設計圖/休息室_洗牆間接照明概念圖.png" alt="休息室洗牆式間接照明概念圖">
+            <div class="concept-callout ceiling-material"><strong>吊頂材質</strong>木門同色大板木作/木紋板。</div>
+            <div class="concept-callout ceiling-light"><strong>吊頂間接照明</strong>反折槽藏 LED，光洗牆。</div>
+            <div class="concept-callout stair-light"><strong>樓梯間接照明</strong>每階踏鼻下緣藏線燈。</div>
+            <div class="image-caption">三點標註概念圖<span>只看吊頂材質、吊頂間接照明、樓梯間接照明；不看格局定案</span></div>
+          </a>
+          <aside class="panel">
+            <h3>設計概念</h3>
+            <p>方向是把休息室做成夜間也舒服的暖木質空間。這張概念圖不看床、窗、門或家具配置，只用來抓三個重點：吊頂材質、吊頂間接照明、樓梯間接照明。</p>
+            <div class="stack">
+              <div class="layer">吊頂材質<span>與木門同色的大板木作/木紋板，少量寬分縫，避免太碎</span></div>
+              <div class="layer">吊頂間接照明<span>LED 藏在反折槽內，光朝牆面洗亮，保留木天花自然陰影</span></div>
+              <div class="layer">樓梯間接照明<span>每一階踏鼻下緣藏線燈，低亮度作夜間導引，不刺眼</span></div>
+            </div>
+            <a class="detail-link" href="05_設計圖/休息室_天花樓梯燈光設計圖.html">查看完整設計圖</a>
+          </aside>
+        </div>
+
+        <div class="note">施工提醒：反折槽需預留燈條鋁槽、擴散罩、變壓器檢修位置與冷氣檢修口；間接光不要做成整片木天花泛白，而是讓白牆承接光，晚上只保留一圈柔和輪廓。樓梯線燈每階要藏在踏鼻下方，燈珠不可外露。</div>
+      </div>
+    </section>
+
+    <section id="terrace">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Terrace Materials</p>
+            <h2>露台材料定版</h2>
+          </div>
+          <p>露台要看起來有木質 resort 感，但要扛森林濕氣、雨水、落葉與清潔。地坪改用木紋戶外止滑磁磚，確切色號等實品再確認；天花與立面木紋色要一致，避免一深一淺造成拼貼感。</p>
+        </div>
+
+        <div class="terrace-grid">
+          <article class="material-card">
+            <div class="texture" style="--texture:linear-gradient(135deg,#9d6a3d,#d2a86d)"></div>
+            <div class="copy">
+              <h3>露台天花：木紋鋁板</h3>
+              <p>耐濕、耐候、低維護。木紋色要與立面同色系，施工注意收邊、陰角、滴水線與燈具檢修。</p>
+            </div>
+          </article>
+          <article class="material-card">
+            <div class="texture" style="--texture:linear-gradient(90deg,#8b684a,#b78b5e,#7a5a3d)"></div>
+            <div class="copy">
+              <h3>露台立面：木紋戶外立面材</h3>
+              <p>可用戶外級共擠塑木 WPC 或木紋鋁板系統。重點是與天花木紋色一致，並保留通風背襯與伸縮縫。</p>
+            </div>
+          </article>
+          <article class="material-card">
+            <div class="texture" style="--texture:linear-gradient(135deg,#9b6d43,#d3aa75,#7a5637)"></div>
+            <div class="copy">
+              <h3>露台地坪：木紋戶外止滑磁磚</h3>
+              <p>選木紋霧面，止滑建議 R11 以上。確切顏色待實品樣板確認，防水層、排水找坡、戶外填縫材要做足。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="feature" style="margin-top:22px">
+          <figure class="shot">
+            <a href="01_材料標註圖/03_露台_材料標註.png">
+              <img src="01_材料標註圖/03_露台_材料標註.png" alt="露台材料標註圖">
+            </a>
+            <figcaption><span>露台材料標註</span><small>主要對照圖</small></figcaption>
+          </figure>
+          <aside class="panel">
+            <h3>採購與施工層次</h3>
+            <p>露台先用材料標註圖溝通，不顯示原始視角。採購時要把表面材、底層、防水與五金分開列，才不會只選到漂亮表面但漏掉戶外耐候細節。</p>
+            <div class="stack">
+              <div class="layer">地坪表面<span>木紋戶外止滑磁磚，R11 以上，實品再確認色號</span></div>
+              <div class="layer">地坪底層<span>防水層、排水找坡、戶外磁磚膠與戶外填縫材</span></div>
+              <div class="layer">天花表面<span>木紋鋁板，色系需與立面一致</span></div>
+              <div class="layer">立面表面<span>戶外級木紋立面材，可用共擠塑木 WPC 或同色木紋鋁板系統</span></div>
+              <div class="layer">固定與收邊<span>通風背襯、伸縮縫、304/316 不鏽鋼扣件、滴水線與檢修口</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="note">露台施工提醒：天花與立面先一起送樣比色，確認同一個木紋色系後再下單；地坪木紋磁磚要現場看實品，避免太紅、太黃或紋路太假。排水坡度、防水收頭、門檻防水與戶外填縫，是露台能不能長期好維護的關鍵。</div>
+      </div>
+    </section>
+
+    <section id="exterior">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Exterior Reference</p>
+            <h2>屋體外觀參考</h2>
+          </div>
+          <p>你給的外觀參考是深灰黑木質外牆、黑色金屬屋面、暖木露台內凹面。若要維護低，主外牆建議以深灰黑木紋纖維水泥板或木紋金屬外牆板優先，真燒杉質感最高但保養多。</p>
+        </div>
+
+        <div class="exterior-grid">
+          <img src="04_外觀參考圖/S__56729614.jpg" alt="屋體外觀參考圖 1">
+          <img src="04_外觀參考圖/S__56729620.jpg" alt="屋體外觀參考圖 2">
+          <img src="04_外觀參考圖/S__56729621.jpg" alt="屋體外觀參考圖 3">
+          <img src="04_外觀參考圖/S__56729616.jpg" alt="屋體外觀參考圖 4">
+          <img src="04_外觀參考圖/S__56729617.jpg" alt="屋體外觀參考圖 5">
+          <img src="04_外觀參考圖/S__56729618.jpg" alt="屋體外觀參考圖 6">
+        </div>
+
+        <div class="table-wrap" style="margin-top:24px">
+          <table>
+            <thead>
+              <tr><th>位置</th><th>建議材料</th><th>原因</th><th>狀態</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>屋頂</td><td>黑色直立鎖邊金屬屋面板</td><td>線條乾淨、耐候，符合參考圖的黑色屋頂語彙。</td><td>建議</td></tr>
+              <tr><td>外牆主體</td><td>深灰黑木紋纖維水泥板，或木紋金屬外牆板</td><td>比真木更低維護，較能扛森林濕氣與日曬。</td><td>待確認</td></tr>
+              <tr><td>露台內凹面</td><td>木紋鋁板天花＋同色系木紋戶外立面材</td><td>木質感明確，保養量比實木低；天花與立面需一起比色。</td><td>已定版，色號待樣品確認</td></tr>
+              <tr><td>露台滑門</td><td>霧黑鋁框＋5+5 中空玻璃</td><td>露台玻璃不做 Low-E，改用中空 5+5，兼顧隔音、隔熱與成本。</td><td>已更新</td></tr>
+              <tr><td>屋頂三面窗</td><td>霧黑鋁框＋Low-E 膠合玻璃</td><td>屋頂日照與熱負荷較高，保留 Low-E；膠合提高安全性。</td><td>已更新</td></tr>
+              <tr><td>公共空間四面大窗、廁所、休息室</td><td>霧黑鋁框＋5+5 膠合玻璃，不做 Low-E</td><td>以安全、氣密、防水與預算控制為主；避免廠商誤報 Low-E。</td><td>已更新</td></tr>
+              <tr><td>閣樓窗</td><td>霧黑鋁框＋Low-E 中空玻璃</td><td>閣樓受熱與結露風險較高，使用 Low-E 中空提高舒適度。</td><td>已更新</td></tr>
+              <tr><td>隱形紗窗</td><td>磁吸/摺疊式隱形紗窗候選</td><td>依你提供的天貓款式作為方向，最後依窗型、開啟方式與尺寸確認。</td><td>候選</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Annotated Views</p>
+            <h2>全空間材料標註圖</h2>
+          </div>
+          <p>這些圖是目前的材料標註版本。最後定版後，可以再一次統一更新文字與材料名稱。</p>
+        </div>
+
+        <div class="gallery">
+          <figure class="shot"><a href="01_材料標註圖/01_大廳一_材料標註.png"><img src="01_材料標註圖/01_大廳一_材料標註.png" alt="大廳一材料標註"></a><figcaption><span>01 大廳一</span><small>瑜伽廳</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/02_大廳二_材料標註.png"><img src="01_材料標註圖/02_大廳二_材料標註.png" alt="大廳二材料標註"></a><figcaption><span>02 大廳二</span><small>端景牆</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/03_露台_材料標註.png"><img src="01_材料標註圖/03_露台_材料標註.png" alt="露台材料標註"></a><figcaption><span>03 露台</span><small>已更新方向</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/04_衛生間_材料標註.png"><img src="01_材料標註圖/04_衛生間_材料標註.png" alt="衛生間材料標註"></a><figcaption><span>04 衛生間舊標註</span><small>以新版廁所頁為準</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/05_休息室一_材料標註.png"><img src="01_材料標註圖/05_休息室一_材料標註.png" alt="休息室一材料標註"></a><figcaption><span>05 休息室一</span><small>純木作樓梯</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/06_休息室二_材料標註.png"><img src="01_材料標註圖/06_休息室二_材料標註.png" alt="休息室二材料標註"></a><figcaption><span>06 休息室二</span><small>小房間</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/07_休息室三_材料標註.png"><img src="01_材料標註圖/07_休息室三_材料標註.png" alt="休息室三材料標註"></a><figcaption><span>07 休息室三</span><small>睡眠角</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/08_樓梯_材料標註.png"><img src="01_材料標註圖/08_樓梯_材料標註.png" alt="樓梯材料標註"></a><figcaption><span>08 樓梯</span><small>垂直動線</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/09_閣樓一_材料標註.png"><img src="01_材料標註圖/09_閣樓一_材料標註.png" alt="閣樓一材料標註"></a><figcaption><span>09 閣樓一</span><small>低矮睡眠區</small></figcaption></figure>
+          <figure class="shot"><a href="01_材料標註圖/10_閣樓二_材料標註.png"><img src="01_材料標註圖/10_閣樓二_材料標註.png" alt="閣樓二材料標註"></a><figcaption><span>10 閣樓二</span><small>觀景睡眠角</small></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="procurement">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Procurement Language</p>
+            <h2>完整材料清單</h2>
+          </div>
+          <p>這區把材料拆成「表面材料」、「底層構造」與「產品對照」。休息室與閣樓白牆已定案跟公共區相同，統一使用礦物塗料系統；休息室天花與樓梯燈光另列，避免報價時被併入一般木作。</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>位置</th><th>表面材料</th><th>底層構造/採購</th><th>施工重點</th><th>產品連結</th><th>產品實體圖</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>廁所牆面</td>
+                <td>同系列灰白石紋霧面瓷質磚，淋浴牆、馬桶牆、洗手台背牆與整間浴室牆面滿貼</td>
+                <td>五分木板基底、0.5cm 防水水泥纖維板、防水層、磁磚膠、環氧填縫</td>
+                <td>防水完成並測試後，大陸師傅再進場貼磁磚；可用較強清潔劑，但避免酸洗傷五金與填縫。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>廁所地坪</td>
+                <td>灰白石紋止滑瓷質磁磚 R10-R11</td>
+                <td>防水層、排水找坡、地坪磁磚膠、環氧填縫</td>
+                <td>止滑與排水優先，不選亮面磚。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>露台天花</td>
+                <td>木紋鋁板，與露台立面木紋色一致</td>
+                <td>鋁/鍍鋅副骨架、不鏽鋼扣件、收邊條</td>
+                <td>注意滴水、通風、燈具檢修口；先與立面材料一起比色。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>露台立面</td>
+                <td>木紋戶外立面材，可用共擠塑木 WPC 或木紋鋁板系統</td>
+                <td>通風背襯、副骨架、304/316 不鏽鋼扣件、伸縮縫</td>
+                <td>木紋色需與天花一致；選霧面低反光、戶外級抗 UV 材料。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>露台地坪</td>
+                <td>木紋戶外止滑磁磚 R11 以上，確切顏色待確認</td>
+                <td>防水層、排水找坡、戶外填縫材</td>
+                <td>磁磚比 WPC 地坪更穩定好清潔；實品需確認木紋自然度與止滑係數。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>休息室天花</td>
+                <td>與木門同色的大板木作/木紋板，少量寬分縫</td>
+                <td>木作骨架、矽酸鈣板或夾板基底、木皮/木紋板、收邊條、檢修口</td>
+                <td>不做格柵；板面要大、分縫要少，色系需與木門先比樣。需預留冷氣、燈具與變壓器檢修。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>休息室天花間接照明</td>
+                <td>反折槽藏 LED，光朝白牆/礦物灰牆面洗</td>
+                <td>2700K-3000K LED 燈條、鋁槽、擴散罩、調光電源、維修暗門</td>
+                <td>光不是往內打木天花板，而是洗向牆面；建議獨立迴路並可調光，日常使用約 30%-50% 亮度。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>休息室崁燈</td>
+                <td>6 顆深杯防眩崁燈，3000K、CRI 90+ 建議</td>
+                <td>崁燈本體、驅動器、天花開孔、散熱空間、線路分迴路</td>
+                <td>6 顆才足夠作基礎照明；建議 3+3 分迴路，避免全開太亮，也方便夜間只開半區。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>公共區/休息室/閣樓白牆</td>
+                <td>米灰礦物塗料/礦物奈米塗層，低光澤霧面</td>
+                <td>輕隔間骨架、矽酸鈣板或纖維水泥板、接縫帶、批土、底漆、礦物塗料、保護面漆</td>
+                <td>三區白牆做同一套系統；不要改 HPL、抗倍特或竹木纖維裝潢板。浴室仍以瓷質磁磚為準。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>內牆基底</td>
+                <td>矽酸鈣板/纖維水泥板基底，表面做礦物塗料</td>
+                <td>輕隔間骨架、矽酸鈣板、接縫帶、批土、底漆</td>
+                <td>乾區白牆基底一致；靠窗或較潮區可改纖維水泥板。潮濕浴室區另依防水構造處理。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>露台滑門玻璃</td>
+                <td>5+5 中空玻璃，不做 Low-E</td>
+                <td>霧黑粉體烤漆鋁框、5+5 中空玻璃、氣密膠條、門檻防水收邊</td>
+                <td>採購與報價需明寫「露台滑門：5+5 中空玻璃，不做 Low-E」。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>屋頂三面窗玻璃</td>
+                <td>Low-E 膠合玻璃</td>
+                <td>霧黑鋁框、Low-E 膠合玻璃、防水收邊、排水溝槽</td>
+                <td>屋頂日照強，保留 Low-E；膠合玻璃提高安全性。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>公共空間四面大窗/廁所/休息室玻璃</td>
+                <td>5+5 膠合玻璃，不做 Low-E</td>
+                <td>霧黑鋁框、5+5 膠合玻璃、氣密膠條、收邊矽利康</td>
+                <td>這三類窗統一不列 Low-E，以免廠商誤報；重點是安全、氣密與防水。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>閣樓窗玻璃</td>
+                <td>Low-E 中空玻璃</td>
+                <td>霧黑鋁框、Low-E 中空玻璃、氣密膠條、防結露收邊</td>
+                <td>閣樓熱與結露風險較高，這裡保留 Low-E 中空。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>隱形紗窗</td>
+                <td>依天貓候選款式：隱形紗窗/防蚊紗窗系統</td>
+                <td>依各窗型確認磁吸、摺疊或捲簾形式，框色配霧黑或深色窗框</td>
+                <td>最後要依可開窗方向、窗框深度、把手位置與現場尺寸下單。</td>
+                <td>
+                  <a class="product-link" href="https://detail.tmall.com/item.htm?abbucket=7&id=902735942317&mi_id=0000ZA9WV1FNd2KjCwlJnMLuI1CIHHpJ_MG7gC5MNC7Le_c&ns=1&skuId=5815836500339&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222ae9736b0a2dcc75bc17358b61a73d8d%22%7D&xxc=taobaoSearch">候選 1</a>
+                  <a class="product-link" href="https://detail.tmall.com/item.htm?abbucket=7&id=1040336644811&mi_id=00009q7P0RRHYyM203pfzME-CZzcZ_4-Y0FVJifEV8oi7r8&ns=1&skuId=6222829611599&spm=a21n57.1.hoverItem.13&utparam=%7B%22aplus_abtest%22%3A%229c9aa092321bea6d2d45f4febf272015%22%7D&xxc=taobaoSearch">候選 2</a>
+                </td>
+                <td class="sample-cell">待截圖/樣品圖</td>
+              </tr>
+              <tr>
+                <td>樓梯</td>
+                <td>純木作踏板/扶手，霧面耐磨透明漆</td>
+                <td>結構集成材或實木踏板、夾板木作、緩衝五金</td>
+                <td>不是鋼構外包；踏鼻需做防滑細槽。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+              <tr>
+                <td>樓梯踏步燈</td>
+                <td>每階踏鼻下緣藏線燈，暖色低亮度</td>
+                <td>2700K LED 燈條、鋁槽擴散罩、低壓變壓器、迴路配線、檢修點</td>
+                <td>光洗下一階踢面或踏面前緣，作夜間導引；燈珠不可外露，收邊需與純木作樓梯整合。</td>
+                <td><span class="product-link is-empty">待提供</span></td>
+                <td class="sample-cell">待提供實體圖</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p>檔案位置：/Users/kobee/瑜珈館/室內設計材料標註/材料視覺總覽.html</p>
+      <p>備註：本頁整合目前討論版本。最後正式採購前，仍需依現場尺寸、防水細節、消防/建築規範與廠商實品樣板確認。</p>
+    </div>
+  </footer>
+</body>
+</html>

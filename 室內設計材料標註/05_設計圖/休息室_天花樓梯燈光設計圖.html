@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>休息室天花與樓梯燈光設計圖</title>
+  <style>
+    :root {
+      --ink: #231d16;
+      --muted: #76695b;
+      --paper: #f4eadb;
+      --panel: #fffaf0;
+      --line: rgba(62, 48, 35, .2);
+      --wood: #d5a764;
+      --wood-dark: #9a693d;
+      --wall: #d8d1c5;
+      --light: #ffd98e;
+      --stair: #c99557;
+      --black: #171717;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(62,48,35,.05) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(0deg, rgba(62,48,35,.04) 1px, transparent 1px) 0 0 / 36px 36px,
+        #efe3d2;
+      font-family: "PingFang TC", "Noto Sans TC", "Hiragino Sans GB", sans-serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1280px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--wood-dark);
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    header p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .sheet {
+      background: rgba(255,250,240,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 22px 60px rgba(40, 30, 20, .14);
+      overflow: hidden;
+    }
+
+    .concept {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 0;
+      margin-bottom: 22px;
+      background: rgba(255,250,240,.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 48px rgba(40, 30, 20, .12);
+      overflow: hidden;
+    }
+
+    .concept-visual {
+      position: relative;
+      background: #1f1a14;
+      min-height: 360px;
+    }
+
+    .concept-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .concept-callout {
+      position: absolute;
+      z-index: 2;
+      width: min(280px, 38%);
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 239, 202, .78);
+      border-left: 5px solid var(--light);
+      border-radius: 6px;
+      background: rgba(24, 18, 12, .76);
+      color: #fff6e6;
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    .concept-callout strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #ffe0a2;
+      font-size: 15px;
+    }
+
+    .concept-callout::after {
+      content: "";
+      position: absolute;
+      width: var(--line-w, 72px);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,217,142,.95), rgba(255,217,142,0));
+      transform: rotate(var(--line-rotate, 0deg));
+      transform-origin: left center;
+      left: var(--line-x, 18px);
+      top: var(--line-y, 100%);
+      box-shadow: 0 0 14px rgba(255,217,142,.65);
+    }
+
+    .concept-callout.ceiling-material {
+      top: 8%;
+      left: 36%;
+      --line-w: 92px;
+      --line-rotate: 18deg;
+      --line-x: 32px;
+      --line-y: 100%;
+    }
+
+    .concept-callout.ceiling-light {
+      top: 24%;
+      right: 4%;
+      --line-w: 84px;
+      --line-rotate: 158deg;
+      --line-x: 8px;
+      --line-y: 100%;
+    }
+
+    .concept-callout.stair-light {
+      left: 5%;
+      bottom: 25%;
+      --line-w: 104px;
+      --line-rotate: -18deg;
+      --line-x: 44px;
+      --line-y: 0;
+    }
+
+    .concept-visual figcaption {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      max-width: min(520px, calc(100% - 36px));
+      padding: 10px 13px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 6px;
+      background: rgba(25, 20, 15, .68);
+      color: #fff4df;
+      font-size: 13px;
+    }
+
+    .concept-copy {
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .concept-copy h2 {
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.02;
+      font-weight: 500;
+    }
+
+    .concept-copy p { margin-bottom: 0; color: var(--muted); }
+
+    .concept-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .concept-list li {
+      padding: 9px 0;
+      border-top: 1px solid rgba(62,48,35,.12);
+      color: #4d3e2f;
+    }
+
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .material-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(255,250,240,.82);
+      box-shadow: 0 10px 26px rgba(40, 30, 20, .07);
+    }
+
+    .material-card .chip {
+      height: 54px;
+      border-radius: 6px;
+      border: 1px solid rgba(62,48,35,.18);
+      margin-bottom: 12px;
+      background: var(--chip, #ddd);
+    }
+
+    .material-card h3 { margin-bottom: 6px; }
+    .material-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(88, 64, 38, .08);
+    }
+
+    .sheet-head strong { font-size: 20px; }
+    .sheet-head span { color: var(--muted); font-size: 14px; }
+
+    .drawing {
+      padding: 24px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #fff7e9;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: rgba(255,255,255,.46);
+    }
+
+    .note h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .note p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 16px;
+      color: #4e4438;
+      font-size: 14px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .key {
+      width: 22px;
+      height: 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(62,48,35,.24);
+      background: var(--key, #ddd);
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; padding: 0; }
+      .sheet { box-shadow: none; border: 0; }
+      .notes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 880px) {
+      header { grid-template-columns: 1fr; }
+      .concept { grid-template-columns: 1fr; }
+      .material-grid { grid-template-columns: 1fr; }
+      .notes { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 24px, 1280px); padding-top: 24px; }
+      .drawing { padding: 14px; }
+      .notes { grid-template-columns: 1fr; }
+      .sheet-head { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <p class="eyebrow">Reflected Ceiling Plan / Rest Room</p>
+        <h1>休息室天花與樓梯燈光設計圖</h1>
+      </div>
+      <p>這張概念效果圖的格局不作定案依據，圖中只強調三件事：吊頂材質、吊頂間接照明、樓梯間接照明。下方 RCP 才用來補充 6 顆崁燈與迴路配置。</p>
+    </header>
+
+    <section class="concept">
+      <figure class="concept-visual">
+        <img src="休息室_洗牆間接照明概念圖.png" alt="休息室洗牆式間接照明概念圖">
+        <div class="concept-callout ceiling-material">
+          <strong>吊頂材質</strong>
+          與木門同色的大板木作/木紋板，少量寬分縫。
+        </div>
+        <div class="concept-callout ceiling-light">
+          <strong>吊頂間接照明</strong>
+          LED 藏反折槽，光洗白牆/礦物灰牆，不打木天花。
+        </div>
+        <div class="concept-callout stair-light">
+          <strong>樓梯間接照明</strong>
+          每階踏鼻下緣藏線燈，低亮度夜間導引。
+        </div>
+        <figcaption>概念說明圖：格局、家具位置與窗門比例不作定案依據，只看圖中三個標註重點。</figcaption>
+      </figure>
+      <div class="concept-copy">
+        <p class="eyebrow">Concept Preview</p>
+        <h2>只看三件事，不看格局</h2>
+        <p>這張圖只用來說明休息室要追求的燈光與材質效果：木門同色大板吊頂、反折槽洗牆式間接光，以及樓梯踏步藏燈。</p>
+        <ul class="concept-list">
+          <li><strong>吊頂材質：</strong>木門同色大板，少量寬分縫，不做細格柵。</li>
+          <li><strong>吊頂間接照明：</strong>反折槽內藏 LED，主要洗牆，不直接打木板邊緣。</li>
+          <li><strong>樓梯間接照明：</strong>每階踏鼻下緣藏線燈，做夜間導引與木作層次。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="material-grid" aria-label="材質選擇說明">
+      <article class="material-card">
+        <div class="chip" style="--chip:linear-gradient(135deg,#d9ae6f,#f0cf9a 48%,#bd8247)"></div>
+        <h3>天花大板木作</h3>
+        <p>選與木門一致的淺暖橡木/梣木色，霧面低反光。板縫要寬且少，避免細條造成壓迫。</p>
+      </article>
+      <article class="material-card">
+        <div class="chip" style="--chip:linear-gradient(135deg,#d7d0c5,#f0ebe1)"></div>
+        <h3>白牆/礦物灰牆面</h3>
+        <p>牆面作為受光面，建議礦物灰、米灰或耐擦洗塗層。表面不要太粗，光暈才會柔順。</p>
+      </article>
+      <article class="material-card">
+        <div class="chip" style="--chip:linear-gradient(135deg,#ffd98e,#fff1c7)"></div>
+        <h3>暖色低眩燈光</h3>
+        <p>LED 與崁燈色溫抓 2700K-3000K，CRI 90 以上。間接光需可調光，日常約 30-50%。</p>
+      </article>
+    </section>
+
+    <section class="sheet">
+      <div class="sheet-head">
+        <strong>RCP-01 休息室反射天花與燈光配置</strong>
+        <span>示意比例圖，實際尺寸依現場放樣、冷氣、梁位、檢修需求調整</span>
+      </div>
+
+      <div class="drawing">
+        <svg viewBox="0 0 1180 820" role="img" aria-label="休息室天花與樓梯燈光配置設計圖">
+          <defs>
+            <pattern id="woodgrain" width="80" height="30" patternUnits="userSpaceOnUse">
+              <rect width="80" height="30" fill="#d7aa68"></rect>
+              <path d="M0 10 C22 3 43 17 80 8" fill="none" stroke="#b98045" stroke-width="1.2" opacity=".48"></path>
+              <path d="M0 23 C30 17 52 27 80 21" fill="none" stroke="#f1cf9b" stroke-width="1" opacity=".42"></path>
+            </pattern>
+            <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="blur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+              </feMerge>
+            </filter>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#7b5634"></path>
+            </marker>
+          </defs>
+
+          <rect x="0" y="0" width="1180" height="820" fill="#fff7e9"></rect>
+
+          <text x="42" y="48" font-size="25" font-weight="700" fill="#231d16">平面示意 / 從下往上看天花</text>
+          <text x="42" y="78" font-size="15" fill="#76695b">上方為冷氣側，下方為樓梯口側，右側為窗/百葉側。</text>
+
+          <rect x="42" y="108" width="690" height="520" rx="12" fill="#ddd4c6" stroke="#8e7a63" stroke-width="2"></rect>
+          <text x="62" y="140" font-size="15" fill="#76695b">房間外框 / 牆面</text>
+
+          <rect x="124" y="162" width="515" height="378" rx="4" fill="url(#woodgrain)" stroke="#8b6238" stroke-width="3"></rect>
+          <text x="304" y="356" font-size="25" font-weight="700" fill="#5a3d24">木門同色大板天花</text>
+          <text x="302" y="386" font-size="15" fill="#6c4e33">大面木皮/木紋板，少量寬分縫</text>
+
+          <line x1="296" y1="166" x2="296" y2="536" stroke="#9b7045" stroke-width="2" stroke-dasharray="10 10" opacity=".65"></line>
+          <line x1="468" y1="166" x2="468" y2="536" stroke="#9b7045" stroke-width="2" stroke-dasharray="10 10" opacity=".65"></line>
+
+          <rect x="96" y="134" width="570" height="432" rx="12" fill="none" stroke="#7a5332" stroke-width="12" opacity=".26"></rect>
+          <rect x="112" y="150" width="538" height="400" rx="8" fill="none" stroke="#4a3424" stroke-width="2" opacity=".38"></rect>
+
+          <line x1="110" y1="155" x2="110" y2="547" stroke="#ffd98e" stroke-width="15" stroke-linecap="round" filter="url(#softGlow)"></line>
+          <line x1="653" y1="155" x2="653" y2="547" stroke="#ffd98e" stroke-width="15" stroke-linecap="round" filter="url(#softGlow)"></line>
+          <line x1="150" y1="143" x2="613" y2="143" stroke="#ffd98e" stroke-width="8" stroke-linecap="round" opacity=".55" filter="url(#softGlow)"></line>
+          <line x1="160" y1="555" x2="285" y2="555" stroke="#ffd98e" stroke-width="6" stroke-linecap="round" opacity=".32" filter="url(#softGlow)"></line>
+          <line x1="488" y1="555" x2="610" y2="555" stroke="#ffd98e" stroke-width="6" stroke-linecap="round" opacity=".32" filter="url(#softGlow)"></line>
+
+          <text x="674" y="176" font-size="15" fill="#5a3d24">冷氣側短邊：低亮度洗牆</text>
+          <path d="M662 165 C710 148 720 144 765 142" fill="none" stroke="#7b5634" stroke-width="2" marker-end="url(#arrow)"></path>
+
+          <text x="674" y="526" font-size="15" fill="#5a3d24">樓梯側：可斷開或降亮度</text>
+          <path d="M664 516 C622 545 590 555 540 555" fill="none" stroke="#7b5634" stroke-width="2" marker-end="url(#arrow)"></path>
+
+          <g fill="#fff6df" stroke="#2b2520" stroke-width="3">
+            <circle cx="210" cy="228" r="18"></circle>
+            <circle cx="382" cy="228" r="18"></circle>
+            <circle cx="554" cy="228" r="18"></circle>
+            <circle cx="210" cy="470" r="18"></circle>
+            <circle cx="382" cy="470" r="18"></circle>
+            <circle cx="554" cy="470" r="18"></circle>
+          </g>
+          <g fill="#231d16" font-size="13" font-weight="700" text-anchor="middle">
+            <text x="210" y="233">D1</text>
+            <text x="382" y="233">D2</text>
+            <text x="554" y="233">D3</text>
+            <text x="210" y="475">D4</text>
+            <text x="382" y="475">D5</text>
+            <text x="554" y="475">D6</text>
+          </g>
+          <text x="146" y="606" font-size="15" fill="#5a3d24">6 顆深杯防眩崁燈：3000K / CRI 90+ / 建議 3+3 分迴路</text>
+
+          <rect x="62" y="642" width="252" height="108" rx="8" fill="#c99757" stroke="#7c5734" stroke-width="2"></rect>
+          <text x="84" y="676" font-size="20" font-weight="700" fill="#211d18">樓梯區</text>
+          <g stroke="#ffd98e" stroke-width="5" stroke-linecap="round" filter="url(#softGlow)">
+            <line x1="90" y1="706" x2="285" y2="706"></line>
+            <line x1="90" y1="724" x2="285" y2="724"></line>
+            <line x1="90" y1="742" x2="285" y2="742"></line>
+          </g>
+          <text x="334" y="704" font-size="15" fill="#5a3d24">每階踏鼻下緣藏燈</text>
+          <text x="334" y="730" font-size="15" fill="#76695b">2700K，低亮度，只做夜間導引與層次</text>
+          <path d="M318 714 C288 714 286 714 252 714" fill="none" stroke="#7b5634" stroke-width="2" marker-end="url(#arrow)"></path>
+
+          <rect x="724" y="108" width="400" height="206" rx="10" fill="#fffaf0" stroke="#c9b89d" stroke-width="2"></rect>
+          <text x="750" y="144" font-size="20" font-weight="700" fill="#231d16">燈光迴路建議</text>
+          <text x="750" y="178" font-size="15" fill="#5a3d24">S1 天花間接光：反折槽洗牆</text>
+          <text x="750" y="207" font-size="15" fill="#5a3d24">S2 崁燈日常：D1 / D3 / D5</text>
+          <text x="750" y="236" font-size="15" fill="#5a3d24">S3 崁燈補光：D2 / D4 / D6</text>
+          <text x="750" y="265" font-size="15" fill="#5a3d24">S4 樓梯踏步燈：夜間低亮度</text>
+          <text x="750" y="292" font-size="14" fill="#76695b">全部建議可調光，間接光平時 30-50%。</text>
+
+          <rect x="724" y="344" width="400" height="204" rx="10" fill="#fffaf0" stroke="#c9b89d" stroke-width="2"></rect>
+          <text x="750" y="380" font-size="20" font-weight="700" fill="#231d16">A-A 天花燈槽剖面</text>
+          <rect x="764" y="416" width="255" height="22" fill="#d8d1c5" stroke="#8e7a63"></rect>
+          <rect x="798" y="438" width="192" height="34" fill="url(#woodgrain)" stroke="#8b6238"></rect>
+          <rect x="784" y="438" width="14" height="34" fill="#5a3d24" opacity=".55"></rect>
+          <line x1="784" y1="433" x2="754" y2="433" stroke="#ffd98e" stroke-width="8" stroke-linecap="round" filter="url(#softGlow)"></line>
+          <text x="750" y="508" font-size="14" fill="#5a3d24">LED 藏在反折槽內，光朝外洗牆，不打木天花。</text>
+          <text x="750" y="532" font-size="14" fill="#76695b">木板邊緣不描亮，避免形成發光框。</text>
+
+          <rect x="724" y="578" width="400" height="172" rx="10" fill="#fffaf0" stroke="#c9b89d" stroke-width="2"></rect>
+          <text x="750" y="614" font-size="20" font-weight="700" fill="#231d16">B-B 樓梯踏步燈剖面</text>
+          <path d="M762 682 L918 682 L918 642 L1030 642" fill="none" stroke="#b47b42" stroke-width="24" stroke-linecap="square" stroke-linejoin="round"></path>
+          <line x1="774" y1="694" x2="910" y2="694" stroke="#ffd98e" stroke-width="7" stroke-linecap="round" filter="url(#softGlow)"></line>
+          <text x="750" y="728" font-size="14" fill="#5a3d24">燈條藏於踏鼻下緣，往下一階踢面洗光。</text>
+        </svg>
+
+        <div class="legend-row" aria-label="圖例">
+          <span class="legend-item"><span class="key" style="--key:url(#woodgrain); background:#d5a764"></span>木門同色大板天花</span>
+          <span class="legend-item"><span class="key" style="--key:#ffd98e; background:#ffd98e"></span>間接光/藏燈</span>
+          <span class="legend-item"><span class="key" style="--key:#fff6df; background:#fff6df"></span>深杯防眩崁燈</span>
+          <span class="legend-item"><span class="key" style="--key:#c99757; background:#c99757"></span>樓梯木作</span>
+        </div>
+
+        <div class="notes">
+          <article class="note">
+            <h3>天花材料</h3>
+            <p>使用與木門同色的大板木作/木紋板，少量寬分縫，不做細條格柵。</p>
+          </article>
+          <article class="note">
+            <h3>間接照明</h3>
+            <p>反折槽內藏燈，光朝外洗牆，不朝內打木天花；樓梯側可斷開或降亮度。</p>
+          </article>
+          <article class="note">
+            <h3>崁燈</h3>
+            <p>6 顆保留，但改深杯低眩光，並做 3+3 分迴路，日常不必全開。</p>
+          </article>
+          <article class="note">
+            <h3>樓梯燈</h3>
+            <p>每階踏鼻下緣藏燈，低亮度夜間導引，避免露出燈珠或變成亮線。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
